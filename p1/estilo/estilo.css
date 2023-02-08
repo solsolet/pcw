@@ -1,0 +1,14 @@
+html {
+    --glaucous: #7d82b8ff;
+    --pink-crayola: #ef798aff;
+    --melon: #f7a9a8ff;
+    --violet: #683257ff;
+
+    /* en rgba per si ho necessitarem per a transparencies */
+    /*
+    --glaucous: rgba(125, 130, 184, 1);
+    --pink-crayola: rgba(239, 121, 138, 1);
+    --melon: rgba(247, 169, 168, 1);
+    --violet: rgba(104, 50, 87, 1);
+    */
+}
