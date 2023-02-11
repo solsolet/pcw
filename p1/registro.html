@@ -33,10 +33,10 @@
     <main>
         <h2>Regístrate</h2>
         <form>
-            <label>Nombre:<input type="text" name="nombre" pattern="[a-zA-Z][0-9a-zA-Z]" id="nombre"  title="Debe tener" autofocus="true" required  ></label>
-           <!-- <label>Password:<input type="password" name="contraasenya1" id="contrasenya1" required></label>
-            <label>Repita contraseña:<input type="password" name="contraasenya2" id="contrasenya2"></label>
-            <label>Email: <input type="email" required></label>-->
+            <label>Nombre:<input type="text" name="nombre" pattern="[a-zA-Z]{1}[0-9a-zA-Z]{3,19}" id="nombre"  title="Debe contenerun mínimo de 4 caracteres y un máximo de 20 caracteres, siendo estos letras y números. El primer carácter no puede ser un número. No puede contener espacios en blanco." autofocus="true" required  ></label>
+           <label>Password:<input type="password" name="contraasenya1" id="contrasenya1" pattern="[a-zA-Z0-9._-]{4,20}"  title=" Debe contener un mínimo de 4 caracteres y un máximo de 20 caracteres, letras, números y los siguientes caracteres especiales ._- No puede contener espacios en blanco."required></label>
+            <label>Repita contraseña:<input type="password" name="contraasenya2" id="contrasenya2" pattern="[a-zA-Z0-9._-]{4,20}"></label>
+            <label>Email: <input type="email" required></label>
             <input type="submit" >
 
         </form>
