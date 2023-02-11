@@ -33,11 +33,11 @@
     <main>
         <h2>Regístrate</h2>
         <form>
-            <label>Nombre:<input type="text" name="nombre" id="nombre" autofocus required></label>
-            <label>Password:<input type="password" name="contraasenya1" id="contrasenya1" required></label>
+            <label>Nombre:<input type="text" name="nombre" pattern="[a-zA-Z][0-9a-zA-Z]" id="nombre"  title="Debe tener" autofocus="true" required  ></label>
+           <!-- <label>Password:<input type="password" name="contraasenya1" id="contrasenya1" required></label>
             <label>Repita contraseña:<input type="password" name="contraasenya2" id="contrasenya2"></label>
-            <label>Email: <input type="email" required></label>
-            <button type="submit" >Enviar</button>
+            <label>Email: <input type="email" required></label>-->
+            <input type="submit" >
 
         </form>
     </main>
