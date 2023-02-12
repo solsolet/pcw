@@ -31,7 +31,60 @@
     </nav>
 
     <main>
-        
+        <h2>Criterios de búsqueda</h2>
+        <form method="post">
+            <label for="contiene">Contiene:</label> <input type="text" name="contiene" id="contiene" placeholder="La noticia incluye la palabra 'accidente'"><br>
+            <fieldset>
+                <legend>Fecha</legend>
+                <label for="desde">Desde:</label> <input type="date" name="desde" id="desde"><br>
+                <label for="hasta">Hasta:</label> <input type="date" name="hasta" id="hasta"><br>
+            </fieldset>
+            <label for="ubi">Ubicación: </label> <input type="text" name="ubi" id="ubi" placeholder="La Florida"><br>
+            <input type="submit" value="Buscar">
+        </form>
+        <!-- resultados como index -->
+        <h2>Resultado de la búsqueda</h2>
+        <section>
+            <article>
+                <a href="publicacion.html"><h4 title="Título1">Título1</h4></a>
+                <a href="publicacion.html"><img src="./img1.png" alt="foto a describir"></a>
+                <p>Autor1  <br> <i class="fa-duotone fa-calendar-days"></i> Fecha1</p>
+            </article>
+            <article>
+                <a href="publicacion.html"><h4 title="Título2">Título2</h4></a>
+                <a href="publicacion.html"><img src="./img1.png" alt="foto a describir"></a>
+                <p>Autor2  <br> <i class="fa-duotone fa-calendar-days"></i> Fecha2</p>
+            </article>
+            <article>
+                <a href="publicacion.html"><h4 title="Título3">Título3</h4></a>
+                <a href="publicacion.html"><img src="./img1.png" alt="foto a describir"></a>
+                <p>Autor3  <br> <i class="fa-duotone fa-calendar-days"></i> Fecha3</p>
+            </article>
+            <article>
+                <a href="publicacion.html"><h4 title="Título4">Título4</h4></a>
+                <a href="publicacion.html"><img src="./img1.png" alt="foto a describir"></a>
+                <p>Autor4  <br> <i class="fa-duotone fa-calendar-days"></i> Fecha4</p>
+            </article>
+            <article>
+                <a href="publicacion.html"><h4 title="Título5">Título5</h4></a>
+                <a href="publicacion.html"><img src="./img1.png" alt="foto a describir"></a>
+                <p>Autor5  <br> <i class="fa-duotone fa-calendar-days"></i> Fecha5</p>
+            </article>
+            <article>
+                <a href="publicacion.html"><h5 title="Título6">Título6</h5></a>
+                <a href="publicacion.html"><img src="./img1.png" alt="foto a describir"></a>
+                <p>Autor6  <br> <i class="fa-duotone fa-calendar-days"></i> Fecha6</p>
+            </article>
+        </section>
+        <nav>
+            <p>
+                <button>&lt;&lt;</button>
+                <button>&lt;</button>
+                Página 1 de 6 
+                <button>&gt;</button>
+                <button>&gt;&gt;</button>
+            </p>   
+        </nav>
     </main>
 
     <footer>
