@@ -1,14 +1,61 @@
+/* Estil comu */
 html {
     --glaucous: #7d82b8ff;
     --pink-crayola: #ef798aff;
     --melon: #f7a9a8ff;
     --violet: #683257ff;
+    --t: #565656; /* text */
 
     /* en rgba per si ho necessitarem per a transparencies */
     /*
-    --glaucous: rgba(125, 130, 184, 1);
-    --pink-crayola: rgba(239, 121, 138, 1);
-    --melon: rgba(247, 169, 168, 1);
-    --violet: rgba(104, 50, 87, 1);
+        --glaucous: rgba(125, 130, 184, 1);
+        --pink-crayola: rgba(239, 121, 138, 1);
+        --melon: rgba(247, 169, 168, 1);
+        --violet: rgba(104, 50, 87, 1);
     */
+}
+
+*{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body{
+    min-width: 380px;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    color: var(--t);
+}
+
+a{ font-weight: bold; }
+
+body > nav > ul{
+    padding: 0; /* lleva sangria */
+}
+
+/* ------------- MEDIA QUERIES ------------- */
+@media screen and (max-width: 480px){
+    /* MENU HAMBUERGUESA */
+    body > nav > ul{
+        display: none;
+    }
+    body>nav>label{
+        cursor: pointer;
+    }
+    #chkMenu{ /* quita check pa que no sea visible*/
+        display: none;
+    }
+    #chkMenu:checked+ul{
+        display: block;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 779px){
+
+}
+
+@media screen and (min-width: 780px) and (max-width: 864px){
+    
 }
