@@ -27,7 +27,7 @@
         <ul>
             <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
             <li><a href="buscar.html"><i class="fa-solid fa-magnifying-glass"></i> Buscar</a></li>
-            <li><a href="nuevo.html"><i class="fa-solid fa-newspaper"></i> Nueva</a></li>
+            <li><a href="nueva.html"><i class="fa-solid fa-newspaper"></i> Nueva</a></li>
             <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
             <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
             <li><a href="registro.html"><i class="fa-solid fa-user-plus"></i> Registro</a></li>
@@ -35,15 +35,14 @@
     </nav>
 
     <main>
-        
         <section>
             <h3>Recogida de basura</h3>
             <article>
-                 <p>La última semana los colegios han realizado una actividad de recogida de basura en la playa de nuestra localidad para concienciar a los más pequeños del reciclaje.</p>
+                <p>La última semana los colegios han realizado una actividad de recogida de basura en la playa de nuestra localidad para concienciar a los más pequeños del reciclaje.</p>
                 <a href="buscar.html">Vila Joiosa</a>
                 <p>autor</p>
-                <p>fecha de publicacíon <time datetime="14/02/2023">14/02/2023</time></p>
-                <a href="#comentarios">3comentarios</a>
+                <p>fecha de publicacíon <time datetime="2023-02-14">14/02/2023</time></p>
+                <a href="#comentarios">3 comentarios</a> <!-- per a baixar a comentarios -->
                 <button>Me gusta 15</button>
                 <button>No me gusta 2</button>
             </article>
@@ -54,37 +53,33 @@
                 <img src="img/img1_3.jpg" alt="">
             </article>   
         </section>
+
         <section  id="comentarios">
             <h4>Comentarios:</h4>
             <article>
                 <h5>Juan Pérez</h5>
                 <img src="img/usuvoid.jpg" alt="">
-                <p><time datetime="26 de enero de 2023,11:36h">26 de enero de 2023, 11:36h</time></p>
+                <p><time datetime="2023-01-26 11:36h">26 de enero de 2023, 11:36h</time></p>
                 <p>Me parece una muy buena iniciativa por parte de los centros educativos.</p>
             </article>
             <article>
                 <h5>Ana Soler</h5>
                 <img src="img/usuvoid.jpg" alt="">
-                <p><time datetime="27 de enero de 2023,13:00h">27 de enero de 2023, 13:00h</time></p>
+                <p><time datetime="2023-01-27 13:00h">27 de enero de 2023, 13:00h</time></p>
                 <p>La gente debería estar más concienciada respecto a la limpieza de nuestra playa y calles.</p>
             </article>
             <article>
                 <h5>Gemma Sellés</h5>
                 <img src="img/usuvoid.jpg" alt="">
-                <p><time datetime="28 de enero de 2023,12:36h">28 de enero de 2023, 12:36h</time></p>
+                <p><time datetime="2023-01-28 12:36h">28 de enero de 2023, 12:36h</time></p>
                 <p>Estaría bien aplicarlo a centros de secundaria.</p>
-            </article>  
+            </article>
 
-
-            <form action="">
+            <form method="post">
                 <h4>Deja tu comentario:</h4>
                 <textarea maxlength="250"></textarea>
-
-                <input type="reset">
-                <input type="submit" >
-         
+                <input type="reset" value="Limpiar"><input type="submit" value="Enviar">
             </form>
-
         
             <p>Tienes que estar logueado para poder dejar un comentario <a href="login.html">Inicia Sesión</a></p>
         </section>

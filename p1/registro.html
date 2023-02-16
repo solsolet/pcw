@@ -27,7 +27,7 @@
         <ul>
             <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
             <li><a href="buscar.html"><i class="fa-solid fa-magnifying-glass"></i> Buscar</a></li>
-            <li><a href="nuevo.html"><i class="fa-solid fa-newspaper"></i> Nueva</a></li>
+            <li><a href="nueva.html"><i class="fa-solid fa-newspaper"></i> Nueva</a></li>
             <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
             <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
             <li><a href="registro.html"><i class="fa-solid fa-user-plus"></i> Registro</a></li>
@@ -36,12 +36,12 @@
 
     <main>
         <h2>Regístrate</h2>
-        <form>
+        <form method="post">
             <label>Nombre: <input type="text" name="nombre" pattern="[a-zA-Z]{1}[0-9a-zA-Z]{3,19}" id="nombre" title="Debe contenerun mínimo de 4 caracteres y un máximo de 20 caracteres, siendo estos letras y números. El primer carácter no puede ser un número. No puede contener espacios en blanco." autofocus="true" required></label>
             <label>Password: <input type="password" name="contrasenya1" id="contrasenya1" pattern="[a-zA-Z0-9._-]{4,20}" title="Debe contener un mínimo de 4 caracteres y un máximo de 20 caracteres, letras, números y los siguientes caracteres especiales ._- No puede contener espacios en blanco."required></label>
             <label>Repita contraseña: <input type="password" name="contrasenya2" id="contrasenya2" pattern="[a-zA-Z0-9._-]{4,20}"></label>
             <label>Email: <input type="email" required></label>
-            <label for="img"><img src="img/usuvoid.jpg">:</label> <input type="file" id="img" name="img" accept="image/*" required>
+            <label for="img">Foto: <img src="img/usuvoid.jpg"></label> <input type="file" id="img" name="img" accept="image/*">
             <button>Eliminar foto</button>
             <input type="submit" value="Registrarse">
         </form>
