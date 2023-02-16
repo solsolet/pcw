@@ -1,4 +1,4 @@
-/* Estil comu */
+/* --------------------- Estil comu --------------------- */
 html {
     --glaucous: #7d82b8ff;
     --pink-crayola: #ef798aff;
@@ -15,6 +15,7 @@ html {
     */
 }
 
+/* GENERAL */
 *{
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -31,9 +32,31 @@ body{
 
 a{ font-weight: bold; }
 
+/* HEADER */
+header{
+    background-color: var(--melon);
+    display: block;
+    font-family: 'Playfair Display';
+    padding: 1em;
+    color: var(--violet);
+}
+
+#logo{ /* regular */
+    width: 10%;
+    height: auto;
+}
+
+/* NAVIGATION BAR */
 body > nav > ul{
     padding: 0; /* lleva sangria */
+    display: flex;
+    
 }
+
+/* NO visible menú hamburguesa */
+body > nav > label{ display: none; } /* lleva el &equiv */
+
+#chkMenu{ display: none; } /* lleva check*/
 
 /* ------------- MEDIA QUERIES ------------- */
 @media screen and (max-width: 480px){
@@ -43,9 +66,7 @@ body > nav > ul{
     }
     body>nav>label{
         cursor: pointer;
-    }
-    #chkMenu{ /* quita check pa que no sea visible*/
-        display: none;
+        display: block;
     }
     #chkMenu:checked+ul{
         display: block;
