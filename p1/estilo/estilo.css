@@ -58,7 +58,13 @@ body > nav > ul{
 /* NO visible menú hamburguesa */
 body > nav > label{ display: none; } /* lleva el &equiv */
 
+.recorte{
+    text-overflow: ellipsis;
+}
+
 #chkMenu{ display: none; } /* lleva check*/
+
+
 
 /* ------------- MEDIA QUERIES ------------- */
 @media screen and (max-width: 480px){
