@@ -1,0 +1,112 @@
+html {
+    --glaucous: #7d82b8ff;
+    --pink-crayola: #ef798aff;
+    --melon: #f7a9a8ff;
+    --violet: #683257ff;
+    --vt: rgba(104, 50, 87, .8); /* violet transparent */
+    --t: #565656; /* text */
+
+    /* en rgba per si ho necessitarem per a transparencies */
+    /*
+        --glaucous: rgba(125, 130, 184, 1);
+        --pink-crayola: rgba(239, 121, 138, 1);
+        --melon: rgba(247, 169, 168, 1);
+        --violet: rgba(104, 50, 87, 1);
+    */
+}
+
+/* ------------------- NAVIGATION BAR ------------------- */
+body > nav {
+    background-color: var(--violet);
+    padding: .1em;
+    position: sticky;
+    top: 0px;
+}
+body > nav > ul{
+    padding: 0; /* lleva sangria */
+    display: flex;
+    justify-content: space-evenly; /* canviar media queries */
+}
+
+body > nav > ul > li { /* seguir provant fins que quede bñe */
+    padding: inherit;
+}
+
+.act{
+    background-color: var(--melon);
+    color: var(--melon);
+}
+
+.menu > li > a{
+    color: #fff;
+}
+.menu > li > a > i{
+    padding-right: .5em;
+}
+
+/* de altra practica
+body > header > nav{
+            position: relative;
+        }
+            body > header > nav > label {
+                font-size: 1.5em;
+                font-weight: bold;
+                color: #fff;
+                display: flex;
+                width: 100%;
+            }
+            body > header > nav > ul{
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                position: absolute;
+                left: -100%;
+                width: 93%;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            body > header > nav > ul > li{
+                margin: 0 5px;
+            }
+
+                body > header > nav > ul > li > a{
+                    display: block;
+                    padding: .4em;
+                    color: var(--groc);
+                    font-weight: 500;
+                    padding: 8px 15px;
+                    border-radius: 5px;
+                    letter-spacing: 1px;
+                    transition: all 0.2s ease;
+                }                  
+                    body > header > nav > ul > li > a.act { /*per a la pag en la que estem
+                        background-color: var(--groc);
+                        color: #fff;
+                    }
+                    
+                    body > header > nav > ul > li > a:hover:not(.act) {
+                        background-color: #888;
+                        color: #fff;
+                    }
+                    body > header > nav > ul > li > a:hover{
+                        color: var(--roig);
+                    }
+*/
+
+/* ------------- MEDIA QUERIES ------------- */
+@media screen and (max-width: 480px){
+    
+}
+
+@media screen and (min-width: 480px) and (max-width: 779px){
+
+}
+
+@media screen and (min-width: 780px) and (max-width: 864px){
+    
+}
+
+@media screen and (min-width: 865px) and (max-width: 1920px){
+    
+}

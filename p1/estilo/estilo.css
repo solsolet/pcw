@@ -1,10 +1,12 @@
 @import url(formularios.css);
+@import url(navbar.css);
 /* --------------------- Estil comu --------------------- */
 html {
     --glaucous: #7d82b8ff;
     --pink-crayola: #ef798aff;
     --melon: #f7a9a8ff;
     --violet: #683257ff;
+    --vt: rgba(104, 50, 87, .8); /* violet transparent */
     --t: #565656; /* text */
 
     /* en rgba per si ho necessitarem per a transparencies */
@@ -56,13 +58,6 @@ header{
     height: auto;
 }
 
-/* NAVIGATION BAR */
-body > nav > ul{
-    padding: 0; /* lleva sangria */
-    display: flex;
-    
-}
-
 /* NO visible menú hamburguesa */
 body > nav > label{ display: none; } /* lleva el &equiv */
 
@@ -94,5 +89,9 @@ body > nav > label{ display: none; } /* lleva el &equiv */
 }
 
 @media screen and (min-width: 780px) and (max-width: 864px){
+    
+}
+
+@media screen and (min-width: 865px) and (max-width: 1920px){
     
 }
