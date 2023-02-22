@@ -37,14 +37,22 @@ a{ font-weight: bold; }
 /* HEADER */
 header{
     background-color: var(--melon);
-    display: block;
+    display: inline-flex; /* alinea img amb titols */
     font-family: 'Playfair Display';
     padding: 1em;
     color: var(--violet);
+    align-items: center;
+    width: 100%; /* fa que el rosa de fons ocupe tota la pantalla */
 }
+    header > a { margin-left: 1em; }
+    header > div{ padding-left: 1em; } /* xicoteta separació */
+        header > div > h1, header > div > h2{
+            margin: inherit;
+            padding: .25em;
+        }
 
-#logo{ /* regular */
-    width: 10%;
+#logo { /* regular */
+    width: 4.5em;
     height: auto;
 }
 
