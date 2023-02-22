@@ -68,7 +68,7 @@ button{
 .boton{
     border-radius: .5em;
     border-style: solid;
-    border-color: aquas;
+    border-color: aqua;
     padding: 0.5em;
     background-color: var(--t);
     width: auto;
