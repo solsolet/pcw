@@ -23,12 +23,12 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 2em;
+    border-radius: 1em;
     margin: 0.5em;
 
 
 }
-label{
+form>label{
 
     padding: 0.5em;
     margin: 0.5em;
@@ -36,14 +36,15 @@ label{
     background-color: var(--melon);
     text-align: left;
     transition: .5s;
+
 }
-label:hover{
+form>label:hover{
     border-radius: 1em;
     transition: .5s;
     color: #FFF;
 
 }
-input{
+form>label>input{
     width: 100%;
     box-sizing:border-box;
     background:none;
@@ -51,7 +52,7 @@ input{
     border:0;
     transition:all .3s;border-bottom:2px solid var(--melon)}
 
-input:focus{
+form>label>input:focus{
     border-bottom:2px solid var(--violet)
     
 }
@@ -67,20 +68,20 @@ button{
 }
 .boton{
     border-radius: .5em;
-    border-style: solid;
-    border-color: aqua;
+border:0;
     padding: 0.5em;
     background-color: var(--t);
     width: auto;
     color:#FFF;
     transition:.5s;
+    margin:0.5em;
 
 
    
 }
 .boton:hover{
-    border-radius: .5em;
-    border-style: solid;
+
+
 
     background-color:violet;
     width: auto;
@@ -93,15 +94,27 @@ button{
 }
 @media screen and (max-width: 480px){
 
-
+form>label{
+    width: 15em;
+}
 }
 
 @media screen and (min-width: 480px) and (max-width: 779px){
    
-
+form>label{
+    width:45%;
+}
 }
 
 @media screen and (min-width: 780px) and (max-width: 864px){
-   
+   form>label{
+    width:45%;
+   }
     
 }
+@media screen and (min-width: 865px) and (max-width: 1920px){
+    form>label{
+     width:45%;
+    }
+     
+ }
