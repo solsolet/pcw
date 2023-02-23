@@ -1,6 +1,6 @@
 @import url(formularios.css);
 @import url(navbar.css);
-@import url(grid.css);
+@import url(grid.css); 
 
 /* --------------------- Estil comu --------------------- */
 html {
@@ -67,42 +67,41 @@ footer{
     text-align-last: center;
     color: var(--violet);
 }
-footer > p > a{
-    color: var(--violet);
-}
+    footer > p > a{ color: var(--violet); }
 
 /* MAIN - SECTION */
 body > main{ 
     padding: 1em; /* q no estiga tot apegat */
 }
 
-body > main > section > div > article{
-    border-radius: 10px;
-    margin: 0.5em;
-    padding: 2em;
-    transition: 0.3s;
-    width:auto;
-}
+    body > main > section > div > article{
+        border-radius: 10px;
+        margin: 0.5em;
+        padding: 2em;
+        transition: 0.3s;
+        width:auto;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+    body > main > section > div > article:hover{ box-shadow: 0 0 1.5em 0.15em var(--melon); }
+    
 
 .carta{ padding: 0; } /* cartetes d'index */
 
-.carta > a > h4 , .carta > p{
-    padding: 1em;
-    margin: 0;
-}
-
-body > main > section > div > article{
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-body > main > section > div > article:hover{ box-shadow: 0 0 1.5em 0.15em var(--c5); }
-
-
-/* NO visible menú hamburguesa */
-body > nav > label{ display: none; } /* lleva el &equiv */
+    .carta > a > h4 , .carta > p{
+        padding: 1em;
+        margin: 0;
+    }
 
 .recorte{
     text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    width: 100%;
 }
+
+/* NO visible menú hamburguesa */
+body > nav > label{ display: none; } /* lleva el &equiv */
 
 #chkMenu{ display: none; } /* lleva check*/
 
