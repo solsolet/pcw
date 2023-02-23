@@ -1,5 +1,7 @@
 @import url(formularios.css);
 @import url(navbar.css);
+@import url(grid.css);
+
 /* --------------------- Estil comu --------------------- */
 html {
     --glaucous: #7d82b8ff;
@@ -58,6 +60,24 @@ header{
     height: auto;
 }
 
+/* FOOTER */
+footer{
+    background-color: var(--melon);
+    padding: .5em;
+    text-align-last: center;
+    color: var(--violet);
+}
+footer > p > a{
+    color: var(--violet);
+}
+
+/* SECTION */
+body > main{ 
+    padding: 1em; /* q no estiga tot apegat */
+}
+.carta{ padding: 0;
+} /* cartetes d'index */
+
 /* NO visible menú hamburguesa */
 body > nav > label{ display: none; } /* lleva el &equiv */
 
@@ -82,14 +102,15 @@ body > nav > label{ display: none; } /* lleva el &equiv */
     #chkMenu:checked+ul{
         display: block;
     }
+    .image-grid { --num-cols: 1; }
 }
 
 @media screen and (min-width: 480px) and (max-width: 779px){
-
+    .image-grid { --num-cols: 2; }
 }
 
 @media screen and (min-width: 780px) and (max-width: 864px){
-    
+    .image-grid { --num-cols: 3; }
 }
 
 @media screen and (min-width: 865px) and (max-width: 1920px){
