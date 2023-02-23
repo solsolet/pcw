@@ -28,7 +28,7 @@
         <input type="checkbox" id="chkMenu">
         <ul>
             <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
-            <li><a href="buscar.html"><i class="fa-solid fa-magnifying-glass"></i> Buscar</a></li>
+            <li><a class="act" href="buscar.html" ><i class="fa-solid fa-magnifying-glass"></i> Buscar</a></li>
             <li><a href="nueva.html"><i class="fa-solid fa-newspaper"></i> Nueva</a></li>
             <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
             <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
@@ -39,13 +39,13 @@
     <main>
         <h2>Criterios de búsqueda</h2>
         <form method="post">
-            <label for="contiene">Contiene:</label> <input type="text" name="contiene" id="contiene" placeholder="La noticia incluye la palabra 'accidente'"><br>
+            <label>Contiene:<input type="text" name="contiene" id="contiene" placeholder="La noticia incluye la palabra 'accidente'"></label> 
             <fieldset>
                 <legend>Fecha</legend>
-                <label for="desde">Desde:</label> <input type="date" name="desde" id="desde"><br>
-                <label for="hasta">Hasta:</label> <input type="date" name="hasta" id="hasta"><br>
+                <label>Desde: <input type="date" name="desde" id="desde"></label>
+                <label >Hasta:</label> <input type="date" name="hasta" id="hasta"></label>
             </fieldset>
-            <label for="ubi">Ubicación: </label> <input type="text" name="ubi" id="ubi" placeholder="Costera Pastor"><br>
+            <label >Ubicación: <input type="text" name="ubi" id="ubi" placeholder="Costera Pastor"></label> 
             <input type="submit" value="Buscar"><input type="reset" value="Limpiar">
         </form>
         <!-- resultados como index -->
