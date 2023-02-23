@@ -35,6 +35,9 @@ body > nav > ul > li { /* seguir provant fins que quede bñe */
 .act{
     background-color: var(--melon);
     color: var(--melon);
+   padding: 1.12em;
+    
+
 }
 
 .menu > li > a{
