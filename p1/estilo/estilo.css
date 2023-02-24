@@ -8,11 +8,10 @@ html {
     --pink-crayola: #ef798aff;
     --melon: #f7a9a8ff;
     --violet: #683257ff;
-    --vt: rgba(104, 50, 87, .8); /* violet transparent */
+    --vt: rgba(104, 50, 87, .25); /* violet transparent */
     --t: #565656; /* text */
 
-    /* en rgba per si ho necessitarem per a transparencies */
-    /*
+    /* en rgba per si ho necessitarem per a transparencies
         --glaucous: rgba(125, 130, 184, 1);
         --pink-crayola: rgba(239, 121, 138, 1);
         --melon: rgba(247, 169, 168, 1);
@@ -58,6 +57,10 @@ header{
 #logo { /* regular */
     width: 4.5em;
     height: auto;
+}
+#logo:hover{
+    filter: drop-shadow(1px 5px var(--vt)); /* fa sombra en la forma */
+    transition: .4s;
 }
 
 /* FOOTER */
@@ -131,10 +134,30 @@ body > nav > label{ display: none; } /* lleva el &equiv */
         display: block;
     }
     .image-grid { --num-cols: 1; }
+
+    /* HEADER */
+    header{
+        padding: 1.5em;
+        font-size: small;
+    }
+        header > a { margin-left: .75em; }
+        header > div{ padding-left: 1.5em; } /* xicoteta separació */
+            header > div > h1{
+                margin: 0;
+                padding: 0;
+            }
+            header > div > h2{ display: none; }
+
+    #logo { width: 2.5em; }
+    #logo:hover{ filter: none; }
 }
 
 @media screen and (min-width: 480px) and (max-width: 779px){
     .image-grid { --num-cols: 2; }
+
+    header{ font-size: small; }
+        header > a { margin-left: 1.5em; }
+        header > div{ padding-left: 1.25em; } /* xicoteta separació */
 }
 
 @media screen and (min-width: 780px) and (max-width: 864px){

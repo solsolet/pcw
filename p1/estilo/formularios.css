@@ -17,7 +17,6 @@ html {
 form{
     width: auto;
     background-color: var(--pink-crayola);
-    
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -32,14 +31,11 @@ form > label{
     display: inline-block;
     background-color: var(--melon);
     text-align: left;
-    transition: .3s;
-
 }
 form > label:hover{
     border-radius: 10px;
     transition: .3s;
     color: #FFF;
-
 }
 form > label > input{
     width: 100%;
@@ -65,16 +61,13 @@ button{
     border-radius: .5em;
     border:0;
     padding: 0.5em;
-    background-color: var(--t);
-    width: auto;
+    background-color: var(--glaucous);
     color:#FFF;
-    transition:.3s;
     margin:0.5em;   
 }
 .boton:hover{
-    background-color:var(--violet);
-    width: auto;
-    color:#000;
+    background-color:var(--t);
+    color:#fff;
     transition: .3s;
 }
 
