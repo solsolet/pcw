@@ -71,19 +71,24 @@ footer{
 
 /* MAIN - SECTION */
 body > main{ 
-    padding: 1em; /* q no estiga tot apegat */
+    padding: 2em; /* q no estiga tot apegat */
 }
-
-    body > main > section > div > article{
-        border-radius: 10px;
-        margin: 0.5em;
-        padding: 2em;
-        transition: 0.3s;
-        width:auto;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    body > main > h2{
+        color: var(--violet);
+        font-size: 2em;
+        margin: 0.25em 0 1em 0;
     }
-    body > main > section > div > article:hover{ box-shadow: 0 0 1.5em 0.15em var(--melon); }
-    
+
+        body > main > section > div > article{
+            border-radius: 10px;
+            margin: 1em 0;
+            padding: 2em;
+            transition: 0.3s;
+            width: auto;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+        body > main > section > div > article:hover{ box-shadow: 0 0 1.5em 0.15em var(--melon); }
+        
 
 .carta{ padding: 0; } /* cartetes d'index */
 
@@ -92,12 +97,30 @@ body > main{
         margin: 0;
     }
 
-.recorte{
+/* .recorte{
     text-overflow: ellipsis;
     overflow: hidden;
     display: inline-block;
     white-space: nowrap;
     width: 100%;
+} */
+
+/* text overflow */
+.aa{
+    color: burlywood;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0 1em;
+}
+.h4h4{
+        background-color: aquamarine;
+    width: 100%;
+    display: grid;
+}
+
+body > main > nav > p{
+    text-align: center;
 }
 
 /* NO visible menú hamburguesa */
