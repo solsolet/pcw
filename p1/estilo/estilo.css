@@ -96,27 +96,14 @@ body > main{
         padding: 1em;
         margin: 0;
     }
-
-/* .recorte{
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: inline-block;
-    white-space: nowrap;
-    width: 100%;
-} */
-
+    
 /* text overflow */
-.aa{
-    color: burlywood;
+.carta > a{ display: grid; } /* este fill de puta es lo que fallava, si els articles estan com a grid doncs açó igual */
+
+.recorte{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    padding: 0 1em;
-}
-.h4h4{
-        background-color: aquamarine;
-    width: 100%;
-    display: grid;
 }
 
 body > main > nav > p{
