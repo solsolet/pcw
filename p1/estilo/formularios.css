@@ -73,6 +73,30 @@ button{
 
 #img{ display: none; }
 
+textarea{
+    background-color: var(--melon);
+    color:var(--t)
+
+}
+textarea:focus{
+
+    background-color: #FFF;
+    color:#000;
+}
+datalist > option{
+    border-radius: .5em;
+    border:0;
+    padding: 0.5em;
+    background-color: var(--glaucous);
+    color:#FFF;
+    margin:0.5em;  
+}
+datalist> option:hover{
+    background-color:var(--t);
+    color:#fff;
+    transition: .3s;
+}
+
 @media screen and (max-width: 480px){
     form > label{
         width: 15em;
