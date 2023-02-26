@@ -18,32 +18,29 @@ html {
 /* ------------------- NAVIGATION BAR ------------------- */
 body > nav {
     background-color: var(--violet);
-    padding: .1em;
     position: sticky;
     top: 0px;
 }
 body > nav > ul{
     padding: 0; /* lleva sangria */
     display: flex;
-    justify-content: space-evenly; /* canviar media queries */
-}
-
-body > nav > ul > li { /* seguir provant fins que quede bñe */
-    padding: inherit;
+    justify-content: space-evenly;
 }
 
 .act{
     background-color: var(--melon);
     color: var(--melon);
-    padding: 1.12em;
 }
+
+.menu{ margin: 0; } /* ajusta que estiga apegat */
+.menu > li{ padding: 1em; }
 
 .menu > li > a{
     color: #fff;
+    text-align: center;
+    display: block;
 }
-.menu > li > a > i{
-    padding-right: .5em;
-}
+.menu > li > a > i{ padding-right: .5em; }
 
 /* de altra practica
 body > header > nav{
@@ -100,8 +97,13 @@ body > header > nav{
     
 }
 
-@media screen and (min-width: 480px) and (max-width: 779px){
-
+@media screen and (min-width: 480px) and (max-width: 779px){           
+    .menu li { flex: 1; padding: 0.65em;}   
+    .menu > li > a{ font-size: 0; }
+    .menu > li > a > i{
+        font-size: medium;
+        padding-right: 0;
+    }
 }
 
 @media screen and (min-width: 780px) and (max-width: 864px){
