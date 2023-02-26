@@ -3,7 +3,6 @@ html {
     --pink-crayola: #ef798aff;
     --melon: #f7a9a8ff;
     --violet: #683257ff;
-    --vt: rgba(104, 50, 87, .8); /* violet transparent */
     --t: #565656; /* text */
 
     /* en rgba per si ho necessitarem per a transparencies */
@@ -44,6 +43,16 @@ body > nav > ul{
     letter-spacing: 1px;
 }
 .menu > li > a > i{ padding-right: .5em; }
+
+/* ENLLAÇOS */
+.act a:hover {
+    color: var(--violet);
+    transition: 0.4s;
+}
+nav li:not(.act):hover {
+    background-color: var(--tt);
+    transition: 0.4s ease;
+}
 
 /* ------------- MEDIA QUERIES ------------- */
 @media screen and (max-width: 480px){

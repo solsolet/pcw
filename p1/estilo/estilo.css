@@ -7,9 +7,12 @@ html {
     --glaucous: #7d82b8ff;
     --pink-crayola: #ef798aff;
     --melon: #f7a9a8ff;
+    --mt: rgba(247, 169, 168, .6); /* melon transparent */
+    --mc: #f8bbba; /* melon claret */
     --violet: #683257ff;
     --vt: rgba(104, 50, 87, .25); /* violet transparent */
     --t: #565656; /* text */
+    --tt: rgba(86, 86, 86, .75); /* text transparent */
 
     /* en rgba per si ho necessitarem per a transparencies
         --glaucous: rgba(125, 130, 184, 1);
@@ -36,6 +39,16 @@ body{
 }
 
 a{ font-weight: bold; }
+
+button{
+    outline:none;
+    padding: 0;
+}
+
+td img{ /* arreglar */
+    width: 200px;
+    height: auto;
+}
 
 /* HEADER */
 header{
@@ -86,12 +99,21 @@ body > main{
             border-radius: 10px;
             margin: 1em 0;
             padding: 2em;
-            transition: 0.3s;
+            transition: 0.4s;
             width: auto;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         }
-        body > main > section > div > article:hover{ box-shadow: 0 0 1.5em 0.15em var(--melon); }
+        body > main > section > div > article:hover{ box-shadow: 0 0 1em 0.1em var(--mt); }
         
+        /* preguntar ana si li amanya, deforma el sticky nav */
+        /* main > section > div > article > a > img {
+            width: 100%;
+            transition: 0.3s;
+        }
+        main > section > div > article > a > img:hover {
+            transform:scale(1.03);
+            box-shadow: 0 .5em .5em 0 var(--vt);
+        } */
 
 .carta{ padding: 0; } /* cartetes d'index */
 
@@ -118,6 +140,23 @@ body > nav > label{ display: none; } /* lleva el &equiv */
 
 #chkMenu{ display: none; } /* lleva check*/
 
+/* ENLLAÇOS */
+main a:not(img) { color: var(--violet); }
+main a:not(img):hover{
+    color: var(--melon);
+    transition: 0.3s;
+}
+main a:not(img):visited{ color: var(--glaucous); }
+main a:not(img):visited:hover{
+    color: var(--pink-crayola);
+    transition: .3s;
+}
+
+footer p a:hover{
+    color: #fff;
+    transition: 0.3s;
+}
+
 
 /* ------------- MEDIA QUERIES ------------- */
 @media screen and (max-width: 480px){
@@ -128,6 +167,10 @@ body > nav > label{ display: none; } /* lleva el &equiv */
     body > nav > label{
         cursor: pointer;
         display: block;
+    }
+    body > nav > label:hover{ /*no te molt sentit xq en mobil no se hoverea*/
+        color: #fff;
+        transition: 0.4s ease;
     }
     #chkMenu:checked+ul{
         display: block;
@@ -149,6 +192,8 @@ body > nav > label{ display: none; } /* lleva el &equiv */
 
     #logo { width: 2.5em; }
     #logo:hover{ filter: none; }
+
+    body > main > h2 { font-size: 1.5em; }
 }
 
 @media screen and (min-width: 480px) and (max-width: 779px){
