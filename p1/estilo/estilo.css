@@ -119,14 +119,13 @@ body > nav > label{ display: none; } /* lleva el &equiv */
 #chkMenu{ display: none; } /* lleva check*/
 
 
-
 /* ------------- MEDIA QUERIES ------------- */
 @media screen and (max-width: 480px){
     /* MENU HAMBUERGUESA */
     body > nav > ul{
         display: none;
     }
-    body>nav>label{
+    body > nav > label{
         cursor: pointer;
         display: block;
     }
