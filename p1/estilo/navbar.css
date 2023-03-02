@@ -81,6 +81,8 @@ nav li:not(.act):hover {
     #chkMenu:checked+.menu{
         height: auto;
     } */
+
+
     
     #chkMenu:checked+ul li{
         padding: .5em;
