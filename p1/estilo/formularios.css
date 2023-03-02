@@ -65,7 +65,7 @@ form > label > input:focus{ border-bottom: 2px solid var(--violet); }
     transition: .3s;
 }
 
-#img{ display: none; }
+.img{ display: none; }
 
 textarea{
     background-color: var(--melon);
