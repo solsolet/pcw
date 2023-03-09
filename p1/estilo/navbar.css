@@ -18,6 +18,7 @@ html {
 body > nav {
     background-color: var(--violet);
     position: sticky;
+    z-index: 1; /* fa que el hover que canvia el tam de les imatges no es superpose */
     top: 0px;
 }
 body > nav > ul{

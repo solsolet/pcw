@@ -107,14 +107,13 @@ body > main{ padding: 2em; } /* q no estiga tot apegat */
         body > main > section > div > article:hover{ box-shadow: 0 0 1em 0.1em var(--mt); }
         
         /* preguntar ana si li amanya, deforma el sticky nav */
-        /* main > section > div > article > a > img {
-            width: 100%;
+        main > section > div > article > a > img {
             transition: 0.3s;
         }
         main > section > div > article > a > img:hover {
             transform:scale(1.03);
             box-shadow: 0 .5em .5em 0 var(--vt);
-        } */
+        }
 
 .carta{ padding: 0; } /* cartetes d'index */
 
