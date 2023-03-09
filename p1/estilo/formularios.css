@@ -93,6 +93,21 @@ datalist> option:hover{
     justify-content: space-between;
     background-color: var(--trans);
 }
+.carpeta{
+    width: fit-content;
+    padding: .5em;
+    margin: .5em;
+    display: inline-block;
+    background-color: var(--melon);
+    color: var(--violet);
+    text-align: left;
+    
+}
+.carpeta:hover{
+    border-radius: 10px;
+    transition: .3s;
+    color: #FFF;
+}
 
 @media screen and (max-width: 480px){
     form > label, form >label~fieldset{ width: 15em; }
