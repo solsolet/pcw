@@ -166,6 +166,9 @@ footer p a:hover{
     grid-template-columns: repeat(auto-fit, minmax(15em, 1fr)); /* amb açò no ens farien falta media queries, el 15em es que divideix l'ample/15 */
     grid-gap: .5em;
 }
+.galeria > img{
+    width: 100%;
+}
 .separadors{
     border-block: 3px var(--violet) solid;
     margin-top: 2em;
