@@ -209,6 +209,26 @@ footer p a:hover{
         color: var(--tt);
     }
 
+/* Acerca autoras */
+.autoria{
+    display: flex;
+    justify-content: space-around;
+}
+.autora{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: .3s;
+}
+.autora > img{
+    width: 100%;
+    height: 10em;
+    object-fit: cover;
+}
+.autora:hover { box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); }
+
+.info_autora {
+    padding: 2px 16px;
+  }
+
 /* ------------- MEDIA QUERIES ------------- */
 @media screen and (max-width: 480px){
     /* MENU HAMBUERGUESA */
