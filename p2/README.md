@@ -1,0 +1,1 @@
+# Instruccions per a accedir a la BD
