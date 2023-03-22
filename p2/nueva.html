@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gemma Sellés Lloret y Ana María Soler Guijarro">
+    <link rel="stylesheet" href="estilo/estilo.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/27260d853d.js" crossorigin="anonymous"></script>    
+    <title>Nueva</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="img/logo.png" alt="logotipo" id="logo"></a>
+        <div>
+            <h1>Comunícate</h1>
+            <h2>Tu portal de información local</h2>
+        </div>
+    </header>
+
+    <nav>
+        <label for="chkMenu">&equiv;</label> <!-- pal menu hamburguesa -->
+        <input type="checkbox" id="chkMenu">
+        <ul class="menu">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a href="buscar.html"><i class="fa-solid fa-magnifying-glass"></i> Buscar</a></li>
+            <li class="act"><a href="nueva.html"><i class="fa-solid fa-newspaper"></i> Nueva</a></li>
+            <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+            <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+            <li><a href="registro.html"><i class="fa-solid fa-user-plus"></i> Registro</a></li>
+        </ul>        
+    </nav>
+
+    <main>
+        <h2>Nueva publicación</h2>
+        <form>
+            <label>Título: <input type="text" name="titulo" id="titulo" maxlength="200" required autofocus></label>
+            <label>Texto: <br><textarea name="texto" id="texto" required></textarea></label> 
+            <label>Ubicación: <input list="ubis" name="ubi" id="ubi" maxlength="100" required> <!-- ojo que la list=id del datalist (ubis) --> </label>
+            <datalist id="ubis">
+                <option value="Poble Nou">
+                <option value="Torres">
+                <option value="Talaies">
+                <option value="Pati Fosc">
+                <option value="Paradís">
+                <option value="Ermita">
+                <option value="Rodacuco">
+            </datalist><br>
+            <button class="boton"><i class="fa-solid fa-image"></i> Añadir foto</button>
+            <label for="img1">Foto: <img src="img/usuvoid.jpg" alt=""><input  type="file" id="img1"  name="img" accept="image/*" class="img" required><br></label>
+            <div class="botonera"> 
+                <label class="carpeta  "><i class="fa-solid fa-folder-open"></i><input type="file" name="img" accept="image/*" class="img"> </label>
+                <button class="boton ko" type="button"><i class="fa-solid fa-trash-can"></i> </button>
+            </div>
+             <div class="">
+                <input type="submit" value="Publicar" class="boton"><input type="reset" value="Limpiar" class="boton">
+            </div> 
+            </form>
+    </main>
+
+    <footer>
+        <p>
+            <a href="acerca.html">Contacto</a> &copy; <time datetime="2023-02">2023</time> <abbr title="Programación del Cliente Web">PCW</abbr>
+        </p>
+    </footer>
+    
+</body>
+</html>

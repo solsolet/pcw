@@ -1,0 +1,109 @@
+html {
+    --glaucous: #7d82b8ff;
+    --pink-crayola: #ef798aff;
+    --melon: #f7a9a8ff;
+    --violet: #683257ff;
+    --t: #565656; /* text */
+
+    /* en rgba per si ho necessitarem per a transparencies */
+    /*
+        --glaucous: rgba(125, 130, 184, 1);
+        --pink-crayola: rgba(239, 121, 138, 1);
+        --melon: rgba(247, 169, 168, 1);
+        --violet: rgba(104, 50, 87, 1);
+    */
+}
+
+/* ------------------- NAVIGATION BAR ------------------- */
+body > nav {
+    background-color: var(--violet);
+    position: sticky;
+    z-index: 1; /* fa que el hover que canvia el tam de les imatges no es superpose */
+    top: 0px;
+}
+body > nav > ul{
+    padding: 0; /* lleva sangria */
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0; /* ajusta que estiga apegat */
+}
+
+.act{
+    background-color: var(--melon);
+    color: var(--melon);
+}
+
+.menu > li{
+    flex: 1; /* que ocupe tot el bloc */
+    padding: 1em;
+}
+.menu > li > a{
+    color: #fff;
+    text-align: center;
+    display: block;
+    letter-spacing: 1px;
+}
+.menu > li > a > i{ padding-right: .5em; }
+
+/* ENLLAÇOS */
+.act a:hover {
+    color: var(--violet);
+    transition: 0.4s;
+}
+nav li:not(.act):hover {
+    background-color: var(--tt);
+    transition: 0.4s ease;
+}
+
+/* ------------- MEDIA QUERIES ------------- */
+@media screen and (max-width: 480px){
+    nav > label[for="chkMenu"]{ /* &equiv; */
+        font-size: 1.5em;
+        font-weight: bold;
+        color: var(--melon);
+        padding: 0 .5em;
+    }
+    /* .menu{
+        position: absolute;
+        width: 100%;
+        overflow: hidden;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--violet);
+        height: 0px;
+        transition: height .4s ease;
+    } */
+    /* .menu{
+        position: absolute;
+        width: 100%;
+        background-color: var(--violet);
+        transition: .4s ease;
+    }
+    #chkMenu:checked+.menu{
+        height: auto;
+    } */
+
+
+    
+    #chkMenu:checked+ul li{
+        padding: .5em;
+    }
+    .menu > li > a{ font-size: small; }
+}
+
+@media screen and (min-width: 480px) and (max-width: 779px){           
+    .menu li { padding: 0.65em;}   
+    .menu > li > a{ font-size: 0; }
+    .menu > li > a > i{
+        font-size: medium;
+        padding-right: 0;
+    }
+}
+
+@media screen and (min-width: 780px) and (max-width: 864px){
+    .menu > li > a > i{ display: none; }
+}
+
+@media screen and (min-width: 865px) and (max-width: 1920px){
+    
+}
