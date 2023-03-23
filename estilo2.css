@@ -1,0 +1,23 @@
+body>section>div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.foto{
+    padding: .5em;
+    border: .1em ;
+    margin:.5em;
+    width:20em;
+    height:25;
+}
+
+.foto>img{
+    width:15em;
+    height: 20em;
+    display:block;
+    margin: .5em
+     auto;
+}
+
+input>

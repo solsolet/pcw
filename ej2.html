@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo2.css" >
+    <script src="codigo2.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ejemplo2</h1>
+    <section></section>
+    <h2>Fotos</h2>
+    <footer>
+        <button onclick="anyadirFoto();">Añadir foto</button>
+    </footer>
+    <div>
+        <div class="foto">
+            <img src="" alt="" onclick="this.parentElement.querySelector('input[type=file]').click();">
+            <input type="file" onchange="mostrarFoto(this);">
+                <footer>
+                    <button onclick="cargarFoto(this);">CArgar</button>
+                    <button onclick="eliminarFoto(this)">Eliminar</button>
+                </footer>
+            </img>
+        </div>
+    </div>
+    
+</body>
+</html>
