@@ -43,6 +43,7 @@ function navBar(){
     const nav = document.getElementById("menu");
 
     if(logueado){ //Alta un nuevo lugar y logout
+        //inserta abans del final del element nav
         nav.insertAdjacentHTML("beforeend",`<li><a href="nueva.html"><i class="fa-solid fa-newspaper"></i> Nueva</a></li>
                                             <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>`);
     }
