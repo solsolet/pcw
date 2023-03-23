@@ -53,3 +53,26 @@ function navBar(){
     }
     else console.log("Error inesperado detectando si el usuario está logueado.");
 }
+
+/* ----------------- PETICIONS -----------------  */
+//Index petició GET api/publicaciones
+function getPublicaciones() {
+    var pag = 0,
+        url = `./api/publicaciones?pag=${pag}&lpag=6`; //tindre en compte que només hi ha 4 publicacions a la bd
+    
+    // fetch usa el método GET por defecto
+    fetch(url)
+        .then(function(res){ //res de response
+            if(res.ok){ // if(response.status==200)
+                res.json().then(function(data) { // se tiene la respuesta y con 
+                    console.log(data);           // json() se recoge en data como objeto javascript
+                }); 
+            }
+            else{
+                console.log('Error(' + res.status + '): ' + res.statusText);
+                return;
+            }
+        }).catch(function(err) {
+        console.log('Fetch Error: ' + err);
+    });
+}
