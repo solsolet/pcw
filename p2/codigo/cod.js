@@ -87,7 +87,10 @@ function getPublicaciones(pag) {
                         html += `<article class="carta">
                                     <a href="publicacion.html?id=${e.id}"><h4 title="${e.titulo}" class="recorte">${e.titulo}</h4></a>
                                     <a href="publicacion.html?id=${e.id}"><img src="./fotos/pubs/${e.imagen}" alt="${e.nombreZona}"></a>
-                                    <p>${e.autor}<br> <i class="fa-regular fa-calendar"></i> <time datetime="${e.fechaCreacion}">${e.fechaCreacion}</time></p>
+                                    <div>
+                                        <img src="./fotos/usuarios/${e.fotoAutor}" alt="Imagen del ${e.fotoAutor}" class="autorXicotet">
+                                        <p>${e.autor}<br><i class="fa-regular fa-calendar"></i> <time datetime="${e.fechaCreacion}">${e.fechaCreacion}</time></p>
+                                    </div>
                                 </article>`;
                                 // fotoAutor: "usuario5.jpg"
                     });

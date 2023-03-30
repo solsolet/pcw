@@ -117,9 +117,21 @@ body > main{ padding: 2em; } /* q no estiga tot apegat */
 
 .carta{ padding: 0; } /* cartetes d'index */
 
-    .carta > a > h4 , .carta > p{
+    .carta > a > h4 , .carta > div{
         padding: 1em;
         margin: 0;
+    }
+    .carta > div{
+        display: inline-flex;
+        align-items: center;
+        width: 100%;
+    }
+    .carta > div > p{
+        margin: 0;
+    }
+    .autorXicotet{
+        width: 38px;
+        margin-right: 1.5em;
     }
 
 .cajita{ /* autor i data noticia */
