@@ -54,11 +54,9 @@ function navBar(){
 }
 
 /* ----------------- PETICIONS -----------------  */
-//let pag = 0; //per a la paginació
-
+let pag = 0; //per a la paginació
 //Index petició GET api/publicaciones
 function getPublicaciones(pag) {
-    pag = paginacion(pag);
     var url = `./api/publicaciones?pag=${pag}&lpag=6`, //tindre en compte que només hi ha 4 publicacions a la bd 
         publicaciones = document.getElementById("publicaciones");
 
@@ -68,20 +66,10 @@ function getPublicaciones(pag) {
             if(res.ok){ // if(response.status==200)
                 res.json().then(function(data) { // se tiene la respuesta y con 
                     console.log(data);          // json() se recoge en data como objeto javascript
+                    console.log(data.FILAS.lenght);
 
                     let html = '';
-                    //este for dona problemes accedint a les coses de e
-                    /* if (data.FILAS.length > 0) {
-                        for(let i=0; i<6; i++){
-                            let e = data.FILAS[i];
-                            //console.log(e.id);
-                            html += `<article class="carta">
-                                        <a href="publicacion.html"><h4 title="${e.titulo}" class="recorte">${e.titulo}</h4></a>
-                                        <a href="publicacion.html?id=${e.id}"><img src="./fotos/pubs/${e.imagen}" alt="${e.nombreZona}"></a>
-                                        <p>${e.autor}<br> <i class="fa-regular fa-calendar"></i> <time datetime="${e.fechaCreacion}">${e.fechaCreacion}</time></p>
-                                    </article>`;
-                        }
-                    } */
+                
                     data.FILAS.forEach(e => {
                         console.log(e);
                         html += `<article class="carta">
@@ -95,6 +83,12 @@ function getPublicaciones(pag) {
                                 // fotoAutor: "usuario5.jpg"
                     });
                     publicaciones.insertAdjacentHTML("beforeend", html);
+
+                    // PAGINACIÓN
+                    document.querySelector('#pag').textContent = parseInt(data.PAG) + (data.FILAS.length > 0?1:0);
+                    document.querySelector('#totalPags').textContent = Math.ceil(parseInt(data.TOTAL_COINCIDENCIAS) / parseInt(data.LPAG));
+                    
+                    //paginacion(pag);
                 });
             }
             else{
@@ -106,6 +100,7 @@ function getPublicaciones(pag) {
     });
 }
 
+//implementar funcionament quant insertem
 function paginacion(pag){
     let p = document.getElementById("bPrimera"),
         a = document.getElementById("bAnterior"),
@@ -132,6 +127,4 @@ function paginacion(pag){
         pag_actual.innerHTML = pag;
     });
     pag_actual.innerHTML = pag;
-
-    return pag;
 }
