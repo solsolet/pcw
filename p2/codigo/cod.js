@@ -1,9 +1,21 @@
 /* ------------ CODI GENERAL ------------ */
 window.onload = navBar;
+
+(function(){ //redirigir autoejecutada
+    let logueado = usuarioLogueado();
+
+    if (logueado && (window.location.href === 'login.html' || window.location.href === 'registro.html')) { /* Si estas logueado y no puedes entrar */
+        window.location.href = 'index.html';
+    }
+    else if (!logueado && (window.location.href === 'nueva.html' || window.location.href === 'publicacion.html')) { /* Si estas logueado y no puedes entrar */
+        window.location.href = 'index.html';
+    }
+})();
+
 // Comprovar usuari loguejat (localStorage i sessionStorage)
 function usuarioLogueado(){
     var logueado = false;
-    if(localStorage.getItem("login") || sessionStorage.getItem("login"))
+    if(localStorage.getItem("_datos_") || sessionStorage.getItem("_datos_"))
         logueado = true;
     
     return logueado;
@@ -16,10 +28,10 @@ function clearStorage(){
 }
 
 // Mostra Barra Nav
-function navBar(){
+/* function navBar(){
     let logueado = usuarioLogueado(),
         enlaces = '';
-    //const nav = document.getElementsByClassName("menu"); no agafa la classe no sé per qué
+    
     const nav = document.getElementById("menu");
 
     if(logueado){ //Alta un nuevo lugar y logout
@@ -32,14 +44,16 @@ function navBar(){
         nav.innerHTML += enlaces;
     }
     else console.log("Error inesperado detectando si el usuario está logueado.");
-}
+} */
+
 /* altra manera de ferho, fer dos menu i fer display none a la que no volem que isca */
 /* altra manera, amb lo de createelement i appendChild (complicat) */
 
 /* altra manera amb insertAdjacentHTML (+segur)*/
 function navBar(){
-    let logueado = usuarioLogueado();
-    const nav = document.getElementById("menu");
+    let logueado = usuarioLogueado(),
+        nav = document.getElementsByClassName('menu')[0]; //els className es un array
+    
 
     if(logueado){ //Alta un nuevo lugar y logout
         //inserta abans del final del element nav
@@ -127,4 +141,52 @@ function paginacion(pag){
         pag_actual.innerHTML = pag;
     });
     pag_actual.innerHTML = pag;
+}
+
+/* ------------- CODI LOGIN.HTML ------------- */
+/* Login POST api/usuarios/login AJAX */
+function postLogin(evt){
+    evt.preventDefault(); //cancela la accion por defecto del evento
+
+    let frm = evt.currentTarget,
+        xhr = new XMLHttpRequest(),
+        url = 'api/usuarios/login',
+        fd = new FormData(frm);
+
+    xhr.open('POST', url, true);
+    xhr.responseType = 'json';
+
+    xhr.onload = function(){
+        let r = xhr.response; //"r" es com el "data"
+        console.log(r);
+
+        if(r.RESULTADO == 'OK'){ //es lo que posa el json de resposta
+            let dialogo = document.createElement('dialog'),
+                html = '';
+
+            html += '<h3>Bienvenido '+r.NOMBRE+'</h3>';
+            
+            //html += r.NOMBRE;
+            //html += '</h3>';
+            html = '<button onclick:"cerrarDialogo(0);">Cerrar</button>'
+
+            dialogo.innerHtml = html;
+            document.body.appendChild(dialogo);
+            dialogo.showModal();
+            sessionStorage['_datos_'] = JSON.stringify(r);
+
+            console.log( JSON.parse(sessionStorage['_datos_']) );
+            console.log( datos.LOGIN);
+        }
+        else{
+            console.log('error');
+        }
+    }
+    xhr.send(fd); //enviem la informació fd
+}
+
+function cerrarDialogo(valor){
+    console.log(valor);
+    document.querySelector('dialog').close(); //en açò NOMÉS no es borra del html
+    document.querySelector('dialog').remove(); //en açò si
 }
