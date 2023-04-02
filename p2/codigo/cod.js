@@ -28,7 +28,7 @@ function clearStorage(){
 }
 
 // Mostra Barra Nav
-/* function navBar(){
+function navBar(){ //fa cas al de baix
     let logueado = usuarioLogueado(),
         enlaces = '';
     
@@ -44,7 +44,7 @@ function clearStorage(){
         nav.innerHTML += enlaces;
     }
     else console.log("Error inesperado detectando si el usuario está logueado.");
-} */
+}
 
 /* altra manera de ferho, fer dos menu i fer display none a la que no volem que isca */
 /* altra manera, amb lo de createelement i appendChild (complicat) */
@@ -69,11 +69,20 @@ function navBar(){
 }
 
 function classAct(){ //afegir class="act" al <li> de navBar que corresponga
-    let url = window.location.href,
-        pag_activa = url.split('/').pop(); //ens quedem en el nsq.html a seques
-        navLink = document.querySelector(`a[href="${pag_activa}"]`);
-
-    navLink.parentNode.classList.add("act");
+    let pag_activa = window.location.href.split('/').pop(), //ens quedem en el nsq.html de la URL
+        links = document.querySelectorAll('.menu li a');
+    
+    try{
+        links.forEach((link) => {
+            const href = link.getAttribute('href');
+            if (href === pag_activa) {
+                link.parentNode.classList.add('act');
+                throw new Error('ja hi ha 1 element amb act')
+            }
+        });
+    } catch{ 
+        //res, només per a ixir del forEach
+    }
 }
 
 /* ----------------- PETICIONS -----------------  */
@@ -173,10 +182,7 @@ function postLogin(evt){
             let dialogo = document.createElement('dialog'),
                 html = '';
 
-            html += '<h3>Bienvenido '+r.NOMBRE+'</h3>';
-            
-            //html += r.NOMBRE;
-            //html += '</h3>';
+            html += `<h3>Bienvenido ${r.NOMBRE}</h3>`;
             html = '<button onclick:"cerrarDialogo(0);">Cerrar</button>'
 
             dialogo.innerHtml = html;
@@ -185,7 +191,7 @@ function postLogin(evt){
             sessionStorage['_datos_'] = JSON.stringify(r);
 
             console.log( JSON.parse(sessionStorage['_datos_']) );
-            console.log( datos.LOGIN);
+            console.log( _datos_.LOGIN);
         }
         else{
             console.log('error');
