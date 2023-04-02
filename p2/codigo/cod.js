@@ -54,8 +54,7 @@ function navBar(){
     let logueado = usuarioLogueado(),
         nav = document.getElementsByClassName('menu')[0]; //els className es un array
     
-
-    if(logueado){ //Alta un nuevo lugar y logout
+    if(logueado){ //Alta nuevo lugar y logout
         //inserta abans del final del element nav
         nav.insertAdjacentHTML("beforeend",`<li><a href="nueva.html"><i class="fa-solid fa-newspaper"></i> Nueva</a></li>
                                             <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>`);
@@ -65,6 +64,16 @@ function navBar(){
                                             <li><a href="registro.html"><i class="fa-solid fa-user-plus"></i> Registro</a></li>`);
     }
     else console.log("Error inesperado detectando si el usuario está logueado.");
+
+    classAct();
+}
+
+function classAct(){ //afegir class="act" al <li> de navBar que corresponga
+    let url = window.location.href,
+        pag_activa = url.split('/').pop(); //ens quedem en el nsq.html a seques
+        navLink = document.querySelector(`a[href="${pag_activa}"]`);
+
+    navLink.parentNode.classList.add("act");
 }
 
 /* ----------------- PETICIONS -----------------  */
