@@ -1,5 +1,5 @@
 /* ------------ CODI GENERAL ------------ */
-window.onload = navBar;
+document.addEventListener("DOMContentLoaded", navBar); //carrega quan HTML està llest
 
 (function(){ //redirigir autoejecutada
     let logueado = usuarioLogueado();
