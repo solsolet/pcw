@@ -182,7 +182,7 @@ function postLogin(evt){
                 html = '';
 
             html += `<h3>Bienvenido ${r.NOMBRE}</h3>`;
-            html = '<button onclick:"cerrarDialogo(0);">Cerrar</button>'
+            html += '<button onclick="cerrarDialogo(0);" class="boton">Cerrar</button>';
 
             dialogo.innerHTML = html;
             document.body.appendChild(dialogo);
