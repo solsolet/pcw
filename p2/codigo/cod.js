@@ -4,8 +4,6 @@ document.addEventListener("DOMContentLoaded", navBar); //carrega quan HTML està
 (function(){ //redirigir autoejecutada
     let logueado = usuarioLogueado();
 
-    console.log(logueado);
-
     if (logueado && (window.location.href.split('/').pop() === 'login.html' || window.location.href.split('/').pop() === 'registro.html')) { /* Si estas logueado y no puedes entrar */
         window.location.href = 'index.html';
     }
@@ -186,13 +184,12 @@ function postLogin(evt){
             html += `<h3>Bienvenido ${r.NOMBRE}</h3>`;
             html = '<button onclick:"cerrarDialogo(0);">Cerrar</button>'
 
-            dialogo.innerHtml = html;
+            dialogo.innerHTML = html;
             document.body.appendChild(dialogo);
             dialogo.showModal();
             sessionStorage['_datos_'] = JSON.stringify(r);
 
-            console.log( JSON.parse(sessionStorage['_datos_']) );
-            console.log( _datos_.LOGIN);
+            console.log( JSON.parse(sessionStorage.getItem('_datos_')).LOGIN);
         }
         else{
             console.log('error');
