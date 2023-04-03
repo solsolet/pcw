@@ -4,11 +4,14 @@ window.onload = navBar;
 (function(){ //redirigir autoejecutada
     let logueado = usuarioLogueado();
 
-    if (logueado && (window.location.href === 'login.html' || window.location.href === 'registro.html')) { /* Si estas logueado y no puedes entrar */
+    console.log(logueado);
+
+    if (logueado && (window.location.href.split('/').pop() === 'login.html' || window.location.href.split('/').pop() === 'registro.html')) { /* Si estas logueado y no puedes entrar */
         window.location.href = 'index.html';
     }
-    else if (!logueado && (window.location.href === 'nueva.html' || window.location.href === 'publicacion.html')) { /* Si estas logueado y no puedes entrar */
+    else if (!logueado && (window.location.href.split('/').pop() === 'nueva.html' || window.location.href.split('/').pop() === 'publicacion.html')) { /* Si estas logueado y no puedes entrar */
         window.location.href = 'index.html';
+        console.log("entra");
     }
 })();
 
@@ -98,7 +101,6 @@ function getPublicaciones(pag) {
             if(res.ok){ // if(response.status==200)
                 res.json().then(function(data) { // se tiene la respuesta y con 
                     console.log(data);          // json() se recoge en data como objeto javascript
-                    console.log(data.FILAS.lenght);
 
                     let html = '';
                 
@@ -112,7 +114,6 @@ function getPublicaciones(pag) {
                                         <p>${e.autor}<br><i class="fa-regular fa-calendar"></i> <time datetime="${e.fechaCreacion}">${e.fechaCreacion}</time></p>
                                     </div>
                                 </article>`;
-                                // fotoAutor: "usuario5.jpg"
                     });
                     publicaciones.insertAdjacentHTML("beforeend", html);
 
