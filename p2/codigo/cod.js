@@ -1,17 +1,19 @@
 /* ------------ CODI GENERAL ------------ */
-document.addEventListener("DOMContentLoaded", navBar); //carrega quan HTML està llest
+(redirigir)(); //autoexecutada
+document.addEventListener("DOMContentLoaded", function(){
+    navBar();
+}); //carrega quan HTML està llest
 
-(function(){ //redirigir autoejecutada
+function redirigir(){
     let logueado = usuarioLogueado();
 
-    if (logueado && (window.location.href.split('/').pop() === 'login.html' || window.location.href.split('/').pop() === 'registro.html')) { /* Si estas logueado y no puedes entrar */
+    if (logueado && (window.location.href.split('/').pop() === 'login.html' || window.location.href.split('/').pop() === 'registro.html')) { // Si estas logueado y no puedes entrar
         window.location.href = 'index.html';
     }
-    else if (!logueado && (window.location.href.split('/').pop() === 'nueva.html' || window.location.href.split('/').pop() === 'publicacion.html')) { /* Si estas logueado y no puedes entrar */
+    else if (!logueado && (window.location.href.split('/').pop() === 'nueva.html' || window.location.href.split('/').pop() === 'publicacion.html')) { //Si estas logueado y no puedes entrar
         window.location.href = 'index.html';
-        console.log("entra");
     }
-})();
+};
 
 // Comprovar usuari loguejat (localStorage i sessionStorage)
 function usuarioLogueado(){
@@ -56,9 +58,10 @@ function navBar(){
         nav = document.getElementsByClassName('menu')[0]; //els className es un array
     
     if(logueado){ //Alta nuevo lugar y logout
+        let usu =  JSON.parse(sessionStorage.getItem('_datos_')).LOGIN;
         //inserta abans del final del element nav
         nav.insertAdjacentHTML("beforeend",`<li><a href="nueva.html"><i class="fa-solid fa-newspaper"></i> Nueva</a></li>
-                                            <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>`);
+                                            <li><a href="index.html" onclick="clearStorage();"><i class="fa-solid fa-right-from-bracket"></i> Logout ${usu}</a></li>`);
     }
     else if(!logueado){ //Inicio, Login, Buscar y Registrarse
         nav.insertAdjacentHTML("beforeend",`<li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
@@ -181,8 +184,9 @@ function postLogin(evt){
             let dialogo = document.createElement('dialog'),
                 html = '';
 
-            html += `<h3>Bienvenido ${r.NOMBRE}</h3>`;
-            html += '<button onclick="cerrarDialogo(0);" class="boton">Cerrar</button>';
+            html += `<h3>Bienvenido ${r.NOMBRE}</h3>
+                    <p>Última conexión: ${r.ULTIMO_ACCESO}</p>`;
+            html += '<button onclick="cerrarDialogo(0); redirigir();" class="boton">Cerrar</button>';
 
             dialogo.innerHTML = html;
             document.body.appendChild(dialogo);
@@ -200,6 +204,7 @@ function postLogin(evt){
 
 function cerrarDialogo(valor){
     console.log(valor);
+    //redirigir();
     document.querySelector('dialog').close(); //en açò NOMÉS no es borra del html
     document.querySelector('dialog').remove(); //en açò si
 }
