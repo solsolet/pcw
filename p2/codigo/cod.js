@@ -5,12 +5,12 @@ document.addEventListener("DOMContentLoaded", function(){
 }); //carrega quan HTML està llest
 
 function redirigir(){
-    let logueado = usuarioLogueado();
+    let logueado = usuarioLogueado(),
+        pagina = window.location.href.split('/').pop();
 
-    if (logueado && (window.location.href.split('/').pop() === 'login.html' || window.location.href.split('/').pop() === 'registro.html')) { // Si estas logueado y no puedes entrar
-        window.location.href = 'index.html';
-    }
-    else if (!logueado && (window.location.href.split('/').pop() === 'nueva.html' || window.location.href.split('/').pop() === 'publicacion.html')) { //Si estas logueado y no puedes entrar
+    if ((logueado && (pagina === 'login.html' || pagina === 'registro.html')) // Si estas logueado y no puedes entrar
+        ||
+       (!logueado && (pagina === 'nueva.html' || pagina === 'publicacion.html'))) {
         window.location.href = 'index.html';
     }
 };
@@ -177,34 +177,38 @@ function postLogin(evt){
     xhr.responseType = 'json';
 
     xhr.onload = function(){
-        let r = xhr.response; //"r" es com el "data"
+        let r = xhr.response, //"r" es com el "data"
+            dialogo = document.createElement('dialog'),
+            html = '';
         console.log(r);
 
         if(r.RESULTADO == 'OK'){ //es lo que posa el json de resposta
-            let dialogo = document.createElement('dialog'),
-                html = '';
-
             html += `<h3>Bienvenido ${r.NOMBRE}</h3>
-                    <p>Última conexión: ${r.ULTIMO_ACCESO}</p>`;
+                     <p>Última conexión: ${r.ULTIMO_ACCESO}</p>`;
             html += '<button onclick="cerrarDialogo(0); redirigir();" class="boton">Cerrar</button>';
 
-            dialogo.innerHTML = html;
-            document.body.appendChild(dialogo);
-            dialogo.showModal();
             sessionStorage['_datos_'] = JSON.stringify(r);
-
             console.log( JSON.parse(sessionStorage.getItem('_datos_')).LOGIN);
         }
         else{
-            console.log('error');
+            console.log('error login');
+            html += `<h3>Login incorrecto</h3>
+                    <p>${r.DESCRIPCION}</p>
+                    <button onclick="cerrarDialogo(0); foco('login');" class="boton">Cerrar</button>`;
         }
+        dialogo.innerHTML = html;
+        document.body.appendChild(dialogo);
+        dialogo.showModal();
     }
     xhr.send(fd); //enviem la informació fd
 }
 
+function foco(campo){ //pone foco en un campo de formulario
+    document.getElementById(campo).focus();
+}
+
 function cerrarDialogo(valor){
     console.log(valor);
-    //redirigir();
     document.querySelector('dialog').close(); //en açò NOMÉS no es borra del html
     document.querySelector('dialog').remove(); //en açò si
 }
