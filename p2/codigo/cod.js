@@ -200,13 +200,22 @@ function getPublicacion(){
                                 <button class="boton ok"><i class="fa-solid fa-thumbs-up"></i> Me gusta ${e.nMeGusta}</button>
                                 <button class="boton ko"><i class="fa-solid fa-thumbs-down"></i> No me gusta ${e.nNoMeGusta}</button>`;
                     });
+                    //FALTA FOTO AUTOR ARREGLAR Nº COMENTARIS
                     publicacion.insertAdjacentHTML("beforeend", html);
+                    getPublicacionFotos();
                 });
             }
         }).catch(function(err) {
         console.log('Fetch Error: ' + err);
     });
 }
+
+function getPublicacionFotos(){
+    console.log('hola');
+    //FER
+}
+
+//PREGUNTAR JAVIER CODI NUEVA FOTO
 
 /* ------------- CODI LOGIN.HTML ------------- */
 /* Login POST api/usuarios/login AJAX */
