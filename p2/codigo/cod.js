@@ -163,6 +163,51 @@ function paginacion(pag){
     pag_actual.innerHTML = pag;
 }
 
+function getParametrosURL(){
+    //let parametros = window.location.href.split('/').pop()
+    const queryString = window.location.search,
+        urlParams = new URLSearchParams(queryString),
+        id = urlParams.get('id');
+
+    //console.log(id);
+    return id; //tornem id per a publicacion (canviar si fa falta a un altre lloc)
+}
+
+function getPublicacion(){
+    let id_publicacion = getParametrosURL();
+    var url = `./api/publicaciones/${id_publicacion}`,
+        publicacion = document.getElementById("publicacion"); //on posar la info de la publicació
+
+    // fetch usa el método GET por defecto
+    fetch(url)
+        .then(function(res){ //res de response
+            if(res.ok){ // if(response.status==200)
+                res.json().then(function(data) { // se tiene la respuesta y con 
+                    console.log(data);          // json() se recoge en data como objeto javascript
+
+                    let html = '';
+                
+                    data.FILAS.forEach(e => {
+                        console.log(e);
+                        html +=`<h3>${e.titulo}</h3>
+                                <p>${e.texto}</p>
+                                <a href="buscar.html"><i class="fa-solid fa-location-dot"></i> ${e.nombreZona}</a>
+                                <div class="cajita">
+                                    <p>${e.autor}</p>
+                                    <p><i class="fa-regular fa-calendar"></i> <time datetime="${e.fechaCreacion}">${e.fechaCreacion}</time></p>
+                                </div>
+                                <a href="#comentarios">3 comentarios</a> <!-- per a baixar a comentarios -->
+                                <button class="boton ok"><i class="fa-solid fa-thumbs-up"></i> Me gusta ${e.nMeGusta}</button>
+                                <button class="boton ko"><i class="fa-solid fa-thumbs-down"></i> No me gusta ${e.nNoMeGusta}</button>`;
+                    });
+                    publicacion.insertAdjacentHTML("beforeend", html);
+                });
+            }
+        }).catch(function(err) {
+        console.log('Fetch Error: ' + err);
+    });
+}
+
 /* ------------- CODI LOGIN.HTML ------------- */
 /* Login POST api/usuarios/login AJAX */
 function postLogin(evt){
