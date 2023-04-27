@@ -17,7 +17,7 @@
     <link rel="icon" type="image/png" href="img/logo.png">
     <script src="codigo/cod.js"></script>
 </head>
-<body onload="navBar();">
+<body>
     <header>
         <a href="index.html"><img src="img/logo.png" alt="logotipo" id="logo"></a>
         <div> <!-- per a usar inline-flex -->
@@ -30,7 +30,7 @@
         <label for="chkMenu">&equiv;</label> <!-- pal menu hamburguesa -->
         <input type="checkbox" id="chkMenu">
         <ul class="menu" id="menu">
-            <li class="act"><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
             <li><a href="buscar.html"><i class="fa-solid fa-magnifying-glass"></i> Buscar</a></li>
         </ul>        
     </nav>
@@ -39,46 +39,15 @@
         <h2>Inicio</h2>
         <section>
             <h3>Últimas publicaciones</h3>
-            <div class="image-grid">
-                <article class="carta">
-                    <a href="publicacion.html"><h4 title="Recogida de basura" class="recorte">Recogida de basura</h4></a>
-                    <a href="publicacion.html"><img src="./img/img1_1.jpg" alt="playa de la Vila Joiosa"></a>
-                    <p>Juan Pérez  <br> <i class="fa-regular fa-calendar"></i> <time datetime="2023-02-14">14/02/2023</time></p>
-                </article>
-                <article class="carta">
-                    <a href="publicacion.html" class="h4h4"><h4 title="Bache arreglado en la calle Sant Antoni" class="recorte">Bache arreglado en la calle Sant Antoni</h4></a>
-                    <a href="publicacion.html"><img src="./img/img1.png" alt="Carrer Sant Antoni"></a>
-                    <p>Laura  <br> <i class="fa-regular fa-calendar"></i> <time datetime="2023-02-14">14/02/2023</time></p>
-                </article>
-                <article class="carta">
-                    <a href="publicacion.html"><h4 title="Fiesta en el casco antiguo" class="recorte">Fiesta en el casco antiguo</h4></a>
-                    <a href="publicacion.html"><img src="./img/img1.png" alt=""></a>
-                    <p>Sebas <br> <i class="fa-regular fa-calendar"></i> <time datetime="2023-02-14">14/02/2023</time></p>
-                </article>
-                <article class="carta">
-                    <a href="publicacion.html"><h4 title="Cambio de nombre a la plaza de la Generalitat" class="recorte">Cambio de nombre a la plaza de la Generalitat</h4></a>
-                    <a href="publicacion.html"><img src="./img/img1.png" alt=""></a>
-                    <p>Sergio <br> <i class="fa-regular fa-calendar"></i> <time datetime="2023-02-14">14/02/2023</time></p>
-                </article>
-                <article class="carta">
-                    <a href="publicacion.html"><h4 title="Las casas de colores, visita turística" class="recorte">Las casas de colores, visita turística</h4></a>
-                    <a href="publicacion.html"><img src="./img/img1.png" alt=""></a>
-                    <p>Javier  <br> <i class="fa-regular fa-calendar"></i> <time datetime="2023-02-14">14/02/2023</time></p>
-                </article>
-                <article class="carta">
-                    <a href="publicacion.html"><h4 title="Muntant al casc antic" class="recorte">Muntant al casc antic</h4></a>
-                    <a href="publicacion.html"><img src="./img/img1.png" alt=""></a>
-                    <p>Paco  <br> <i class="fa-regular fa-calendar"></i> <time datetime="2023-02-14">14/02/2023</time></p>
-                </article>
-            </div>
+            <div class="image-grid" id="publicaciones"></div>
         </section>
         <nav>
             <p>
-                <button class="boton">&lt;&lt;</button>
-                <button class="boton">&lt;</button>
-                Página 1 de 6 
-                <button class="boton">&gt;</button>
-                <button class="boton">&gt;&gt;</button>
+                <button class="boton" id="bPrimera">&lt;&lt;</button>
+                <button class="boton" id="bAnterior">&lt;</button>
+                Página <span id="pag"></span> de <span id="totalPags"></span>
+                <button class="boton" id="bSiguiente">&gt;</button>
+                <button class="boton" id="bUltima">&gt;&gt;</button>
             </p>   
         </nav>
     </main>
@@ -90,4 +59,7 @@
     </footer>
     
 </body>
+<script>
+    getPublicaciones(pag);
+</script>
 </html>
