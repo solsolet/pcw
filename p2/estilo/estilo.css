@@ -180,7 +180,7 @@ footer p a:hover{
 .galeria{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15em, 1fr)); /* amb açò no ens farien falta media queries, el 15em es que divideix l'ample/15 */
-    grid-gap: .5em;
+    grid-gap: 1.5em;
 }
 .galeria > div > img{
     width: 100%;

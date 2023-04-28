@@ -220,9 +220,8 @@ function getPublicacionFotos(id_p){
             if(res.ok){
                 res.json().then(function(data) {
                     console.log(data);
-
                     let html = '';
-                
+
                     data.FILAS.forEach(e => {
                         console.log(e);
                         html +=`<div>
@@ -236,6 +235,19 @@ function getPublicacionFotos(id_p){
         }).catch(function(err) {
         console.log('Fetch Error: ' + err);
     });
+}
+
+function mostrarFotos(){
+    let galeria = document.getElementsByClassName('galeria')[0],
+        boton = document.querySelector('#mostrar');
+
+    if (galeria.style.display === "none") {
+        galeria.style.display = "grid";
+        boton.innerHTML = '<i class="fa-solid fa-eye-slash"></i> Ocultar';
+    } else {
+        galeria.style.display = "none";
+        boton.innerHTML = '<i class="fa-solid fa-eye"></i> Mostrar';
+    }
 }
 
 //PREGUNTAR JAVIER CODI NUEVA FOTO
