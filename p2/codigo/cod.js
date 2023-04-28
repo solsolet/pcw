@@ -186,6 +186,7 @@ function getPublicacion(){
                     console.log(data);          // json() se recoge en data como objeto javascript
 
                     let html = '';
+                    
                 
                     data.FILAS.forEach(e => {
                         console.log(e);
@@ -197,13 +198,14 @@ function getPublicacion(){
                                     <p>${e.autor}</p>
                                     <p><i class="fa-regular fa-calendar"></i> <time datetime="${e.fechaCreacion}">${e.fechaCreacion}</time></p>
                                 </div>
-                                <a href="#comentarios">3 comentarios</a> <!-- per a baixar a comentarios -->
+                                <a href="#comentarios">Comentarios</a> <!-- per a baixar a comentarios -->
                                 <button class="boton ok"><i class="fa-solid fa-thumbs-up"></i> Me gusta ${e.nMeGusta}</button>
                                 <button class="boton ko"><i class="fa-solid fa-thumbs-down"></i> No me gusta ${e.nNoMeGusta}</button>`;
                     });
                     //ARREGLAR Nº COMENTARIS
                     publicacion.insertAdjacentHTML("beforeend", html);
                     getPublicacionFotos(id_publicacion);
+                    getComentarios(id_publicacion); //no coge bien el n por ser asíncrono
                 });
             }
         }).catch(function(err) {
@@ -248,6 +250,55 @@ function mostrarFotos(){
         galeria.style.display = "none";
         boton.innerHTML = '<i class="fa-solid fa-eye"></i> Mostrar';
     }
+}
+
+function getComentarios(id_p){
+    var url = `./api/publicaciones/${id_p}/comentarios`;
+        comentarios = document.getElementById('comentarios'),
+        nComentarios = 0;
+
+    fetch(url)
+        .then(function(res){
+            if(res.ok){
+                res.json().then(function(data) {
+                    console.log(data);
+                    let html = '',
+                        fecha;
+                    
+                    data.FILAS.forEach(e => {
+                        console.log(e);
+                        fecha = formatoFecha(e.fechaHora); //devuelve decha con formato indicado en la practica
+                        nComentarios++;
+
+                        html +=`<article class="cajita">
+                                    <img src="fotos/usuarios/${e.foto}" alt="Foto ${e.login}">
+                                    <div class="comment">
+                                        <h5>${e.nombre}</h5>
+                                        <p><time datetime="${e.fechaHora}">${fecha}</time></p>
+                                        <p>${e.texto}</p>
+                                    </div>
+                                </article>`;
+                    });
+                    comentarios.insertAdjacentHTML("beforeend", html);
+                });
+            }
+        }).catch(function(err) {
+        console.log('Fetch Error: ' + err);
+    });
+
+    console.log(nComentarios);
+    return nComentarios;
+}
+
+function formatoFecha(fecha) {
+    let f = new Date(fecha),
+        diaSemana = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'][f.getDay()],
+        mesos = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
+        mes = mesos[f.getMonth()],
+        dia = f.getDate(),
+        any = f.getFullYear();
+    
+    return `${diaSemana}, ${dia} de ${mes} de ${any}`;
 }
 
 //PREGUNTAR JAVIER CODI NUEVA FOTO
