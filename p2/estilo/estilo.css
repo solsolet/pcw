@@ -134,9 +134,13 @@ body > main{ padding: 2em; } /* q no estiga tot apegat */
         margin-right: 1.5em;
     }
 
-.cajita{ /* autor i data noticia */
+.cajita{ /* autor i data publicacion*/
     display: flex;
     gap: 1.5em;
+    align-items: center;
+}
+.cajita > img{
+    width: 2.4em;
 }
     
 /* text overflow */

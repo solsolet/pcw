@@ -193,6 +193,7 @@ function getPublicacion(){
                                 <p>${e.texto}</p>
                                 <a href="buscar.html"><i class="fa-solid fa-location-dot"></i> ${e.nombreZona}</a>
                                 <div class="cajita">
+                                    <img src="fotos/usuarios/${e.fotoAutor}" alt="Foto ${e.autor}">
                                     <p>${e.autor}</p>
                                     <p><i class="fa-regular fa-calendar"></i> <time datetime="${e.fechaCreacion}">${e.fechaCreacion}</time></p>
                                 </div>
@@ -200,7 +201,7 @@ function getPublicacion(){
                                 <button class="boton ok"><i class="fa-solid fa-thumbs-up"></i> Me gusta ${e.nMeGusta}</button>
                                 <button class="boton ko"><i class="fa-solid fa-thumbs-down"></i> No me gusta ${e.nNoMeGusta}</button>`;
                     });
-                    //FALTA FOTO AUTOR ARREGLAR Nº COMENTARIS
+                    //ARREGLAR Nº COMENTARIS
                     publicacion.insertAdjacentHTML("beforeend", html);
                     getPublicacionFotos();
                 });
