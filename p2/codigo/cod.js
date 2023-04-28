@@ -173,6 +173,7 @@ function getParametrosURL(){
     return id; //tornem id per a publicacion (canviar si fa falta a un altre lloc)
 }
 
+/* ------------- CODI PUBLICACION.HTML ------------- */
 function getPublicacion(){
     let id_publicacion = getParametrosURL();
     var url = `./api/publicaciones/${id_publicacion}`,
@@ -180,13 +181,11 @@ function getPublicacion(){
 
     // fetch usa el método GET por defecto
     fetch(url)
-        .then(function(res){ //res de response
-            if(res.ok){ // if(response.status==200)
-                res.json().then(function(data) { // se tiene la respuesta y con 
-                    console.log(data);          // json() se recoge en data como objeto javascript
-
+        .then(function(res){
+            if(res.ok){
+                res.json().then(function(data) {
+                    console.log(data);
                     let html = '';
-                    
                 
                     data.FILAS.forEach(e => {
                         console.log(e);
@@ -202,10 +201,9 @@ function getPublicacion(){
                                 <button class="boton ok"><i class="fa-solid fa-thumbs-up"></i> Me gusta ${e.nMeGusta}</button>
                                 <button class="boton ko"><i class="fa-solid fa-thumbs-down"></i> No me gusta ${e.nNoMeGusta}</button>`;
                     });
-                    //ARREGLAR Nº COMENTARIS
                     publicacion.insertAdjacentHTML("beforeend", html);
                     getPublicacionFotos(id_publicacion);
-                    getComentarios(id_publicacion); //no coge bien el n por ser asíncrono
+                    getComentarios(id_publicacion); //no coge bien el n por ser asíncrono //ARREGLAR Nº COMENTARIS
                 });
             }
         }).catch(function(err) {
