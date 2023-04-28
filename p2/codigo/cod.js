@@ -203,7 +203,7 @@ function getPublicacion(){
                     });
                     //ARREGLAR Nº COMENTARIS
                     publicacion.insertAdjacentHTML("beforeend", html);
-                    getPublicacionFotos();
+                    getPublicacionFotos(id_publicacion);
                 });
             }
         }).catch(function(err) {
@@ -211,9 +211,31 @@ function getPublicacion(){
     });
 }
 
-function getPublicacionFotos(){
-    console.log('hola');
-    //FER
+function getPublicacionFotos(id_p){
+    var url = `./api/publicaciones/${id_p}/fotos`;
+        galeria = document.getElementsByClassName('galeria')[0];
+
+    fetch(url)
+        .then(function(res){
+            if(res.ok){
+                res.json().then(function(data) {
+                    console.log(data);
+
+                    let html = '';
+                
+                    data.FILAS.forEach(e => {
+                        console.log(e);
+                        html +=`<div>
+                                    <img src="fotos/pubs/${e.archivo}" alt="Foto ${e.autor}">
+                                    <p>${e.descripcion}</p>
+                                </div>`;
+                    });
+                    galeria.insertAdjacentHTML("beforeend", html);
+                });
+            }
+        }).catch(function(err) {
+        console.log('Fetch Error: ' + err);
+    });
 }
 
 //PREGUNTAR JAVIER CODI NUEVA FOTO
