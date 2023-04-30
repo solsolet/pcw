@@ -346,9 +346,19 @@ function postComentario(frm){
         if(response.ok){
             response.json().then(function(datos){
                 console.log(datos);
+                let dialogo = document.createElement('dialog'),
+                    html = '';
+                
+                html +=`<h3>Mensaje enviado</h3>
+                        <p>Se ha guardado correctamente el comentario</p>
+                        <button onclick="cerrarDialogo(0); redirigir();" class="boton">Cerrar</button>`;
+                
+                dialogo.innerHTML = html;
+                document.body.appendChild(dialogo);
+                dialogo.showModal();
             });
         }
-        frm.reset();
+        frm.reset(); //neteja
         getComentarios(id_p); //afegix el nou comentari
     }).catch(function(error){
         console.log(error);
