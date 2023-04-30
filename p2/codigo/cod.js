@@ -194,7 +194,7 @@ function getPublicacion(){
                 res.json().then(function(data) {
                     console.log(data);
                     let html = '';
-                
+
                     data.FILAS.forEach(e => {
                         console.log(e);
                         html +=`<h3>${e.titulo}</h3>
@@ -205,17 +205,59 @@ function getPublicacion(){
                                     <p>${e.autor}</p>
                                     <p><i class="fa-regular fa-calendar"></i> <time datetime="${e.fechaCreacion}">${e.fechaCreacion}</time></p>
                                 </div>
-                                <a href="#comentarios"><span id="nComentarios"></span> Comentarios</a> <!-- per a baixar a comentarios -->
-                                <button class="boton ok"><i class="fa-solid fa-thumbs-up"></i> Me gusta ${e.nMeGusta}</button>
-                                <button class="boton ko"><i class="fa-solid fa-thumbs-down"></i> No me gusta ${e.nNoMeGusta}</button>`;
+                                <a href="#comentarios"><span id="nComentarios"></span> Comentarios</a> <!--baixa a comentarios-->
+                                <button id="mg" class="boton ok mg" onclick="postMG(${id_publicacion}, 'mg', ${e.meGusta});"><i class="fa-solid fa-thumbs-up"></i> Me gusta ${e.nMeGusta}</button>
+                                <button id="nmg" class="boton ko mg" onclick="postMG(${id_publicacion}, 'nmg', ${e.meGusta});"><i class="fa-solid fa-thumbs-down"></i> No me gusta ${e.nNoMeGusta}</button>`;
                     });
                     publicacion.insertAdjacentHTML("beforeend", html);
+
+                    //Botons MG
+                    if(!logueado){ // Disable botons amb class="mg"
+                        var botons = document.getElementsByClassName("mg");
+                        for (var i = 0; i < botons.length; i++) {
+                            botons[i].disabled = true;
+                        }
+                    }
                     getPublicacionFotos(id_publicacion);
                     getComentarios(id_publicacion);
                 });
             }
         }).catch(function(err) {
         console.log('Fetch Error: ' + err);
+    });
+}
+
+function postMG(id_p, tipo, data){
+    let url = `api/publicaciones/${id_p}/`,
+        usu = JSON.parse( sessionStorage['_datos_'] ),
+        auth;
+
+    console.log(data); 
+    // No acaba de funcionar del tot bé
+    if(data == 1){ //Me gusta
+        document.getElementById("nmg").disabled = true;
+        console.log("hola mg");
+    } else if (data == 0){ //No me gusta
+        document.getElementById("mg").disabled = true;
+        console.log("hola mg");
+    }
+
+    if(tipo == "mg"){ url += "megusta"; }
+    else if(tipo == "nmg"){ url += "nomegusta"; }
+
+    auth = usu.LOGIN + ':' + usu.TOKEN; //parte de la cabecera
+
+    fetch(url,  {   method:'POST',
+                    headers:{'Authorization':auth}
+                }
+    ).then(function(response){
+        if(response.ok){
+            response.json().then(function(datos){
+                console.log(datos);
+            });
+        }
+    }).catch(function(error){
+        console.log(error);
     });
 }
 
@@ -302,8 +344,6 @@ function getComentarios(id_p){
         }).catch(function(err) {
         console.log('Fetch Error: ' + err);
     });
-    console.log(nComentarios);
-    //return nComentarios;
 }
 
 function formatoFecha(fecha) {

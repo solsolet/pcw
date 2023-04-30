@@ -199,7 +199,7 @@ footer p a:hover{
     background-color: var(--glaucous);
     color:#FFF;
     margin:0.5em;
-    cursor: pointer; 
+    cursor: pointer;
 }
 .boton:hover{
     background-color:var(--t);
@@ -208,6 +208,12 @@ footer p a:hover{
 }
 .ok:hover{ background-color: var(--melon); }
 .ko:hover{ background-color: var(--violet); }
+
+.mg:disabled {
+    color: var(--t);
+    background-color: var(--vt);
+}
+  
 
 /* comentaris */
 #comentarios > article{
