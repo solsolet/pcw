@@ -61,7 +61,7 @@ function navBar(){
         let usu =  JSON.parse(sessionStorage.getItem('_datos_')).LOGIN;
         //inserta abans del final del element nav
         nav.insertAdjacentHTML("beforeend",`<li><a href="nueva.html"><i class="fa-solid fa-newspaper"></i> Nueva</a></li>
-                                            <li><a href="index.html" onclick="clearStorage();"><i class="fa-solid fa-right-from-bracket"></i> Logout ${usu}</a></li>`);
+                                            <li><a href="index.html" onclick="hacerLogout();"><i class="fa-solid fa-right-from-bracket"></i> Logout ${usu}</a></li>`);
     }
     else if(!logueado){ //Inicio, Login, Buscar y Registrarse
         nav.insertAdjacentHTML("beforeend",`<li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
@@ -399,4 +399,25 @@ function cerrarDialogo(valor){
     console.log(valor);
     document.querySelector('dialog').close(); //en açò NOMÉS no es borra del html
     document.querySelector('dialog').remove(); //en açò si
+}
+
+function hacerLogout(){
+    let xhr = new XMLHttpRequest(),
+        url = 'api/usuarios/logout',
+        usu = JSON.parse( sessionStorage['_datos_'] ),
+        auth;
+
+    xhr.open('POST', url, true);
+    xhr.responseType = 'json';
+
+    xhr.onload = function(){
+        let r = xhr.response;
+        console.log(r);
+    }
+    auth = usu.LOGIN + ':' + usu.TOKEN;
+    xhr.setRequestHeader('Authorization', auth);
+
+    xhr.send();
+
+    clearStorage();
 }
