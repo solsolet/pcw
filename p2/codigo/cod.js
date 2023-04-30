@@ -177,10 +177,18 @@ function getParametrosURL(){
 function getPublicacion(){
     let id_publicacion = getParametrosURL();
     var url = `./api/publicaciones/${id_publicacion}`,
-        publicacion = document.getElementById("publicacion"); //on posar la info de la publicació
+        publicacion = document.getElementById("publicacion"), //on posar la info de la publicació
+        logueado = usuarioLogueado(),
+        usu, auth, header;
+
+    if(logueado){
+        usu = JSON.parse( sessionStorage['_datos_'] );
+        auth = usu.LOGIN + ':' + usu.TOKEN;
+        header = {'Authorization':auth}; //cabecera
+    }
 
     // fetch usa el método GET por defecto
-    fetch(url)
+    fetch(url, { headers:header } )
         .then(function(res){
             if(res.ok){
                 res.json().then(function(data) {
@@ -262,7 +270,7 @@ function getComentarios(id_p){
             if(res.ok){
                 res.json().then(function(data) {
                     console.log(data);
-                    let html = '',
+                    let html = '<h4><i class="fa-sharp fa-regular fa-comment"></i> Comentarios</h4>',
                         fecha;
                     
                     data.FILAS.forEach(e => {
@@ -284,7 +292,7 @@ function getComentarios(id_p){
                     } else{
                         html += '<p>Tienes que estar logueado para poder dejar un comentario <a href="login.html">Inicia Sesión</a></p>';
                     }
-                    comentarios.insertAdjacentHTML("beforeend", html);
+                    comentarios.innerHTML = html;
                 });
             }
         }).catch(function(err) {
@@ -319,13 +327,11 @@ function formComentario(){
         .catch(function(err) {
             console.log('Error Fetch formComentario.html: ' + err);
         });
-
-    //console.log("formComentario");
 }
 
 function postComentario(frm){
-    let id_publicacion = getParametrosURL(),
-        url = `./api/publicaciones/${id_publicacion}/comentarios`,
+    let id_p = getParametrosURL(),
+        url = `./api/publicaciones/${id_p}/comentarios`,
         fd = new FormData(frm),
         usu = JSON.parse( sessionStorage['_datos_'] ),
         auth;
@@ -342,6 +348,8 @@ function postComentario(frm){
                 console.log(datos);
             });
         }
+        frm.reset();
+        getComentarios(id_p); //afegix el nou comentari
     }).catch(function(error){
         console.log(error);
     });
