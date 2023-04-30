@@ -205,13 +205,13 @@ function getPublicacion(){
                                     <p>${e.autor}</p>
                                     <p><i class="fa-regular fa-calendar"></i> <time datetime="${e.fechaCreacion}">${e.fechaCreacion}</time></p>
                                 </div>
-                                <a href="#comentarios">Comentarios</a> <!-- per a baixar a comentarios -->
+                                <a href="#comentarios"><span id="nComentarios"></span> Comentarios</a> <!-- per a baixar a comentarios -->
                                 <button class="boton ok"><i class="fa-solid fa-thumbs-up"></i> Me gusta ${e.nMeGusta}</button>
                                 <button class="boton ko"><i class="fa-solid fa-thumbs-down"></i> No me gusta ${e.nNoMeGusta}</button>`;
                     });
                     publicacion.insertAdjacentHTML("beforeend", html);
                     getPublicacionFotos(id_publicacion);
-                    getComentarios(id_publicacion); //no coge bien el n por ser asíncrono //ARREGLAR Nº COMENTARIS
+                    getComentarios(id_publicacion);
                 });
             }
         }).catch(function(err) {
@@ -271,7 +271,11 @@ function getComentarios(id_p){
                 res.json().then(function(data) {
                     console.log(data);
                     let html = '<h4><i class="fa-sharp fa-regular fa-comment"></i> Comentarios</h4>',
-                        fecha;
+                        fecha,
+                        nC = document.getElementById("nComentarios");
+
+                    nComentarios = data.FILAS.length;
+                    nC.innerText = nComentarios;
                     
                     data.FILAS.forEach(e => {
                         console.log(e);
@@ -298,7 +302,7 @@ function getComentarios(id_p){
         }).catch(function(err) {
         console.log('Fetch Error: ' + err);
     });
-    //console.log(nComentarios);
+    console.log(nComentarios);
     //return nComentarios;
 }
 
@@ -351,7 +355,7 @@ function postComentario(frm){
                 
                 html +=`<h3>Mensaje enviado</h3>
                         <p>Se ha guardado correctamente el comentario</p>
-                        <button onclick="cerrarDialogo(0); redirigir();" class="boton">Cerrar</button>`;
+                        <button onclick="cerrarDialogo(0);" class="boton">Cerrar</button>`;
                 
                 dialogo.innerHTML = html;
                 document.body.appendChild(dialogo);
