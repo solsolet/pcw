@@ -1,7 +1,7 @@
 <!-- Formulario para dejar un comentario en publicacion.html -->
-<form>
+<form onsubmit="return postComentario(this);">
     <h4>Deja tu comentario</h4>
-    <textarea maxlength="250"></textarea>
+    <textarea name="texto" maxlength="250" placeholder="Escribe tu comentario..."></textarea>
     <footer class="botonera">
         <input type="reset" value="Limpiar" class="boton"><input type="submit" value="Enviar" class="boton ko">
     </footer>

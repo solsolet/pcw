@@ -232,7 +232,7 @@ function getPublicacionFotos(id_p){
                     galeria.insertAdjacentHTML("beforeend", html);
                 });
             }
-        }).catch(function(err) {
+        }).catch(function(err) { 
         console.log('Fetch Error: ' + err);
     });
 }
@@ -250,6 +250,7 @@ function mostrarFotos(){
     }
 }
 
+/* seccio comentaris */
 function getComentarios(id_p){
     var url = `./api/publicaciones/${id_p}/comentarios`;
         comentarios = document.getElementById('comentarios'),
@@ -306,21 +307,46 @@ function formatoFecha(fecha) {
 
 //només si estás logejat
 function formComentario(){
-    var url = `./formComentario.html`;
+    var url = `./formComentario.html`; //pagina externa a publucacion.html
         comentarios = document.getElementById('comentarios');
 
     //GET para obtener el contenido del formulario
     fetch(url)
         .then(respuesta => respuesta.text())
         .then(html => {
-            comentarios.innerHTML = html;
-            //comentarios.insertAdjacentHTML("beforeend", html);
+            comentarios.insertAdjacentHTML("beforeend", html);
         })
         .catch(function(err) {
             console.log('Error Fetch formComentario.html: ' + err);
         });
 
-    console.log("formComentario");
+    //console.log("formComentario");
+}
+
+function postComentario(frm){
+    let id_publicacion = getParametrosURL(),
+        url = `./api/publicaciones/${id_publicacion}/comentarios`,
+        fd = new FormData(frm),
+        usu = JSON.parse( sessionStorage['_datos_'] ),
+        auth;
+
+    auth = usu.LOGIN + ':' + usu.TOKEN; //parte de la cabecera
+    console.log(auth);
+    fetch(url,  {   method:'POST',
+                    body:fd,
+                    headers:{'Authorization':auth}
+                }
+    ).then(function(response){
+        if(response.ok){
+            response.json().then(function(datos){
+                console.log(datos);
+            });
+        }
+    }).catch(function(error){
+        console.log(error);
+    });
+
+    return false; //cancela la acción por defecto del evento
 }
 
 //PREGUNTAR JAVIER CODI NUEVA FOTO
