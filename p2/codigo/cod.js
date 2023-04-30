@@ -309,7 +309,7 @@ function formComentario(){
     var url = `./formComentario.html`;
         comentarios = document.getElementById('comentarios');
 
-  //GET para obtener el contenido del formulario
+    //GET para obtener el contenido del formulario
     fetch(url)
         .then(respuesta => respuesta.text())
         .then(html => {
@@ -319,6 +319,8 @@ function formComentario(){
         .catch(function(err) {
             console.log('Error Fetch formComentario.html: ' + err);
         });
+
+    console.log("formComentario");
 }
 
 //PREGUNTAR JAVIER CODI NUEVA FOTO
