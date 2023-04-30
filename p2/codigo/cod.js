@@ -253,7 +253,8 @@ function mostrarFotos(){
 function getComentarios(id_p){
     var url = `./api/publicaciones/${id_p}/comentarios`;
         comentarios = document.getElementById('comentarios'),
-        nComentarios = 0;
+        nComentarios = 0,
+        logueado = usuarioLogueado();
 
     fetch(url)
         .then(function(res){
@@ -277,15 +278,19 @@ function getComentarios(id_p){
                                     </div>
                                 </article>`;
                     });
+                    if(logueado){
+                        formComentario();
+                    } else{
+                        html += '<p>Tienes que estar logueado para poder dejar un comentario <a href="login.html">Inicia Sesión</a></p>';
+                    }
                     comentarios.insertAdjacentHTML("beforeend", html);
                 });
             }
         }).catch(function(err) {
         console.log('Fetch Error: ' + err);
     });
-
-    console.log(nComentarios);
-    return nComentarios;
+    //console.log(nComentarios);
+    //return nComentarios;
 }
 
 function formatoFecha(fecha) {
@@ -297,6 +302,23 @@ function formatoFecha(fecha) {
         any = f.getFullYear();
     
     return `${diaSemana}, ${dia} de ${mes} de ${any}`;
+}
+
+//només si estás logejat
+function formComentario(){
+    var url = `./formComentario.html`;
+        comentarios = document.getElementById('comentarios');
+
+  //GET para obtener el contenido del formulario
+    fetch(url)
+        .then(respuesta => respuesta.text())
+        .then(html => {
+            comentarios.innerHTML = html;
+            //comentarios.insertAdjacentHTML("beforeend", html);
+        })
+        .catch(function(err) {
+            console.log('Error Fetch formComentario.html: ' + err);
+        });
 }
 
 //PREGUNTAR JAVIER CODI NUEVA FOTO
