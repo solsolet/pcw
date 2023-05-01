@@ -15,6 +15,7 @@
     <script src="https://kit.fontawesome.com/27260d853d.js" crossorigin="anonymous"></script>    
     <title>Buscar</title>
     <link rel="icon" type="image/png" href="img/logo.png">
+    <script src="codigo/cod.js"></script>
 </head>
 <body>
     <header>
@@ -26,21 +27,17 @@
     </header>
 
     <nav>
-        <label for="chkMenu">&equiv;</label> <!-- pal menu hamburguesa -->
+        <label for="chkMenu">&equiv;</label>
         <input type="checkbox" id="chkMenu">
         <ul class="menu">
             <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
-            <li class="act"><a href="buscar.html"><i class="fa-solid fa-magnifying-glass"></i> Buscar</a></li>
-            <li><a href="nueva.html"><i class="fa-solid fa-newspaper"></i> Nueva</a></li>
-            <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
-            <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
-            <li><a href="registro.html"><i class="fa-solid fa-user-plus"></i> Registro</a></li>
+            <li><a href="buscar.html"><i class="fa-solid fa-magnifying-glass"></i> Buscar</a></li>
         </ul>        
     </nav>
 
     <main>
         <h2>Criterios de búsqueda</h2>
-        <form>
+        <form onsubmit="buscar(event);" method="post" id="frm_busqueda">
             <label>Contiene:<input type="text" name="contiene" id="contiene" placeholder="La noticia incluye la palabra 'accidente'" autofocus></label> 
             <fieldset>
                 <legend>Fecha</legend>
@@ -56,46 +53,15 @@
         
         <section>
             <h2>Resultado de la búsqueda</h2>
-            <div class="image-grid">
-                <article class="carta">
-                    <a href="publicacion.html"><h4 title="Recogida de basura" class="recorte">Recogida de basura</h4></a>
-                    <a href="publicacion.html"><img src="./img/img1_1.jpg" alt="playa de la Vila Joiosa"></a>
-                    <p>Juan Pérez  <br> <i class="fa-regular fa-calendar"></i> <time datetime="2023-02-14">14/02/2023</time></p>
-                </article>
-                <article class="carta">
-                    <a href="publicacion.html" class="h4h4"><h4 title="Bache arreglado en la calle Sant Antoni" class="recorte">Bache arreglado en la calle Sant Antoni</h4></a>
-                    <a href="publicacion.html"><img src="./img/img1.png" alt="Carrer Sant Antoni"></a>
-                    <p>Laura  <br> <i class="fa-regular fa-calendar"></i> <time datetime="2023-02-14">14/02/2023</time></p>
-                </article>
-                <article class="carta">
-                    <a href="publicacion.html"><h4 title="Fiesta en el casco antiguo" class="recorte">Fiesta en el casco antiguo</h4></a>
-                    <a href="publicacion.html"><img src="./img/img1.png" alt=""></a>
-                    <p>Sebas <br> <i class="fa-regular fa-calendar"></i> <time datetime="2023-02-14">14/02/2023</time></p>
-                </article>
-                <article class="carta">
-                    <a href="publicacion.html"><h4 title="Cambio de nombre a la plaza de la Generalitat" class="recorte">Cambio de nombre a la plaza de la Generalitat</h4></a>
-                    <a href="publicacion.html"><img src="./img/img1.png" alt=""></a>
-                    <p>Sergio <br> <i class="fa-regular fa-calendar"></i> <time datetime="2023-02-14">14/02/2023</time></p>
-                </article>
-                <article class="carta">
-                    <a href="publicacion.html"><h4 title="Las casas de colores, visita turística" class="recorte">Las casas de colores, visita turística</h4></a>
-                    <a href="publicacion.html"><img src="./img/img1.png" alt=""></a>
-                    <p>Javier  <br> <i class="fa-regular fa-calendar"></i> <time datetime="2023-02-14">14/02/2023</time></p>
-                </article>
-                <article class="carta">
-                    <a href="publicacion.html"><h4 title="Muntant al casc antic" class="recorte">Muntant al casc antic</h4></a>
-                    <a href="publicacion.html"><img src="./img/img1.png" alt=""></a>
-                    <p>Paco  <br> <i class="fa-regular fa-calendar"></i> <time datetime="2023-02-14">14/02/2023</time></p>
-                </article>
-            </div>
+            <div class="image-grid" id="resultado"></div>
         </section>
         <nav>
             <p>
-                <button class="boton">&lt;&lt;</button>
-                <button class="boton">&lt;</button>
-                Página 1 de 6 
-                <button class="boton">&gt;</button>
-                <button class="boton">&gt;&gt;</button>
+                <button class="boton" id="bPrimera">&lt;&lt;</button>
+                <button class="boton" id="bAnterior">&lt;</button>
+                Página <span id="pag"></span> de <span id="totalPags"></span>
+                <button class="boton" id="bSiguiente">&gt;</button>
+                <button class="boton" id="bUltima">&gt;&gt;</button>
             </p>   
         </nav>
     </main>
@@ -105,6 +71,22 @@
             <a href="acerca.html">Contacto</a> &copy; <time datetime="2023-02">2023</time> <abbr title="Programación del Cliente Web">PCW</abbr>
         </p>
     </footer>
+    <script>
+        let z = getParametrosURL();
+        /*if(z != null){
+            z.submit();
+        } */
+        /* let queryString = window.location.search,
+            urlParams = new URLSearchParams(queryString),
+            zona = urlParams.get('z');
+    
+        if(zona != null){ 
+            const frm = document.getElementById("frm_busqueda");
+            frm.elements["ubi"].value = zona;
+            buscar(frm);
+        } */
+    </script>
     
 </body>
+
 </html>

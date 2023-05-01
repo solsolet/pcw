@@ -14,6 +14,7 @@
     <script src="https://kit.fontawesome.com/27260d853d.js" crossorigin="anonymous"></script>    
     <title>Publicacion</title>
     <link rel="icon" type="image/png" href="img/logo.png">
+    <script src="codigo/cod.js"></script>
 </head>
 <body>
     <header>
@@ -30,73 +31,22 @@
         <ul class="menu">
             <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
             <li><a href="buscar.html"><i class="fa-solid fa-magnifying-glass"></i> Buscar</a></li>
-            <li><a href="nueva.html"><i class="fa-solid fa-newspaper"></i> Nueva</a></li>
-            <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
-            <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
-            <li><a href="registro.html"><i class="fa-solid fa-user-plus"></i> Registro</a></li>
         </ul>        
     </nav>
 
     <main>
         <section>
-           <h2>Notícia</h2>
-            <article>
-                <h3>Recogida de basura</h3>
-                <p>La última semana los colegios han realizado una actividad de recogida de basura en la playa de nuestra localidad para concienciar a los más pequeños del reciclaje.</p>
-                <a href="buscar.html"><i class="fa-solid fa-location-dot"></i> Vila Joiosa</a>
-                <div class="cajita">
-                    <p>Autor</p>
-                    <p><i class="fa-regular fa-calendar"></i> <time datetime="2023-02-14">14/02/2023</time></p>
-                </div>
-                <a href="#comentarios">3 comentarios</a> <!-- per a baixar a comentarios -->
-                <button class="boton ok"><i class="fa-solid fa-thumbs-up"></i> Me gusta 15</button>
-                <button class="boton ko"><i class="fa-solid fa-thumbs-down"></i> No me gusta 2</button>
-            </article>
+            <h2>Notícia</h2>
+            <article id="publicacion"></article> 
             <article class="separadors">
                 <h4><i class="fa-solid fa-camera"></i> Fotos</h4>
-                <div class="galeria">
-                    <img src="img/img1_1.jpg" alt="playa">
-                    <img src="img/img1_2.jpg" alt="playa">
-                    <img src="img/img1_3.jpg" alt="playa">
-                </div>
+                <div class="galeria"></div>
+                <button id="mostrar" class="boton" onclick="mostrarFotos();"><i class="fa-solid fa-eye-slash"></i> Ocultar</button>
             </article>
         </section>
 
-        <section  id="comentarios">
+        <section id="comentarios">
             <h4><i class="fa-sharp fa-regular fa-comment"></i> Comentarios</h4>
-            <article class="cajita">
-                <img src="img/usuvoid.jpg" alt="">
-                <div class="comment">
-                    <h5>Juan Pérez</h5>
-                    <p><time datetime="2023-01-26 11:36">26 de enero de 2023, 11:36h</time></p>
-                    <p>Me parece una muy buena iniciativa por parte de los centros educativos.</p>
-                </div>
-            </article>
-            <article class="cajita">
-                <img src="img/usuvoid.jpg" alt="">
-                <div class="comment">
-                    <h5>Ana Soler</h5>
-                    <p><time datetime="2023-01-27 13:00">27 de enero de 2023, 13:00h</time></p>
-                    <p>La gente debería estar más concienciada respecto a la limpieza de nuestra playa y calles.</p>
-                </div>
-            </article>
-            <article class="cajita">
-                <img src="img/usuvoid.jpg" alt="">
-                <div class="comment">
-                    <h5>Gemma Sellés</h5>
-                    <p><time datetime="2023-01-28 12:36">28 de enero de 2023, 12:36h</time></p>
-                    <p>Estaría bien aplicarlo a centros de secundaria.</p>
-                </div>
-            </article>
-
-            <form>
-                <h4>Deja tu comentario</h4>
-                <textarea maxlength="250"></textarea>
-                <footer class="botonera">
-                    <input type="reset" value="Limpiar" class="boton"><input type="submit" value="Enviar" class="boton ko">
-                </footer>
-            </form>
-            <p>Tienes que estar logueado para poder dejar un comentario <a href="login.html">Inicia Sesión</a></p>
         </section>
     </main>
 
@@ -105,6 +55,9 @@
             <a href="acerca.html">Contacto</a> &copy; <time datetime="2023-02">2023</time> <abbr title="Programación del Cliente Web">PCW</abbr>
         </p>
     </footer>
-    
+    <script>
+        getPublicacion();
+    </script>
 </body>
+
 </html>
