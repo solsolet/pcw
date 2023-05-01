@@ -37,7 +37,7 @@
 
     <main>
         <h2>Criterios de búsqueda</h2>
-        <form onsubmit="buscar(event);" method="post">
+        <form onsubmit="buscar(event);" method="post" id="frm_busqueda">
             <label>Contiene:<input type="text" name="contiene" id="contiene" placeholder="La noticia incluye la palabra 'accidente'" autofocus></label> 
             <fieldset>
                 <legend>Fecha</legend>
@@ -53,13 +53,7 @@
         
         <section>
             <h2>Resultado de la búsqueda</h2>
-            <div class="image-grid" id="resultado">
-                <!-- <article class="carta">
-                    <a href="publicacion.html"><h4 title="Cambio de nombre a la plaza de la Generalitat" class="recorte">Cambio de nombre a la plaza de la Generalitat</h4></a>
-                    <a href="publicacion.html"><img src="./img/img1.png" alt=""></a>
-                    <p>Sergio <br> <i class="fa-regular fa-calendar"></i> <time datetime="2023-02-14">14/02/2023</time></p>
-                </article> -->
-            </div>
+            <div class="image-grid" id="resultado"></div>
         </section>
         <nav>
             <p>
@@ -80,6 +74,18 @@
     
 </body>
 <script>
-    //getParametrosURL();
+    let z = getParametrosURL();
+    /*if(z != null){
+        z.submit();
+    } */
+    /* let queryString = window.location.search,
+        urlParams = new URLSearchParams(queryString),
+        zona = urlParams.get('z');
+
+    if(zona != null){ 
+        const frm = document.getElementById("frm_busqueda");
+        frm.elements["ubi"].value = zona;
+        buscar(frm);
+    } */
 </script>
 </html>

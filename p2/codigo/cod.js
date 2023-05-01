@@ -172,12 +172,14 @@ function getParametrosURL(){
     if(id != null){ //per a publicacion
         param = id;
     } else if(id == null){ //per a buscar
-        let texto = urlParams.get('t'),
-            zona = urlParams.get('z'),
-            fmin = urlParams.get('fd'),
-            fmax = urlParams.get('fh');
+        let zona = urlParams.get('z');
 
-        if(zona != null){ buscar(zona); }
+        if(zona != null){ 
+            const frm = document.getElementById("frm_busqueda");
+            frm.elements["ubi"].value = zona;
+            buscar(frm);
+            param = frm;
+        }
     }
 
     return param;
@@ -209,7 +211,7 @@ function getPublicacion(){
                         console.log(e);
                         html +=`<h3>${e.titulo}</h3>
                                 <p>${e.texto}</p>
-                                <a href="buscar.html"><i class="fa-solid fa-location-dot"></i> ${e.nombreZona}</a>
+                                <a href="buscar.html?z=${e.nombreZona}"><i class="fa-solid fa-location-dot"></i> ${e.nombreZona}</a>
                                 <div class="cajita">
                                     <img src="fotos/usuarios/${e.fotoAutor}" alt="Foto ${e.autor}">
                                     <p>${e.autor}</p>
@@ -507,7 +509,7 @@ function buscar(evt){
         resultado = document.getElementById("resultado"),
         url = "api/publicaciones?"; //con técnica building blocks
 
-    //console.log(contiene+" "+desde+" "+hasta+" "+ubi);
+    console.log(contiene+" "+desde+" "+hasta+" "+ubi);
 
     if (contiene)   { url += `&t=${contiene}`; }
     if (desde)      { url += `&fd=${desde}`; }
