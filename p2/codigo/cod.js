@@ -554,7 +554,7 @@ function buscar(evt){
     });
 }
 
-/* ------------------- CODI REGUSTRO.HTML ------------------- */
+/* ------------------- CODI REGISTRO.HTML ------------------- */
 // Funcion que sube y muestra la imagen del formulario
 function subirImagen(){
     const input = document.querySelector('#foto'),
@@ -579,7 +579,7 @@ function subirImagen(){
     }
 }
 
-function hacerRegistro(evt){ 
+function hacerRegistro(evt){
     evt.preventDefault();//cancela la acción por defecto del evento
     var resul = false;
    
@@ -587,7 +587,7 @@ function hacerRegistro(evt){
         resul = resultado;
         
         var contr = contrasenyas();
-        console.log("resul" + resul + "contrasenyas" + contr);
+        console.log("resul: " + resul + ", contrasenyas: " + contr);
         if(resul && contr){
 
           /*  let url ='api/usuarios/registro';
@@ -626,28 +626,33 @@ function hacerRegistro(evt){
             });
             return false;*/
 
-            const nombre=document.querySelector("#nombre"),
+            /* const nombre = document.querySelector("#nombre"),
                 login = document.querySelector("#login"),
-                pwd   = document.querySelector("#pwd"),
-                pwd2  = document.querySelector("#pwd2"),
-                mail=document.querySelector("#email"),
-                foto  = document.querySelector("#foto");
+                pwd = document.querySelector("#pwd"),
+                pwd2 = document.querySelector("#pwd2"),
+                mail = document.querySelector("#email"),
+                foto  = document.querySelector("#foto"); */
+
+            let frm = evt.currentTarget,
+                xhr = new XMLHttpRequest(),
+                url = 'api/usuarios/registro',
+                formData = new FormData(frm);
     
-            var formData = new FormData();
+            /* var formData = new FormData();
             formData.append('nombre', nombre.value);
             formData.append('login', login.value);
             formData.append('pwd', pwd.value);
             formData.append('pwd2', pwd2.value);
             formData.append('email', mail.value);
-            formData.append('foto', foto.files[0])
+            formData.append('foto', foto.files[0]) */
 
             console.log("REALIZO EL LOGIN")
             //let frm = document.querySelector('#form_register');
             //console.log(frm);
-            xhr=new XMLHttpRequest(),
-            url='api/usuarios/registro';
+            //xhr=new XMLHttpRequest(),
+            //url='api/usuarios/registro';
                
-            console.log("formulario"+formData);
+            console.log("formulario" + formData);
 
             xhr.open('POST', url, true);
             xhr.responseType = 'json';
@@ -661,12 +666,13 @@ function hacerRegistro(evt){
                 if(r.RESULTADO == 'OK'){
                     let dialogo = document.createElement('dialog'),
                         html = '';
-                        html += '<h3>Registro correcto ';
-                        html += r.LOGIN; //los campos son en mayúsculas
-                        html += '</h3>';
-                        html += '<p> El registro se ha realizado correctamente</p>';
-                        html += '<button onclick="cerrarDialogoLogin(0);">Login </button>';
-                        dialogo.innerHTML = html;
+
+                    html += '<h3>Registro correcto ';
+                    html += r.LOGIN; //los campos son en mayúsculas
+                    html += '</h3>';
+                    html += '<p> El registro se ha realizado correctamente</p>';
+                    html += '<button onclick="cerrarDialogoLogin(0);">Login </button>';
+                    dialogo.innerHTML = html;
 
                     document.body.appendChild(dialogo); //accedo al body y se lo añado
                     dialogo.showModal();
@@ -711,26 +717,21 @@ function disponible(){
 
 function contrasenyas(){
     const pass1 = document.querySelector("#pwd").value,
-        pass2 = document.querySelector("#pwd2").value,
-        pwd = document.querySelector("#pwd").parentNode;
+        pass2 = document.querySelector("#pwd2").value;
 
     if(pass1 == pass2){
-        if(document.querySelector('aviso')){
+        if(document.querySelector('aviso'))
             document.querySelector('aviso').remove();
-        }
-        console.log("Entro2");
+        
         return true;
     }
     else { 
         if(!document.querySelector('aviso')){
-            console.log("Entro3");
             let aviso_form = document.querySelector("#form_register"),
                 aviso = document.createElement('aviso'),
-                html = '';
-
-            html += '<p>Las contraseñas deben coincidir</p>';
-            pwd.insertAdjacentHTML('afterend', html);
-            aviso.innerHTML = html; //posible borrado pa que no isca baix
+                html = '<p>Las contraseñas deben coincidir</p>';
+            
+            aviso.innerHTML = html; //ix baix
             aviso_form.appendChild(aviso);
         }
         return false
