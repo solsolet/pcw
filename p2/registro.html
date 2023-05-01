@@ -12,8 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/27260d853d.js" crossorigin="anonymous"></script>    
+    <script src="./js/registro.js"></script>
     <title>Registro</title>
     <link rel="icon" type="image/png" href="img/logo.png">
+   
 </head>
 <body>
     <header>
@@ -39,15 +41,16 @@
 
     <main>
         <h2>Regístrate</h2>
-        <form>
-            <label>Nombre: <input type="text" name="nombre" pattern="[a-zA-Z]{1}[0-9a-zA-Z]{3,19}" id="nombre" title="Debe contenerun mínimo de 4 caracteres y un máximo de 20 caracteres, siendo estos letras y números. El primer carácter no puede ser un número. No puede contener espacios en blanco." autofocus required></label>
-            <label>Password: <input type="password" name="contrasenya1" id="contrasenya1" pattern="[a-zA-Z0-9._-]{4,20}" title="Debe contener un mínimo de 4 caracteres y un máximo de 20 caracteres, letras, números y los siguientes caracteres especiales ._- No puede contener espacios en blanco." required></label>
-            <label>Repita contraseña: <input type="password" name="contrasenya2" id="contrasenya2" pattern="[a-zA-Z0-9._-]{4,20}"></label>
-            <label>Email: <input type="email" required></label>
+        <form onsubmit="hacerRegistro(event);" method="POST" id="form_register">
+            <label>Nombre: <input type="text" name="nombre" id="nombre" autofocus required></label>
+            <label id="l_login">Login: <input type="text" name="login" pattern="[a-zA-Z]{1}[0-9a-zA-Z]{3,19}" id="login" onblur="comprueba_log();" title="Debe contenerun mínimo de 4 caracteres y un máximo de 20 caracteres, siendo estos letras y números. El primer carácter no puede ser un número. No puede contener espacios en blanco."  required></label>
+            <label>Password: <input type="password" name="pwd" id="pwd" pattern="[a-zA-Z0-9._-]{4,20}" title="Debe contener un mínimo de 4 caracteres y un máximo de 20 caracteres, letras, números y los siguientes caracteres especiales ._- No puede contener espacios en blanco." required></label>
+            <label>Repita contraseña: <input type="password" name="pwd2" id="pwd2" pattern="[a-zA-Z0-9._-]{4,20}"></label>
+            <label>Email: <input type="email" name="email" required id="email"></label>
             <label for="img3">Foto: <img src="img/usuvoid.jpg" alt=""></label> <input type="file" id="img3" name="img" class="img" accept="image/*">
-           <div class="botonera"> <label class="carpeta  "><i class="fa-solid fa-folder-open"></i><input type="file" name="img" accept="image/*" class="img"> </label>
-            <button class="boton ko" type="button"><i class="fa-solid fa-trash-can"></i> </button>
-        </div>
+           <div class="botonera"> <label class="carpeta  "><i class="fa-solid fa-folder-open"></i><input type="file" name="foto" id="foto" accept="image/*" class="img" onclick="subirImagen();"> </label>
+                <button class="boton ko" type="button"><i class="fa-solid fa-trash-can"></i> </button>
+            </div>
             <input type="submit" class="boton" value="Registrarse">
         </form>
     </main>
@@ -57,6 +60,7 @@
             <a href="acerca.html">Contacto</a> &copy; <time datetime="2023-02">2023</time> <abbr title="Programación del Cliente Web">PCW</abbr>
         </p>
     </footer>
-    
+    <script src="./js/registro.js"></script> 
 </body>
+
 </html>
