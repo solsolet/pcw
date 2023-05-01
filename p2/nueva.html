@@ -12,10 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/27260d853d.js" crossorigin="anonymous"></script>    
+    <script src="./js/nueva.js"></script>
     <title>Nueva</title>
     <link rel="icon" type="image/png" href="img/logo.png">
 </head>
-<body>
+<body onload="zonas();">
     <header>
         <a href="index.html"><img src="img/logo.png" alt="logotipo" id="logo"></a>
         <div>
@@ -43,15 +44,7 @@
             <label>Título: <input type="text" name="titulo" id="titulo" maxlength="200" required autofocus></label>
             <label>Texto: <br><textarea name="texto" id="texto" required></textarea></label> 
             <label>Ubicación: <input list="ubis" name="ubi" id="ubi" maxlength="100" required> <!-- ojo que la list=id del datalist (ubis) --> </label>
-            <datalist id="ubis">
-                <option value="Poble Nou">
-                <option value="Torres">
-                <option value="Talaies">
-                <option value="Pati Fosc">
-                <option value="Paradís">
-                <option value="Ermita">
-                <option value="Rodacuco">
-            </datalist><br>
+            <datalist id="ubis">  </datalist><br>
             <button class="boton"><i class="fa-solid fa-image"></i> Añadir foto</button>
             <label for="img1">Foto: <img src="img/usuvoid.jpg" alt=""><input  type="file" id="img1"  name="img" accept="image/*" class="img" required><br></label>
             <div class="botonera"> 
