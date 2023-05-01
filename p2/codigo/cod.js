@@ -677,68 +677,60 @@ function hacerRegistro(evt){
     });
 }
 
+//Para saber si el nombre de usuario está disponible
 function disponible(){
     return new Promise(resolve => {
-        const nuevoUsuario= document.getElementById("login").value;
+        const nuevoUsuario = document.getElementById("login").value,
+            url = `./api/usuarios/${nuevoUsuario}`;
     
-        if(nuevoUsuario!= ""){
-            // enviar peticion a la api 
-            fetch(`./api/usuarios/${nuevoUsuario}`, {
-                method: 'GET'
-            })
-            .then(response => {
-                const mensajeError = document.querySelector(".errorUser");
-                if(response.ok)
-                    // Proceso de login correcto
-                    response.json().then(function(data) { 
-                        // El usuario es correcto
-                    
-                        if(data.DISPONIBLE === true){
-                            console.log("Disponible");
-                        // mensajeError.setAttribute("style", "display:none"); 
-                            
-                        // El usuario es incorrecto   
-                        }else{
-                            console.log("No disponible");
-                            //mensajeError.setAttribute("style", "none");
-                        }   
-                        resolve(data.DISPONIBLE);
-                    }); 
-                else{
-                    mensajeError.setAttribute("style", "none");   
-                }
-            }).catch(function(err) {
-                console.log('Fetch Error: ' + err);
-                resolve(false);
-            });
+        if(nuevoUsuario != ""){
+            fetch(url) // enviar peticion a la api, por defecto GET
+                .then(response => {
+                    const mensajeError = document.querySelector(".errorUser");
+                    if(response.ok)
+                        // Proceso de login correcto
+                        response.json().then(function(data) {                     
+                            if(data.DISPONIBLE === true)
+                                console.log("Disponible");  
+                            else
+                                console.log("No disponible");
+                             
+                            resolve(data.DISPONIBLE);
+                        });
+                    else {
+                        mensajeError.setAttribute("style", "none");   
+                    }
+                }).catch(function(err) {
+                    console.log('Fetch Error: ' + err);
+                    resolve(false);
+                });
         }
-        else{
-            resolve(false);
-        }
+        else{ resolve(false); }
     });
 }
 
 function contrasenyas(){
     const pass1 = document.querySelector("#pwd").value,
-    pass2 = document.querySelector("#pwd2").value;
-    console.log("Entro1");
+        pass2 = document.querySelector("#pwd2").value,
+        pwd = document.querySelector("#pwd").parentNode;
 
-    if(pass1==pass2){
+    if(pass1 == pass2){
         if(document.querySelector('aviso')){
             document.querySelector('aviso').remove();
         }
         console.log("Entro2");
-        
         return true;
     }
     else { 
         if(!document.querySelector('aviso')){
             console.log("Entro3");
-            var aviso_form = document.querySelector("#form_register");
-            let aviso = document.createElement('aviso'),
-            html = '';
-            html += '<p>Las contrasñas deben coincidir</p>';
-            aviso.innerHTML=html;
+            let aviso_form = document.querySelector("#form_register"),
+                aviso = document.createElement('aviso'),
+                html = '';
+
+            html += '<p>Las contraseñas deben coincidir</p>';
+            pwd.insertAdjacentHTML('afterend', html);
+            aviso.innerHTML = html; //posible borrado pa que no isca baix
             aviso_form.appendChild(aviso);
         }
         return false
@@ -750,4 +742,26 @@ function cerrarDialogoLogin(valor){
     document.querySelector('dialog').close();//cerrar
     document.querySelector('dialog').remove();//eliminar
     window.location.href='login.html';
+}
+
+var cont = 0;
+function comprueba_log(){
+    var in_log = document.querySelector("#l_login"),
+        resul = false;
+
+    disponible().then((resultado) => {
+        resul = resultado;
+        if(!resul){
+            if(cont == 0){
+                cont++;
+                let html = '<p id=aviso>El login no está disponible</p>';
+
+                in_log.insertAdjacentHTML('afterend', html);
+            }
+        } else if(cont != 0){
+            const eliminar = document.querySelector('#aviso');
+            eliminar.remove();
+            cont--;
+        }
+    });
 }
