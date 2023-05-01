@@ -502,12 +502,18 @@ function buscar(evt){
         contiene = fd.get('contiene'),
         desde = fd.get('desde'),
         hasta = fd.get('hasta'),
-        ubi = fd.get('ubi');
+        ubi = fd.get('ubi'),
 
-    console.log(contiene+" "+desde+" "+hasta+" "+ubi);
+        resultado = document.getElementById("resultado"),
+        url = "api/publicaciones?"; //con técnica building blocks
 
-    var resultado = document.getElementById("resultado");
-        url = `api/publicaciones?z=${ubi ? ubi:''}&t=${contiene ? contiene:''}&fd=${desde ? desde:''}&fh=${hasta ? hasta:''}&pag=0&lpag=6`;
+    //console.log(contiene+" "+desde+" "+hasta+" "+ubi);
+
+    if (contiene)   { url += `&t=${contiene}`; }
+    if (desde)      { url += `&fd=${desde}`; }
+    if (hasta)      { url += `&fh=${hasta}`; }
+    if (ubi)        { url += `&z=${ubi}`; }
+    url += "&pag=" + pag + "&lpag=6";
 
     fetch(url)
         .then(function(res){
@@ -528,7 +534,7 @@ function buscar(evt){
                                     </div>
                                 </article>`;
                     });
-                    resultado.insertAdjacentHTML("beforeend", html);
+                    resultado.innerHTML = html;
 
                     // PAGINACIÓN
                     document.querySelector('#pag').textContent = parseInt(data.PAG) + (data.FILAS.length > 0?1:0);
