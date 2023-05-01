@@ -626,31 +626,32 @@ function hacerRegistro(evt){
             });
             return false;*/
 
-            /* const nombre = document.querySelector("#nombre"),
+            const nombre = document.querySelector("#nombre"),
                 login = document.querySelector("#login"),
                 pwd = document.querySelector("#pwd"),
                 pwd2 = document.querySelector("#pwd2"),
                 mail = document.querySelector("#email"),
-                foto  = document.querySelector("#foto"); */
+                foto  = document.querySelector("#foto");
 
-            let frm = evt.currentTarget,
+            /* let frm = evt.currentTarget,
                 xhr = new XMLHttpRequest(),
                 url = 'api/usuarios/registro',
-                formData = new FormData(frm);
+                formData = new FormData(frm); */
+
+            let xhr = new XMLHttpRequest(),
+                url = 'api/usuarios/registro';
     
-            /* var formData = new FormData();
+            var formData = new FormData();
             formData.append('nombre', nombre.value);
             formData.append('login', login.value);
             formData.append('pwd', pwd.value);
             formData.append('pwd2', pwd2.value);
             formData.append('email', mail.value);
-            formData.append('foto', foto.files[0]) */
+            formData.append('foto', foto.files[0])
 
             console.log("REALIZO EL LOGIN")
             //let frm = document.querySelector('#form_register');
             //console.log(frm);
-            //xhr=new XMLHttpRequest(),
-            //url='api/usuarios/registro';
                
             console.log("formulario" + formData);
 
@@ -780,7 +781,7 @@ function zonas(){
         .then(data => {
             data.FILAS.forEach(item => {
                 const option = document.createElement('option');
-                
+
                 option.value = item.nombre;
                 datalistZonas.appendChild(option);
             })

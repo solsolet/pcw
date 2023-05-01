@@ -73,18 +73,20 @@
                     <li><i class="fa-solid fa-right-long"></i> entre 865px y 1920px, tamaño muy grande</li>
                 </ul>
             <p>Está comprobado el correcto funcionamiento de todos los apartados de la práctica en los siguientes navegadores:</p>
-                <ul>
-                    <li><i class="fa-solid fa-right-long"></i>Google Chrome</li>
-                    <li><i class="fa-solid fa-right-long"></i>Microsoft Edge</li>
-                    <li><i class="fa-solid fa-right-long"></i>Firefox</li>
-                </ul>
-               <p>La tipografía se ve diferente en el navegador de Firefox respecto a los demás.
-            </p>
-            <p>Los validadores pasan sin ningún error ni warning</p>
+            <ul>
+                <li><i class="fa-solid fa-right-long"></i>Google Chrome</li>
+                <li><i class="fa-solid fa-right-long"></i>Microsoft Edge</li>
+                <li><i class="fa-solid fa-right-long"></i>Firefox</li>
+            </ul>
+            <p>La tipografía se ve diferente en el navegador de Firefox respecto a los demás.</p>
+            <p>Los validadores pasan sin ningún error</p>
+
             <h4>Observaciones</h4>
-            <p>El apartado de <b>publicacion.html</b> relacionado con los botones de "Me gusta" o "No me gusta" no siempre se obtiene el mismo resultado. No termina de estar bien implementado, la petición se envía correctamente pero el desabilitado de los botones no termina de funcionar</p>
-            <p>En <b>buscar.html</b> si hay en la URL parametros de la zona (se ha accedido por el enlace de una publicación) pone la zona en el formulario pero se necesita darle al botón de buscar para que haga la búsqueda (no hemos conseguido que sea automático) y da un Uncaught TypeError por el "evt.preventDefault"</p>
-            <p>Para comprobar las contraseñas en <b>registro.html</b> se debe rellenar los campos obligatorios en el formulario y darle el botón de "Enviar"</p>
+            <p>El apartado de <b>publicacion.html</b> relacionado con los botones de "Me gusta" o "No me gusta" no siempre se obtiene el mismo resultado. No termina de estar bien implementado, la petición se envía correctamente pero el desabilitado de los botones no termina de funcionar.</p>
+            <p>En publicación tenemos un warning en la etiqueta article con id="publicacion" por falta de un título pero éste se pone en JS ya que necesitamos que se rellene con los parámetros de la solicitud :-)</p>
+            <p>En <b>buscar.html</b> si hay en la URL parametros de la zona (se ha accedido por el enlace de una publicación) pone la zona en el formulario pero se necesita darle al botón de buscar para que haga la búsqueda (no hemos conseguido que sea automático) y da un Uncaught TypeError por el "evt.preventDefault".</p>
+            <p>Para comprobar las contraseñas en <b>registro.html</b> se debe rellenar los campos obligatorios en el formulario y darle el botón de "Enviar".</p>
+            <p>La petición de registro no termina de salir bien, hay algún problema leyendo RESULTADO y aunque registra al usuario en la base de datos, no le asigna token y no sale el resultado esperado.</p>
         </section>
     </main>
 
