@@ -1,8 +1,20 @@
 <!-- Formulario para dejar un comentario en publicacion.html -->
-<form onsubmit="return postComentario(this);">
-    <h4>Deja tu comentario</h4>
-    <textarea name="texto" maxlength="250" placeholder="Escribe tu comentario..."></textarea>
-    <footer class="botonera">
-        <input type="reset" value="Limpiar" class="boton"><input type="submit" value="Enviar" class="boton ko">
-    </footer>
-</form>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gemma Sellés Lloret y Ana María Soler Guijarro">
+    <title>formComentario</title>
+</head>
+<body>
+    <form onsubmit="return postComentario(this);">
+        <h4>Deja tu comentario</h4>
+        <textarea name="texto" maxlength="250" placeholder="Escribe tu comentario..."></textarea>
+        <footer class="botonera">
+            <input type="reset" value="Limpiar" class="boton"><input type="submit" value="Enviar" class="boton ko">
+        </footer>
+    </form>
+</body>
+</html>
