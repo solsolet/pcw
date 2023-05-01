@@ -14,6 +14,7 @@
     <script src="https://kit.fontawesome.com/27260d853d.js" crossorigin="anonymous"></script>    
     <title>Acerca</title>
     <link rel="icon" type="image/png" href="img/logo.png">
+    <script src="codigo/cod.js"></script>
 </head>
 <body>
     <header>
@@ -30,10 +31,6 @@
         <ul class="menu">
             <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
             <li><a href="buscar.html"><i class="fa-solid fa-magnifying-glass"></i> Buscar</a></li>
-            <li><a href="nueva.html"><i class="fa-solid fa-newspaper"></i> Nueva</a></li>
-            <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
-            <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
-            <li><a href="registro.html"><i class="fa-solid fa-user-plus"></i> Registro</a></li>
         </ul>        
     </nav>
 
@@ -84,6 +81,10 @@
                <p>La tipografía se ve diferente en el navegador de Firefox respecto a los demás.
             </p>
             <p>Los validadores pasan sin ningún error ni warning</p>
+            <h4>Observaciones</h4>
+            <p>El apartado de <b>publicacion.html</b> relacionado con los botones de "Me gusta" o "No me gusta" no siempre se obtiene el mismo resultado. No termina de estar bien implementado, la petición se envía correctamente pero el desabilitado de los botones no termina de funcionar</p>
+            <p>En <b>buscar.html</b> si hay en la URL parametros de la zona (se ha accedido por el enlace de una publicación) pone la zona en el formulario pero se necesita darle al botón de buscar para que haga la búsqueda (no hemos conseguido que sea automático) y da un Uncaught TypeError por el "evt.preventDefault"</p>
+            <p>Para comprobar las contraseñas en <b>registro.html</b> se debe rellenar los campos obligatorios en el formulario y darle el botón de "Enviar"</p>
         </section>
     </main>
 
