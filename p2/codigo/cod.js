@@ -164,13 +164,23 @@ function paginacion(pag){
 }
 
 function getParametrosURL(){
-    //let parametros = window.location.href.split('/').pop()
-    const queryString = window.location.search,
+    let queryString = window.location.search,
         urlParams = new URLSearchParams(queryString),
+        param,
         id = urlParams.get('id');
 
-    //console.log(id);
-    return id; //tornem id per a publicacion (canviar si fa falta a un altre lloc)
+    if(id != null){ //per a publicacion
+        param = id;
+    } else if(id == null){ //per a buscar
+        let texto = urlParams.get('t'),
+            zona = urlParams.get('z'),
+            fmin = urlParams.get('fd'),
+            fmax = urlParams.get('fh');
+
+        if(zona != null){ buscar(zona); }
+    }
+
+    return param;
 }
 
 /* ------------- CODI PUBLICACION.HTML ------------- */
@@ -480,6 +490,58 @@ function hacerLogout(){
     xhr.setRequestHeader('Authorization', auth);
 
     xhr.send();
-
     clearStorage();
+}
+
+/* ------------- CODI BUSCAR.HTML ------------- */
+function buscar(evt){
+    evt.preventDefault();
+
+    let frm = evt.currentTarget,
+        fd = new FormData(frm),
+        contiene = fd.get('contiene'),
+        desde = fd.get('desde'),
+        hasta = fd.get('hasta'),
+        ubi = fd.get('ubi');
+
+    console.log(contiene+" "+desde+" "+hasta+" "+ubi);
+
+    var resultado = document.getElementById("resultado");
+        url = `api/publicaciones?z=${ubi ? ubi:''}&t=${contiene ? contiene:''}&fd=${desde ? desde:''}&fh=${hasta ? hasta:''}&pag=0&lpag=6`;
+
+    fetch(url)
+        .then(function(res){
+            if(res.ok){
+                res.json().then(function(data) { 
+                    console.log(data);
+
+                    let html = '';
+                
+                    data.FILAS.forEach(e => {
+                        console.log(e);
+                        html += `<article class="carta">
+                                    <a href="publicacion.html?id=${e.id}"><h4 title="${e.titulo}" class="recorte">${e.titulo}</h4></a>
+                                    <a href="publicacion.html?id=${e.id}"><img src="./fotos/pubs/${e.imagen}" alt="${e.nombreZona}"></a>
+                                    <div>
+                                        <img src="./fotos/usuarios/${e.fotoAutor}" alt="Imagen del ${e.fotoAutor}" class="autorXicotet">
+                                        <p>${e.autor}<br><i class="fa-regular fa-calendar"></i> <time datetime="${e.fechaCreacion}">${e.fechaCreacion}</time></p>
+                                    </div>
+                                </article>`;
+                    });
+                    resultado.insertAdjacentHTML("beforeend", html);
+
+                    // PAGINACIÓN
+                    document.querySelector('#pag').textContent = parseInt(data.PAG) + (data.FILAS.length > 0?1:0);
+                    document.querySelector('#totalPags').textContent = Math.ceil(parseInt(data.TOTAL_COINCIDENCIAS) / parseInt(data.LPAG));
+                    
+                    //paginacion(pag);
+                });
+            }
+            else{
+                console.log('Error(' + res.status + '): ' + res.statusText);
+                return;
+            }
+        }).catch(function(err) {
+        console.log('Fetch Error: ' + err);
+    });
 }
