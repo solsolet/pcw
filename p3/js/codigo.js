@@ -1,13 +1,16 @@
 function inicio(){
         var tabla=document.getElementById("tabla_ultimos");
-    if(sessionStorage.getItem("estado_actual")){
+        var seccion_tabla=document.getElementById("tabla_mensaje");
+    if(sessionStorage.getItem("jugador1")){
         window.location.href="juego.html";
     }else{
         if(sessionStorage.getItem("puntuaciones")){
             //hacer cálculos para insertar cosas en tabla
         }else{
-           // var html="<p>Todavía no hay puntuaciones guardadas. Sé el primero en conseguir una puntuación máxima</p>";
-            //tabla.appendChild(html);
+            var text="Todavía no hay puntuaciones guardadas. Sé el primero en conseguir una puntuación máxima";
+            var textNode = document.createTextNode(text);
+            seccion_tabla.appendChild(textNode);
+            
         }
     }
     if(sessionStorage.getItem('jugador1')){
