@@ -1,0 +1,12 @@
+<svg xmls="http://www.w3.org/2000/svg"
+    width="200" height="200">
+    <style>
+        .circulo{
+            stroke:#00a;
+            stroke-width:6px;
+            fill:#a60;
+        }
+    </style>
+    <circle 
+        cx="100" cy="100" r="50"/>
+</svg>

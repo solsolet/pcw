@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <script src="js/codigo.js"></script>
+    <title>NumTris</title>
+</head>
+<body onload="inicio();">
+    <a href="index.html"><img  alt="logotipo" id="logo"></a>
+    <div> <!-- per a usar inline-flex -->
+        <h1>NumTris</h1>
+        <h2>Busca múltimplos de 5 con estos números y gana a tu rival</h2>
+    </div>
+</header>
+    <main>
+        <section>
+            <table class="ultimos" id="tabla_ultimos">
+                <tr>
+                    <th>Posición</th>
+                    <th>Usuario</th>
+                    <th>Puntuación</th>
+                  </tr>
+            </table>
+        </section>
+        <section>
+            <form onsubmit="start()">
+                <label for="player1">Jugador 1:</label>
+                <input id="player1" type="text" required>
+                <label for="player2">Jugador 2:</label>
+                <input id="player2" type="text" required>
+                <input type="reset" value="Reiniciar valores">
+                <input type="submit" value="Comenzar">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>
+            <a href="acerca.html">Contacto</a> &copy; <time datetime="2023-05">2023</time> <abbr title="Programación del Cliente Web">PCW</abbr>
+        </p>
+    </footer>
+</body>
+</html>

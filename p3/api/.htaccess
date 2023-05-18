@@ -8,7 +8,7 @@ RewriteEngine On
 #   para Windows, C:\xampp\htdocs\practica2\api,
 #   o, bien para Linux, /opt/lampp/htdocs/practica2/api,
 #   habría que poner lo siguiente: RewriteBase /practica2/api/
-RewriteBase /pcw/practica3/api/
+RewriteBase /pcw/p3/api/
 
 ##################################################
 ### REGLAS PARA TABLERO
