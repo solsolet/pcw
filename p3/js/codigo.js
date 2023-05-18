@@ -27,3 +27,9 @@ function cargar(){
         window.location.href='index.html';
     }
 }
+
+function volver(){
+    if(sessionStorage.getItem('jugador1')){
+        window.location.href="juego.html";
+    }else window.location.href="index.html";
+}
