@@ -22,3 +22,8 @@ function start(){
     sessionStorage.setItem('jugador2', jugador2);
 }
 
+function cargar(){
+    if(!sessionStorage.getItem('jugador1')){
+        window.location.href='index.html';
+    }
+}
