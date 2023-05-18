@@ -10,6 +10,9 @@ function inicio(){
             //tabla.appendChild(html);
         }
     }
+    if(sessionStorage.getItem('jugador1')){
+        window.location.href='juego.html';
+    }
 }
 function start(){
     let jugador1=document.getElementById("player1").value;
@@ -17,7 +20,5 @@ function start(){
     console.log(jugador1 + jugador2)
     sessionStorage.setItem('jugador1', jugador1);
     sessionStorage.setItem('jugador2', jugador2);
-    window.location.href='juego.html';
-  
-    
 }
+
