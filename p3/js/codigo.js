@@ -25,14 +25,53 @@ function start(){
     sessionStorage.setItem('jugador2', jugador2);
 }
 
-function cargar(){
-    if(!sessionStorage.getItem('jugador1')){
-        window.location.href='index.html';
-    }
-}
-
 function volver(){
     if(sessionStorage.getItem('jugador1')){
         window.location.href="juego.html";
     }else window.location.href="index.html";
+}
+
+/* --------------- JUEGO.HTML --------------- */
+function cargar(){
+    if(!sessionStorage.getItem('jugador1')){
+        window.location.href = 'index.html';
+    }
+    else{
+        getTablero();
+    }
+}
+
+function getTablero(){
+    var url = `./api/tablero`;
+    
+    fetch(url)
+    .then(function(res){
+        if(res.ok){
+                res.json().then(function(data) {
+                    console.log(data);
+                    let numero, numeros = [];
+                    
+                    //Genera los 3 nº aleatorios para empezar (- el 5)
+                    for(let i=0; i<3; i++){
+                        do 
+                            numero = Math.floor(Math.random()*9) + 1;
+                        while(numero == 5);
+                        numeros[i] = numero;
+                    }
+                    console.log(numeros);
+
+                    /* let html = ''; 
+                    data.FILAS.forEach(e => {
+                        console.log(e);
+                        html +=`<div>
+                                    <img src="fotos/pubs/${e.archivo}" alt="Foto ${e.autor}">
+                                    <p>${e.descripcion}</p>
+                                </div>`;
+                    });
+                    galeria.insertAdjacentHTML("beforeend", html); */
+                });
+            }
+        }).catch(function(err) { 
+        console.log('Fetch Error: ' + err);
+    });
 }
