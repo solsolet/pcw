@@ -325,10 +325,48 @@ function fichas(){
     let num2=document.getElementById("2");
     let num3=document.getElementById("3");
     console.log(numeros[0]);
-    if(numeros[0])
+    if(numeros[0]!="0"){
         num1.innerText=numeros[0];
-    if(numeros[1])
+    }else{
+         num1.classList.remove("sombreado");
+         num1.classList.add("nojugable");
+    }
+    if(numeros[1]!="0"){
         num2.innerText=numeros[1];
-    if(numeros[2]) 
+    }else{
+        num2.classList.remove("sombreado");
+        num2.classList.add("nojugable");
+   }
+    if(numeros[2]!="0"){ 
         num3.innerText=numeros[2];
+    }else{
+        num3.classList.remove("sombreado");
+        num3.classList.add("nojugable");
+   }
+}
+function seleccionar(numero){
+    let ficha= document.getElementById(numero);
+    sessionStorage.setItem("seleccionada", numero);
+    
+
+}
+function usar(){
+    const numero= sessionStorage.getItem("seleccionada");
+
+    let ficha= document.getElementById(numero);
+    ficha.innerText="";
+    ficha.classList.remove("sombreado");
+    ficha.classList.add("nojugable");
+
+    let partidaJSON=sessionStorage.getItem("partida");
+    const partida = JSON.parse(partidaJSON);
+    var numeros= partida.numeros;
+
+    numeros[numero-1]="0";
+    partida.numeros=numeros;
+    const partidaJSONact = JSON.stringify(partida);        
+    sessionStorage.setItem("partida",partidaJSONact);
+
+
+    
 }
