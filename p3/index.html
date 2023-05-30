@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+    <link rel="stylesheet" href="estilo/estilo.css">
+    <link rel="stylesheet" href="estilo/formularios.css">
+    
     <script src="js/codigo.js"></script>
     <title>NumTris</title>
 </head>
@@ -18,28 +20,22 @@
 </header>
     <main>
         <section id="tabla_mensaje">
+            <h3>Top 10 puntuaciones de hoy</h3>
             <table class="ultimos" id="tabla_ultimos">
-                <caption>Top 10 puntuaciones de hoy </caption>
                 <tr>
                     <th>Posición</th>
                     <th>Usuario</th>
                     <th>Puntuación</th>
                 </tr>
-                <tr>
-                    <th>1</th>
-                    <th>Pedro</th>
-                    <th>500</th>
-                </tr>
             </table>
         </section>
         <section>
+            <h3>Nueva partida</h3>
             <form onsubmit="start()">
-                <label for="player1">Jugador 1:</label>
-                <input id="player1" type="text" required>
-                <label for="player2">Jugador 2:</label>
-                <input id="player2" type="text" required>
-                <input type="reset" value="Reiniciar valores">
-                <input type="submit" value="Comenzar">
+                <label>Jugador 1:<input id="player1" type="text" required> </label>
+                <label>Jugador 2:<input id="player2" type="text" required> </label>
+                <input type="reset" class="boton" value="Reiniciar valores">
+                <input type="submit" class= "boton" value="Comenzar">
             </form>
         </section>
     </main>
