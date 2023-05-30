@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo/estilo.css">
+
+    <link rel="stylesheet" href="estilo/style.css">
     <script src="js/codigo.js"></script>
     <title>Juego</title>
 </head>
@@ -16,10 +17,34 @@
         <h2>Busca múltiplos de 5 con estos números y gana a tu rival</h2>
     </div>
 </header>
+    <nav>
+        <ul class="menu" id="menu">
+            <li><a href="#" onclick="fin()">Terminar partida</a></li>
+            <li><a href="#" onclick="ayuda()">Ayuda</a></li>
+        </ul>        
+    </nav>
     <main>
         <section>
-            <h3>¡A jugar!</h3>
+            <h3>Marcador</h3>
+            <table id="marcador">
+                <tr>
+                    <th>Usuario</th>
+                    <th>Puntuación</th>
+                </tr>
+            </table>
         </section>
+        <section>
+            <h3>¡A jugar!</h3>
+            <canvas id="tablero"></canvas>
+        </section>
+        <section>
+            <h3>Números disponibles</h3>
+            <div class="cuadrado sombreado" id="1"></div>
+            <div class="cuadrado sombreado" id="2"></div>
+            <div class="cuadrado sombreado" id="3"></div>
+            
+        </section>
+
     </main>
     <footer>
         <p>
