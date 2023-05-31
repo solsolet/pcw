@@ -346,9 +346,23 @@ function fichas(){
 }
 function seleccionar(numero){
     let ficha= document.getElementById(numero);
-    sessionStorage.setItem("seleccionada", numero);
+   
+    if(sessionStorage.getItem("seleccionada")){
+        let des_ficha=document.getElementById(sessionStorage.getItem("seleccionada"));
+        if(!(des_ficha.classList.contains("nojugable"))){
+            des_ficha.classList.remove("seleccionado");
+            des_ficha.classList.add("sombreado");
+            console.log("Entroalomejor");
+        }
+    }
+    console.log("Entro");
+    if(!(ficha.classList.contains("nojugable"))){
+        console.log("funcionamos");
+        ficha.classList.remove("sombreado");
+        ficha.classList.add("seleccionado");
+        sessionStorage.setItem("seleccionada", numero);
+    }
     
-
 }
 function usar(){
     const numero= sessionStorage.getItem("seleccionada");
@@ -356,6 +370,7 @@ function usar(){
     let ficha= document.getElementById(numero);
     ficha.innerText="";
     ficha.classList.remove("sombreado");
+    ficha.classList.remove("seleccionado");
     ficha.classList.add("nojugable");
 
     let partidaJSON=sessionStorage.getItem("partida");

@@ -227,16 +227,21 @@ table {
   .sombreado {
     width: 100px;
     height: 100px;
-    background-color: #7d82b8ff;
+    background-color: var(--glaucous);
     box-shadow: 2px 2px 5px rgba(125, 130, 184, 1);
     border-radius: 5px;
     cursor: pointer;
   }
+  .sombreado:hover{
+    background-color: var(--mc);
+  }
   .nojugable{
     cursor:not-allowed;
     border-radius: 0px;
-  
-    
+  }
+  .seleccionado{
+    background-color: var(--melon);
+    box-shadow: 2px 2px 5px rgba(247, 169, 168, .6);
   }
 /* ------------- MEDIA QUERIES ------------- */
 @media screen and (max-width: 480px){
