@@ -367,10 +367,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var matriz=partida.tablero;
     //Establecer cursor según si se ha seleccionado ficha
     if(sessionStorage.getItem("seleccionada")){
-
+        console.log((matriz[fila][columna] != 0));
     // Establece el estilo de cursor según la casilla actual
-        if (matriz[fila][columna] == -1 && matriz[fila][columna] != 0) {
+        if (matriz[fila][columna] == -1 || (matriz[fila][columna] != 0)) {
         canvas.style.cursor = 'not-allowed';
+        console.log("distinto");
         } else {
         canvas.style.cursor = 'pointer';
         }
@@ -410,8 +411,7 @@ function comprobar(){
         fetch(url, peticion)
         .then(function (response) {
           if (response.ok) {
-            response.json()
-              .then(function (datos) {
+            response.json().then(function(datos){
                 console.log("DATOS", datos);
               })
               .catch(function (error) {
