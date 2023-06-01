@@ -6,7 +6,7 @@
 // =================================================================================
 // CONFIGURACION DE SALIDA JSON Y CORS PARA PETICIONES AJAX
 // =================================================================================
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Orgin: *");
 header("Access-Control-Allow-Methods: POST");
 header("Content-Type: application/json; charset=UTF-8");
 // =================================================================================
