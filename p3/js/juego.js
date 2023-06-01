@@ -37,11 +37,10 @@ function getTablero(){
                       }
 
                       
-                      console.log(numeros);
+                     
                       //asignacion aleatoria de qué jugador empieza primero, si sale 0 comienza el jugador1 sino el jugador2. Se asigna el turno al primero.
                       var jug_primero;
                       const primero = Math.round(Math.random());
-                      console.log(numero);
                     
                       if(primero==0){
                           jug_primero="jugador1";
@@ -63,19 +62,9 @@ function getTablero(){
                       sessionStorage.setItem("partida",partidaJSON);
                       actualizarmarcador(); 
 
-                      console.log(partida);
                       siguiente_turno();
                       tablero();
                       fichas();
-                      /* let html = ''; 
-                      data.FILAS.forEach(e => {
-                          console.log(e);
-                          html +=`<div>
-                                      <img src="fotos/pubs/${e.archivo}" alt="Foto ${e.autor}">
-                                      <p>${e.descripcion}</p>
-                                  </div>`;
-                      });
-                      galeria.insertAdjacentHTML("beforeend", html); */
                   });
               }  
           }).catch(function(err) { 
@@ -94,7 +83,6 @@ function getTablero(){
 function siguiente_turno(){
   let partidaJSON=sessionStorage.getItem("partida");
   const partida = JSON.parse(partidaJSON);
-  console.log(partida);
   let dialogo = document.createElement('dialog'),
   html = '';
   var juega="jugador";
@@ -115,7 +103,6 @@ function siguiente_turno(){
 }
 
 function cerrarDialogo(valor){
-  console.log(valor);
   document.querySelector('dialog').close(); //en açò NOMÉS no es borra del html
   document.querySelector('dialog').remove(); //en açò si
 }
@@ -251,7 +238,6 @@ function fichas(){
   let num1=document.getElementById("1");
   let num2=document.getElementById("2");
   let num3=document.getElementById("3");
-  console.log(numeros[0]);
   if(numeros[0]!="0"){
       num1.innerText=numeros[0];
   }else{
@@ -279,7 +265,7 @@ function seleccionar(numero){
       if(!(des_ficha.classList.contains("nojugable"))){
           des_ficha.classList.remove("seleccionado");
           des_ficha.classList.add("sombreado");
-          console.log("Entroalomejor");
+       
       }
   }
   if(!(ficha.classList.contains("nojugable"))){
@@ -367,11 +353,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var matriz=partida.tablero;
     //Establecer cursor según si se ha seleccionado ficha
     if(sessionStorage.getItem("seleccionada")){
-        console.log((matriz[fila][columna] != 0));
     // Establece el estilo de cursor según la casilla actual
         if (matriz[fila][columna] == -1 || (matriz[fila][columna] != 0)) {
         canvas.style.cursor = 'not-allowed';
-        console.log("distinto");
         } else {
         canvas.style.cursor = 'pointer';
         }
@@ -397,8 +381,6 @@ function comprobar(){
     var numeros= partida.numeros;
     var matriz= partida.tablero;
     var matrizJSON= JSON.stringify(matriz);
-    console.log("matriz"+matriz);
-    console.log("matrizJOSN"+matrizJSON);
     if(numeros[0]==0 && numeros[1]==0 && numeros[2]){
         //PETCIIÓ POST para comprobar juego
         var url = `./api/comprobar`;
