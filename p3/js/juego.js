@@ -400,12 +400,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-//comprobar fin de partida
+//comprobar si hay múltiplo de cinco
 function comprobar(){
     let partidaJSON=sessionStorage.getItem("partida");
     const partida = JSON.parse(partidaJSON);
     var numeros= partida.numeros;
     var matriz= partida.tablero;
+
     var matrizJSON= JSON.stringify(matriz);
    // if(numeros[0]==0 && numeros[1]==0 && numeros[2]){
         //PETCIIÓ POST para comprobar juego
@@ -420,21 +421,43 @@ function comprobar(){
             method: 'POST',
             body: fd
         };
-        console.log(peticion);
         fetch(url, peticion)
         .then(function (response) {
           if (response.ok) {
             response.json().then(function(datos){
+             
                 console.log("DATOS", datos);
                 if((datos.CELDAS_SUMA).length==0){
-                  console.log("no se ha sumado múltiplo de 5");
                   if(!comprobar_fin()){
                     cambiar_turno();
                   }
-                 
-                  
                 }else{
-                  console.log("se ha sumado múliplo de cinco");
+                  var score=0;
+                  for(var i=0; i<datos.CELDAS_SUMA.length;i++){
+                      var casillaJSON=datos.CELDAS_SUMA[i];
+                      const casilla = JSON.parse(casillaJSON);
+                      var fila=parseInt(casilla.fila);
+                      var columna= parseInt(casilla.col);
+                     
+                      
+                      score+=matriz[fila][columna];
+                      matriz[fila][columna]=0;
+                      console.log(score);
+                  }
+                  console.log("Score final"+score);
+                  partida.tablero=matriz;
+                  if(partida.turno=="jugador1"){
+                    partida.puntuacion1+=score;
+                  }else partida.puntuacion2+=score;
+
+                  const partidaJSON = JSON.stringify(partida);        
+                  sessionStorage.setItem("partida",partidaJSON);
+                  tablero();
+                  actualizarmarcador();
+
+
+
+                  
                 }
                 
               })
