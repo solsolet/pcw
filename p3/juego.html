@@ -20,7 +20,7 @@
 </header>
     <nav>
         <ul class="menu" id="menu">
-            <li><a href="#" onclick="fin()">Terminar partida</a></li>
+            <li><a href="#" onclick="fin_forzado()">Terminar partida</a></li>
             <li><a href="#" onclick="ayuda()">Ayuda</a></li>
         </ul>        
     </nav>
@@ -38,7 +38,7 @@
             <h3>¡A jugar!</h3>
             <canvas id="tablero"></canvas>
         </section>
-        <section>
+        <section id="fichas">
             <h3>Números disponibles</h3>
             <div class="cuadrado sombreado" onclick="seleccionar(1)" id="1"></div>
             <div class="cuadrado sombreado" id="2" onclick="seleccionar(2)"></div>

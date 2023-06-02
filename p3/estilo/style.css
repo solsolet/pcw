@@ -243,25 +243,11 @@ table {
     background-color: var(--melon);
     box-shadow: 2px 2px 5px rgba(247, 169, 168, .6);
   }
+
+ 
 /* ------------- MEDIA QUERIES ------------- */
 @media screen and (max-width: 480px){
-    /* MENU HAMBUERGUESA */
-    body > nav > ul{
-        display: none;
-    }
-    body > nav > label{
-        cursor: pointer;
-        display: block;
-    }
-    body > nav > label:hover{ /*no te molt sentit xq en mobil no se hoverea*/
-        color: #fff;
-        transition: 0.4s ease;
-    }
-    #chkMenu:checked+ul{
-        display: block;
-    }
-    .image-grid { --num-cols: 1; }
-
+    
     /* HEADER */
     header{
         padding: 1.5em;
@@ -297,9 +283,20 @@ table {
     dialog { width: 20em; }
     dialog > h3{ font-size: larger; }
     dialog > p{ font-size: medium; }
+
+
+    .tabla_mensaje{
+        width:5em;
+    }
+    table{
+        width: 100%;
+    }
+
+  
 }
 
 @media screen and (min-width: 480px) and (max-width: 779px){
+    main{display: flex;}
     .image-grid { --num-cols: 2; }
 
     header{ font-size: small; }
@@ -313,6 +310,7 @@ table {
 }
 
 @media screen and (min-width: 780px) and (max-width: 864px){
+    main{display: flex;}
     .image-grid { --num-cols: 3; }
     dialog { width: 24em; }
 }

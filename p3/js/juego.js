@@ -101,10 +101,31 @@ function siguiente_turno(){
   document.body.appendChild(dialogo);
   dialogo.showModal();
 }
+function cambiar_turno(){
+  let partidaJSON=sessionStorage.getItem("partida");
+  const partida = JSON.parse(partidaJSON);
+  if(partida.turno=="jugador1"){
+    partida.turno="jugador2";
+  }else{ 
+    partida.turno="jugador1";
+  }
+  const partidaJSONact = JSON.stringify(partida);        
+  sessionStorage.setItem("partida",partidaJSONact);
+  actualizarmarcador();
+
+
+}
 
 function cerrarDialogo(valor){
   document.querySelector('dialog').close(); //en açò NOMÉS no es borra del html
   document.querySelector('dialog').remove(); //en açò si
+}
+
+function fin_forzado(){
+  sessionStorage.removeItem("jugador1");
+  sessionStorage.removeItem("jugador2");
+  sessionStorage.removeItem("partida");
+  window.location.href="index.html";
 }
 
 function fin(){
@@ -170,9 +191,13 @@ function actualizarmarcador(){
   if(partida.turno=="jugador1"){
       clase1="tuturno";
   }else{clase2="tuturno"}
-     let html= `<tr class="${clase1}"><td id="jugador1" >${partida.jugador1}</td><td id="jugador2" >${partida.puntuacion1}</td>
+     let html= `<tr>
+     <th>Usuario</th>
+     <th>Puntuación</th>
+      </tr>
+      <tr class="${clase1}"><td id="jugador1" >${partida.jugador1}</td><td id="jugador2" >${partida.puntuacion1}</td>
      </tr><tr class="${clase2}"><td>${partida.jugador2}</td><td>${partida.puntuacion2}</td></tr> `;
-     tabla.innerHTML += html;
+     tabla.innerHTML = html;
 
 }
 
@@ -229,7 +254,7 @@ const cellSize = canvas.width / 4;
             ctx.strokeRect(x, y, cellSize, cellSize);
         }
     }
-      comprobar();
+   
 }
 function fichas(){
   let partidaJSON=sessionStorage.getItem("partida");
@@ -296,6 +321,7 @@ function usar(){
   sessionStorage.removeItem("seleccionada");
 
   tablero();
+  comprobar();
 }
 
 
@@ -381,13 +407,18 @@ function comprobar(){
     var numeros= partida.numeros;
     var matriz= partida.tablero;
     var matrizJSON= JSON.stringify(matriz);
-    if(numeros[0]==0 && numeros[1]==0 && numeros[2]){
+   // if(numeros[0]==0 && numeros[1]==0 && numeros[2]){
         //PETCIIÓ POST para comprobar juego
+        
+        //PETICION CON FETCH
+        let fd = new FormData();
+
+        fd.append('tablero', matrizJSON);
+        console.log(matrizJSON);
         var url = `./api/comprobar`;
         const peticion = {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: matrizJSON
+            body: fd
         };
         console.log(peticion);
         fetch(url, peticion)
@@ -395,6 +426,17 @@ function comprobar(){
           if (response.ok) {
             response.json().then(function(datos){
                 console.log("DATOS", datos);
+                if((datos.CELDAS_SUMA).length==0){
+                  console.log("no se ha sumado múltiplo de 5");
+                  if(!comprobar_fin()){
+                    cambiar_turno();
+                  }
+                 
+                  
+                }else{
+                  console.log("se ha sumado múliplo de cinco");
+                }
+                
               })
               .catch(function (error) {
                 console.log("Error al analizar la respuesta como JSON:", error);
@@ -408,6 +450,40 @@ function comprobar(){
           console.log("Error de red:", error);
         });
       
-    }
+
+
+
+        
+      //PETICION CON AJAX
+       /* var url = './api/comprobar';
+            var peticion = {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: matrizJSON
+            };
+
+            console.log(peticion);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open(peticion.method, url);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function () {
+              if (xhr.status === 200) {
+                var datos = JSON.parse(xhr.responseText);
+                console.log('DATOS', datos);
+                console.log('La petición funcionó correctamente');
+              } else {
+                console.log('Error en la petición:', xhr.status);
+              }
+            };
+            xhr.onerror = function () {
+              console.log('Error de red:', xhr.status);
+            };
+            xhr.send(JSON.stringify(peticion.body));*/
+   // }
 }
 
+function comprobar_fin(){
+  console.log("COMPROBAMOS EL FIN DE JUEGO");
+  return false;
+}
