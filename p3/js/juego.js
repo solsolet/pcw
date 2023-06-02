@@ -128,46 +128,7 @@ function fin_forzado(){
   window.location.href="index.html";
 }
 
-function fin(){
-  console.log("FIN DE PARTIDA");
-  let partidaJSON=sessionStorage.getItem("partida");
-  const partida = JSON.parse(partidaJSON);
 
-  var nuevo1={
-      nombre: partida.jugador1,
-      puntuacion: partida.puntuacion1
-  }
-  var nuevo2={
-      nombre: partida.jugador2,
-      puntuacion: partida.puntuacion2
-  }
-
-  var puntuaciones= sessionStorage.getItem("puntuaciones");
-
-  if(puntuaciones){
-      let puntuacionesJSONs=JSON.parse(puntuaciones); 
-      puntuacionesJSONs.push(nuevo1);
-      puntuacionesJSONs.push(nuevo2);
-      let puntuacionesJSONnew= JSON.stringify(puntuacionesJSONs);
-      sessionStorage.setItem("puntuaciones", puntuacionesJSONnew);
-  }else{
-      var nuevos = [
-          {
-              nombre: partida.jugador1,
-              puntuacion: partida.puntuacion1
-          },
-          {
-              nombre: partida.jugador2,
-              puntuacion: partida.puntuacion2
-          }]
-      let partidaJSONprimeros= JSON.stringify(nuevos);
-      sessionStorage.setItem("puntuaciones", partidaJSONprimeros);
-  }
-  sessionStorage.removeItem("jugador1");
-  sessionStorage.removeItem("jugador2");
-  sessionStorage.removeItem("partida");
-  window.location.href="index.html";
-}
 
 function ayuda(){
   let dialogo = document.createElement('dialog'),
@@ -264,6 +225,11 @@ function fichas(){
   let num2=document.getElementById("2");
   let num3=document.getElementById("3");
   if(numeros[0]!="0"){
+      if(num1.classList.contains("nojugable")){
+        num1.classList.remove("nojugable");
+      }
+      num1.classList.add("sombreado");
+      
       num1.innerText=numeros[0];
   }else{
        num1.classList.remove("sombreado");
@@ -271,20 +237,25 @@ function fichas(){
   }
   if(numeros[1]!="0"){
       num2.innerText=numeros[1];
+      num2.classList.add("sombreado");
+      num2.classList.remove("nojugable");
   }else{
       num2.classList.remove("sombreado");
       num2.classList.add("nojugable");
  }
   if(numeros[2]!="0"){ 
       num3.innerText=numeros[2];
+      num3.classList.add("sombreado");
+      num3.classList.remove("nojugable");
   }else{
       num3.classList.remove("sombreado");
       num3.classList.add("nojugable");
  }
 }
+
 function seleccionar(numero){
   let ficha= document.getElementById(numero);
- 
+  if(!(ficha.classList.contains("nojugable"))){
   if(sessionStorage.getItem("seleccionada")){
       let des_ficha=document.getElementById(sessionStorage.getItem("seleccionada"));
       if(!(des_ficha.classList.contains("nojugable"))){
@@ -293,7 +264,7 @@ function seleccionar(numero){
        
       }
   }
-  if(!(ficha.classList.contains("nojugable"))){
+
       ficha.classList.remove("sombreado");
       ficha.classList.add("seleccionado");
       sessionStorage.setItem("seleccionada", numero);
@@ -427,37 +398,60 @@ function comprobar(){
             response.json().then(function(datos){
              
                 console.log("DATOS", datos);
+                console.log((datos.CELDAS_SUMA).length)
                 if((datos.CELDAS_SUMA).length==0){
-                  if(!comprobar_fin()){
+                  //comprobar fin
+                  if(datos.JUGABLES!=0){
                     cambiar_turno();
+                    console.log("generar numero1");
+                    generar_numeros();
+                  }else{
+                    let dialogo = document.createElement('dialog'),
+                    html = '';
+                    var ganador;
+                    var puntos;
+                  
+                    if(partida.puntuacion1>partida.puntuacion2){
+                        ganador=partida.jugador1;
+                        puntos=partida.puntuacion1;
+                    }else{
+                      ganador=partida.jugador2;
+                      puntos=partida.puntuacion2;
+                    }
+                  
+                        html +=`<h3>FIN DE PARTIDA</h3>,
+                            <p>Ganador ${ganador} con ${puntos} puntos</p>
+                            <button onclick="fin();" class="boton">Cerrar</button>`;
+                       
+                  
+                    dialogo.innerHTML = html;
+                    document.body.appendChild(dialogo);
+                    dialogo.showModal();
+                  
                   }
                 }else{
-                  var score=0;
-                  for(var i=0; i<datos.CELDAS_SUMA.length;i++){
-                      var casillaJSON=datos.CELDAS_SUMA[i];
-                      const casilla = JSON.parse(casillaJSON);
-                      var fila=parseInt(casilla.fila);
-                      var columna= parseInt(casilla.col);
-                     
+                    var score=0;
+                    for(var i=0; i<datos.CELDAS_SUMA.length;i++){
+                        var casillaJSON=datos.CELDAS_SUMA[i];
+                        const casilla = JSON.parse(casillaJSON);
+                        var fila=parseInt(casilla.fila);
+                        var columna= parseInt(casilla.col);
                       
-                      score+=matriz[fila][columna];
-                      matriz[fila][columna]=0;
-                      console.log(score);
-                  }
-                  console.log("Score final"+score);
-                  partida.tablero=matriz;
-                  if(partida.turno=="jugador1"){
-                    partida.puntuacion1+=score;
-                  }else partida.puntuacion2+=score;
+                        
+                        score+=matriz[fila][columna];
+                        matriz[fila][columna]=0;
+                    }
+                    console.log("generar num 2");
+                    generar_numeros();
+                    partida.tablero=matriz;
+                    if(partida.turno=="jugador1"){
+                      partida.puntuacion1+=score;
+                    }else partida.puntuacion2+=score;
 
-                  const partidaJSON = JSON.stringify(partida);        
-                  sessionStorage.setItem("partida",partidaJSON);
-                  tablero();
-                  actualizarmarcador();
-
-
-
-                  
+                    const partidaJSON = JSON.stringify(partida);        
+                    sessionStorage.setItem("partida",partidaJSON);
+                    tablero();
+                    actualizarmarcador(); 
                 }
                 
               })
@@ -506,7 +500,99 @@ function comprobar(){
    // }
 }
 
-function comprobar_fin(){
-  console.log("COMPROBAMOS EL FIN DE JUEGO");
-  return false;
+
+
+
+function fin(){
+  console.log("FIN DE PARTIDA");
+  let partidaJSON=sessionStorage.getItem("partida");
+  const partida = JSON.parse(partidaJSON);
+
+  var nuevo1={
+      nombre: partida.jugador1,
+      puntuacion: partida.puntuacion1
+  }
+  var nuevo2={
+      nombre: partida.jugador2,
+      puntuacion: partida.puntuacion2
+  }
+
+  var puntuaciones= sessionStorage.getItem("puntuaciones");
+
+  if(puntuaciones){
+      let puntuacionesJSONs=JSON.parse(puntuaciones);
+      if(puntuacionesJSONs.length<10){ 
+        puntuacionesJSONs.push(nuevo1);
+        puntuacionesJSONs.push(nuevo2);
+      }else{
+        puntuacionesJSONs.push(nuevo1);
+        puntuacionesJSONs.push(nuevo2);
+       // Ordenar el array por puntuación de forma descendente
+       puntuacionesJSONs.sort(function(a, b) {
+        return b.puntuacion - a.puntuacion;
+        });
+      //borramos los dos últimos que serán los menores
+        puntuacionesJSONs.pop();
+        puntuacionesJSONs.pop();
+      /*var ultimoElemento = puntuacionesJSONs[puntuacionesJSONs.length -1];
+      if(ultimoElemento.puntuacion < partida.puntuacion1){
+        if(ultimoElemento.puntuacion > partida.puntuacion2){
+          puntuacionesJSONs.pop();
+          puntuacionesJSONs.push(nuevo1);
+        }else{
+
+        }
+
+        }}*/
+       
+      
+    }
+      let puntuacionesJSONnew= JSON.stringify(puntuacionesJSONs);
+      sessionStorage.setItem("puntuaciones", puntuacionesJSONnew);
+  }else{
+      var nuevos = [
+          {
+              nombre: partida.jugador1,
+              puntuacion: partida.puntuacion1
+          },
+          {
+              nombre: partida.jugador2,
+              puntuacion: partida.puntuacion2
+          }]
+      let partidaJSONprimeros= JSON.stringify(nuevos);
+      sessionStorage.setItem("puntuaciones", partidaJSONprimeros);
+  }
+  sessionStorage.removeItem("jugador1");
+  sessionStorage.removeItem("jugador2");
+  sessionStorage.removeItem("partida");
+  window.location.href="index.html";
+}
+
+function generar_numeros(){
+  
+  let partidaJSON=sessionStorage.getItem("partida");
+  const partida = JSON.parse(partidaJSON);
+
+  var num=partida.numeros;
+  console.log("numeros"+num);
+  if(num[0]==0 && num[1]==0 && num[2]==0){
+      let numero, numeros = [];
+                          
+    //Genera los 3 nº aleatorios para empezar (- el 5)
+    for(let i=0; i<3; i++){
+        do 
+            numero = Math.floor(Math.random()*9) + 1;
+        while(numero == 5);
+        numeros[i] = numero;
+    }
+
+    partida.numeros=numeros;
+    console.log("partida"+partida.numeros);
+
+    const partidaJSONnueva = JSON.stringify(partida);        
+    sessionStorage.setItem("partida",partidaJSONnueva);
+
+    fichas();
+}
+
 }

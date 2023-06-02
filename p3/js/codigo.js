@@ -44,7 +44,11 @@ function inicio(){
                     tabla.appendChild(fila);
                     
                 }
+                var puntuacionesJSONnew = JSON.stringify(puntuaciones);
 
+        // Guardar el nuevo JSON en sessionStorage
+        sessionStorage.setItem("puntuaciones", puntuacionesJSONnew)
+                
         }else{
             var text="Todavía no hay puntuaciones guardadas. ¡¡¡Sé el primero en conseguir una puntuación máxima!!!";
             var textNode = document.createTextNode(text);
