@@ -23,6 +23,40 @@ table th {
     color: var(--lpc);
 }
 
+/* ESTILOS PARA NUMEROS JUGABLES*/
+#fichas{ margin: 1em; }
+
+.cuadrado{
+    padding: 1.5em;
+    background-color: #7d82b8ff;
+    border-radius: 5px;
+    display: inline;
+    margin:1em; 
+}
+.sombreado {
+    background-color: var(--glaucous);
+    color: var(--lpc);
+    box-shadow: 2px 2px 5px rgba(125, 130, 184, 1);
+    cursor: pointer;
+}
+.sombreado:hover{
+    background-color: var(--mc);
+    counter-reset: var(--violet);
+}
+.nojugable{
+    cursor:not-allowed;
+    background-color: var(--tt);
+}
+.seleccionado{
+    background-color: var(--melon);
+    box-shadow: 2px 2px 5px rgba(247, 169, 168, .6);
+}
+
+.numeros{
+    margin: 2em;
+    text-align: center;
+}
+
 /* ------------- MEDIA QUERIES ------------- */
 @media screen and (max-width: 480px){
     table{ width: 100%; } 

@@ -182,40 +182,6 @@ dialog > p{
 dialog::backdrop{ /* fondo del dialog fosquet */
     background-color: rgba(125, 130, 184, .5); /* no funciona amb variables */
 }
-
-/* ESTILOS PARA NUMEROS JUGABLES*/
-.cuadrado{
-    width: 100%;
-    height: 100%;
-    padding: 1.5em;
-    margin-top: 1.5em;
-    background-color: #7d82b8ff;
-    border-radius: 5px;
-    display: inline;
-    justify-content: center;
-    align-items: center;
-    margin:1em; 
-}
-.sombreado {
-    width: 100px;
-    height: 100px;
-    background-color: var(--glaucous);
-    box-shadow: 2px 2px 5px rgba(125, 130, 184, 1);
-    border-radius: 5px;
-    cursor: pointer;
-}
-.sombreado:hover{
-    background-color: var(--mc);
-}
-.nojugable{
-    cursor:not-allowed;
-    border-radius: 0px;
-}
-.seleccionado{
-    background-color: var(--melon);
-    box-shadow: 2px 2px 5px rgba(247, 169, 168, .6);
-}
-
  
 /* ------------- MEDIA QUERIES ------------- */
 @media screen and (max-width: 480px){

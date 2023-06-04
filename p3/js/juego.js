@@ -198,14 +198,14 @@ function cargar(){
                       ctx.fillStyle = '#f7a9a8ff'; 
                       ctx.fillRect(x, y, cellSize, cellSize);
                       // Dibuja el número dentro de la celda
-                      ctx.fillStyle = '#000000'; // Color del número
-                      ctx.font = 'bold 24px Arial'; // Fuente y tamaño del número
+                      ctx.fillStyle = '#683257ff'; // Color del número
+                      ctx.font = 'bold 24px Lato'; // Fuente y tamaño del número
                       ctx.textAlign = 'center';
                       ctx.textBaseline = 'middle';
                       ctx.fillText(numero.toString(), x + cellSize / 2, y + cellSize / 2);
                   }
               // Dibuja las líneas divisorias
-              ctx.strokeStyle = '#000000'; // Color de las líneas divisorias
+              ctx.strokeStyle = '#683257ff'; // Color de las líneas divisorias
               ctx.lineWidth = 2; // Ancho de las líneas divisorias
               ctx.strokeRect(x, y, cellSize, cellSize);
           }
@@ -219,7 +219,7 @@ function cargar(){
     let num1=document.getElementById("1"),
         num2=document.getElementById("2"),
         num3=document.getElementById("3");
-        
+
     if(numeros[0]!="0"){
         if(num1.classList.contains("nojugable")){
           num1.classList.remove("nojugable");
