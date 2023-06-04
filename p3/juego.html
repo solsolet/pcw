@@ -1,27 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="author" content="Gemma Sellés Lloret y Ana María Soler Guijarro">
     <link rel="stylesheet" href="estilo/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/27260d853d.js" crossorigin="anonymous"></script>
+    <title>Juego</title>
+    <link rel="icon" type="image/png" href="img/numtris.png">
     <script src="js/codigo.js"></script>
     <script src="js/juego.js"></script>
-    <title>Juego</title>
 </head>
 <body onload="cargar();">
-<header>
-    <a href="index.html"><img src="img/numtris.png" alt="logotipo" id="logo"></a>
-    <div> <!-- per a usar inline-flex -->
-        <h1>NumTris</h1>
-        <h2>Busca múltiplos de 5 con estos números y gana a tu rival</h2>
-    </div>
-</header>
+    <header>
+        <a href="index.html"><img src="img/numtris.png" alt="logotipo" id="logo"></a>
+        <div> <!-- per a usar inline-flex -->
+            <h1>NumTris</h1>
+            <h2>Busca múltiplos de 5 y gana a tu rival</h2>
+        </div>
+    </header>
     <nav>
+        <label for="chkMenu">&equiv;</label>
+        <input type="checkbox" id="chkMenu">
         <ul class="menu" id="menu">
-            <li><a href="#" onclick="fin_forzado()">Terminar partida</a></li>
-            <li><a href="#" onclick="ayuda()">Ayuda</a></li>
+            <li><a href="#" onclick="fin_forzado()"><i class="fa-solid fa-right-from-bracket"></i> Terminar partida</a></li>
+            <li><a href="#" onclick="ayuda()"><i class="fa-solid fa-circle-question"></i> Ayuda</a></li>
         </ul>        
     </nav>
     <main>

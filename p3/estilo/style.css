@@ -1,6 +1,6 @@
 @import url(formularios.css);
 @import url(navbar.css);
-@import url(grid.css); 
+@import url(tabla.css);
 
 /* --------------------- Estil comu --------------------- */
 html {
@@ -105,15 +105,6 @@ body > main{ padding: 2em; } /* q no estiga tot apegat */
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         }
         body > main > section > div > article:hover{ box-shadow: 0 0 1em 0.1em var(--mt); }
-        
-        /* preguntar ana si li amanya, deforma el sticky nav */
-        main > section > div > article > a > img {
-            transition: 0.3s;
-        }
-        main > section > div > article > a > img:hover {
-            transform:scale(1.03);
-            box-shadow: 0 .5em .5em 0 var(--vt);
-        }
 
 
 /* BOTONES */
@@ -133,13 +124,6 @@ body > main{ padding: 2em; } /* q no estiga tot apegat */
 }
 .ok:hover{ background-color: var(--melon); }
 .ko:hover{ background-color: var(--violet); }
-
-.mg:disabled {
-    color: var(--t);
-    background-color: var(--vt);
-}
-  
-
 
 
 /* Acerca autoras */
@@ -186,30 +170,6 @@ dialog::backdrop{ /* fondo del dialog fosquet */
     background-color: rgba(125, 130, 184, .5); /* no funciona amb variables */
 }
 
-
-/*TABLA PUNTUACIONES*/ 
-table {
-    border-collapse: collapse; 
-    width: 100%; 
-  }
-  
-  /* Estilos para las celdas de la tabla */
-  table td,
-  table th {
-    border: 1px solid black; 
-    padding: 8px; 
-  }
-  
-  /* Estilos para el encabezado de la tabla */
-  table th {
-    background-color:var(--pink-crayola); 
-  }
-
-  .tuturno{
-    background-color:var(--violet);
-    color:#FFF;
-}
-
 /* ESTILOS PARA NUMEROS JUGABLES*/
 .cuadrado{
     width: 100%;
@@ -221,33 +181,31 @@ table {
     display: inline;
     justify-content: center;
     align-items: center;
-    margin:1em;
-    
-  }
-  .sombreado {
+    margin:1em; 
+}
+.sombreado {
     width: 100px;
     height: 100px;
     background-color: var(--glaucous);
     box-shadow: 2px 2px 5px rgba(125, 130, 184, 1);
     border-radius: 5px;
     cursor: pointer;
-  }
-  .sombreado:hover{
+}
+.sombreado:hover{
     background-color: var(--mc);
-  }
-  .nojugable{
+}
+.nojugable{
     cursor:not-allowed;
     border-radius: 0px;
-  }
-  .seleccionado{
+}
+.seleccionado{
     background-color: var(--melon);
     box-shadow: 2px 2px 5px rgba(247, 169, 168, .6);
-  }
+}
 
  
 /* ------------- MEDIA QUERIES ------------- */
 @media screen and (max-width: 480px){
-    
     /* HEADER */
     header{
         padding: 1.5em;
@@ -265,14 +223,8 @@ table {
     #logo:hover{ filter: none; }
 
     body > main > h2 { font-size: 1.5em; }
-
-    /* salt de linea botons mg */
-    a[href="#comentarios"]::after { content: '\A'; white-space: pre;}
+    
     button.boton.ok{ margin: 0; }
-
-    /* Comentaria */
-    #comentarios > article{ margin: .5em; }
-    #comentarios > article > img{ height: 3.5em; }
 
     /* autoras */
     .autoria{ display: block; }
@@ -283,20 +235,9 @@ table {
     dialog { width: 20em; }
     dialog > h3{ font-size: larger; }
     dialog > p{ font-size: medium; }
-
-
-    .tabla_mensaje{
-        width:5em;
-    }
-    table{
-        width: 100%;
-    }
-
-  
 }
 
 @media screen and (min-width: 480px) and (max-width: 779px){
-    main{display: flex;}
     .image-grid { --num-cols: 2; }
 
     header{ font-size: small; }
@@ -310,7 +251,6 @@ table {
 }
 
 @media screen and (min-width: 780px) and (max-width: 864px){
-    main{display: flex;}
     .image-grid { --num-cols: 3; }
     dialog { width: 24em; }
 }
@@ -318,4 +258,3 @@ table {
 @media screen and (min-width: 865px) and (max-width: 1920px){
     
 }
-
