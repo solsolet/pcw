@@ -47,16 +47,16 @@ button{
     padding: 0;
 }
 
-td img{ /* arreglar */
-    width: 200px;
-    height: auto;
+h3{
+    font-family: 'Fugaz One', cursive;
+    font-weight: normal;
 }
 
 /* HEADER */
 header{
     background-color: var(--melon);
     display: inline-flex; /* alinea img amb titols */
-    font-family: 'Playfair Display';
+    font-family: 'Fugaz One', cursive;
     padding: 1em;
     color: var(--violet);
     align-items: center;
@@ -68,9 +68,12 @@ header{
             margin: inherit;
             padding: .25em;
         }
+        header > div > h2{
+            font-weight: normal;
+        }
 
 #logo { /* regular */
-    width: 4.5em;
+    width: 9.5em;
     height: auto;
 }
 #logo:hover{
@@ -81,6 +84,7 @@ header{
 /* FOOTER */
 footer{
     background-color: var(--melon);
+    font-family: 'Fugaz One', cursive;
     padding: .5em;
     text-align-last: center;
     color: var(--violet);
@@ -93,6 +97,8 @@ body > main{ padding: 2em; } /* q no estiga tot apegat */
     body > main > h2{
         color: var(--violet);
         font-size: 2em;
+        font-family: 'Fugaz One', cursive;
+        font-weight: normal;
         margin: 0.25em 0 1em 0;
     }
 
@@ -140,6 +146,7 @@ body > main{ padding: 2em; } /* q no estiga tot apegat */
 .autora > img{
     width: 100%;
     height: 16em;
+    border-radius: 10px 10px 0 0;
     object-fit: cover;
 }
 .autora:hover { box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); }
@@ -219,7 +226,7 @@ dialog::backdrop{ /* fondo del dialog fosquet */
             }
             header > div > h2{ display: none; }
 
-    #logo { width: 2.5em; }
+    #logo { width: 4em; }
     #logo:hover{ filter: none; }
 
     body > main > h2 { font-size: 1.5em; }
@@ -238,20 +245,20 @@ dialog::backdrop{ /* fondo del dialog fosquet */
 }
 
 @media screen and (min-width: 480px) and (max-width: 779px){
-    .image-grid { --num-cols: 2; }
-
+    #logo { width: 6em; }
+    
     header{ font-size: small; }
         header > a { margin-left: 1.5em; }
         header > div{ padding-left: 1.25em; } /* xicoteta separació */
 
     .autora{ width: auto; }
     .autora > img{ height: 14em; }
-
+    
     dialog { width: 24em; }
 }
 
 @media screen and (min-width: 780px) and (max-width: 864px){
-    .image-grid { --num-cols: 3; }
+    #logo { width: 8.5em; }
     dialog { width: 24em; }
 }
 

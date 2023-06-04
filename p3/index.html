@@ -9,13 +9,15 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Fugaz+One&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet"> -->
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/27260d853d.js" crossorigin="anonymous"></script>
     <title>NumTris</title>
     <link rel="icon" type="image/png" href="img/numtris.png">
     <script src="js/codigo.js"></script>
 </head>
+
 <body onload="inicio();">
  <header>   
     <a href="index.html"><img src="./img/numtris.png" alt="logotipo" id="logo"></a>
@@ -38,8 +40,8 @@
         <section>
             <h3>Nueva partida</h3>
             <form onsubmit="start()">
-                <label>Jugador 1:<input id="player1" type="text" required> </label>
-                <label>Jugador 2:<input id="player2" type="text" required> </label>
+                <label>Jugador 1: <input id="player1" type="text" required></label>
+                <label>Jugador 2: <input id="player2" type="text" required></label>
                 <input type="reset" class="boton" value="Reiniciar valores">
                 <input type="submit" class= "boton" value="Comenzar">
             </form>

@@ -5,16 +5,13 @@ table {
 }
   
 /* Estilos para las celdas de la tabla */
-table td,
-table th {
+table td, table th {
     border: 1px solid black; 
     padding: 8px; 
 }
   
 /* Estilos para el encabezado de la tabla */
-table th {
-    background-color:var(--pink-crayola); 
-}
+table th { background-color:var(--pink-crayola); }
 
 .tuturno{
     background-color:var(--violet);
@@ -23,12 +20,8 @@ table th {
 
 /* ------------- MEDIA QUERIES ------------- */
 @media screen and (max-width: 480px){
-    .tabla_mensaje{
-        width:5em;
-    }
-    table{
-        width: 100%;
-    } 
+    .tabla_mensaje{ width: 5em; }
+    table{ width: 100%; } 
 }
 
 @media screen and (min-width: 480px) and (max-width: 779px){
