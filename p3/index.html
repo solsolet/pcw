@@ -26,7 +26,7 @@
         <h2>Busca múltiplos de 5 y gana a tu rival</h2>
     </div>
 </header>
-    <main>
+    <main class="mainF">
         <section id="tabla_mensaje">
             <h3>Top 10 puntuaciones de hoy</h3>
             <table class="ultimos" id="tabla_ultimos">
@@ -42,11 +42,14 @@
             <form onsubmit="start()">
                 <label>Jugador 1: <input id="player1" type="text" required></label>
                 <label>Jugador 2: <input id="player2" type="text" required></label>
-                <input type="reset" class="boton" value="Reiniciar valores">
-                <input type="submit" class= "boton" value="Comenzar">
+                <div class="botonera">
+                    <input type="reset" class="boton" value="Limpiar">
+                    <input type="submit" class= "boton ok" value="Comenzar">
+                </div>
             </form>
         </section>
     </main>
+
     <footer>
         <p>
             <a href="acerca.html">Contacto</a> &copy; <time datetime="2023-05">2023</time> <abbr title="Programación del Cliente Web">PCW</abbr>

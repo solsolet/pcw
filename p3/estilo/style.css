@@ -6,6 +6,7 @@
 html {
     --glaucous: #7d82b8ff;
     --pink-crayola: #ef798aff;
+    --lpc: #fdedf0; /* light pink crayola */
     --melon: #f7a9a8ff;
     --mt: rgba(247, 169, 168, .6); /* melon transparent */
     --mc: #f8bbba; /* melon claret */
@@ -38,6 +39,11 @@ body{
     margin: 0;
     font-family: 'Lato', sans-serif;
     color: var(--t);
+}
+
+.mainF{ /* main flex */
+    display: flex;
+    justify-content: center;
 }
 
 a{ font-weight: bold; }
@@ -242,6 +248,8 @@ dialog::backdrop{ /* fondo del dialog fosquet */
     dialog { width: 20em; }
     dialog > h3{ font-size: larger; }
     dialog > p{ font-size: medium; }
+
+    .mainF{ display: block; }
 }
 
 @media screen and (min-width: 480px) and (max-width: 779px){
@@ -253,8 +261,10 @@ dialog::backdrop{ /* fondo del dialog fosquet */
 
     .autora{ width: auto; }
     .autora > img{ height: 14em; }
-    
+
     dialog { width: 24em; }
+
+    .mainF{ display: block; }
 }
 
 @media screen and (min-width: 780px) and (max-width: 864px){
