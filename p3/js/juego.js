@@ -86,7 +86,7 @@ function siguiente_turno(){
         juega = partida.jugador2;
     }
 
-    html +=`<h3>Siguiente turno</h3>,
+    html +=`<h3>Siguiente turno</h3>
         <p>Le toca a <b>${juega}</b></p>
         <button onclick="cerrarDialogo(0);" class="boton">Cerrar</button>`;    
 
@@ -125,7 +125,7 @@ function ayuda(){
     let dialogo = document.createElement('dialog'),
     html = '';
 
-    html +=`<h3>Ayuda</h3>,
+    html +=`<h3>Ayuda</h3>
         <p>El juego consiste en ir colocando en las casillas vacías del tablero los números que se proporcionan en grupos de tres. Juegan 2 jugadores por turnos. Si al colocar un número en una celda vacía, sumándole el que tiene arriba/abajo/izquierda/derecha se obtiene un múltiplo de 5, se limpian las casillas correspondientes y el resultado de la suma son los puntos que acumula el jugador, manteniendo el turno. El juego finaliza cuando ya no quedan casillas vacías en el tablero, ganando el jugador con mayor puntuación.</p>
         <button onclick="cerrarDialogo(0);" class="boton">Cerrar</button>`;
 
@@ -404,7 +404,7 @@ function comprobar(){
                             puntos = partida.puntuacion2;
                         }
                         
-                        html +=`<h3>FIN DE PARTIDA</h3>,
+                        html +=`<h3>FIN DE PARTIDA</h3>
                             <p>Ganador ${ganador} con ${puntos} puntos</p>
                             <button onclick="fin();" class="boton">Cerrar</button>`;
                             
@@ -514,8 +514,7 @@ function fin(){
                 }else{
 
                 }
-
-                }}*/
+            }}*/
         }
         let puntuacionesJSONnew= JSON.stringify(puntuacionesJSONs);
         sessionStorage.setItem("puntuaciones", puntuacionesJSONnew);
