@@ -1,22 +1,12 @@
-html {
-    --glaucous: #7d82b8ff;
-    --pink-crayola: #ef798aff;
-    --melon: #f7a9a8ff;
-    --violet: #683257ff;
-    --t: #565656; /* text */
-}
-
 /* ------------------- NAVIGATION BAR ------------------- */
 body > nav {
     background-color: var(--violet);
     position: sticky;
-    z-index: 1; /* fa que el hover que canvia el tam de les imatges no es superpose */
-    top: 0px;
+    top: 0;
 }
 
 /* NO visible menú hamburguesa */
-body > nav > label{ display: none; } /* lleva el &equiv */
-#chkMenu{ display: none; } /* lleva check*/
+body > nav > label, #chkMenu{ display: none; } /* lleva el &equiv i el check*/
 
 body > nav > ul{
     padding: 0; /* lleva sangria */
@@ -46,9 +36,8 @@ nav li:hover {
 /* ------------- MEDIA QUERIES ------------- */
 @media screen and (max-width: 480px){
     /* MENU HAMBUERGUESA */
-    body > nav > ul{
-        display: none;
-    }
+    body > nav > ul{ display: none; }
+
     body > nav > label{
         cursor: pointer;
         display: block;
@@ -57,12 +46,10 @@ nav li:hover {
         color: #fff;
         transition: 0.4s ease;
     }
-    #chkMenu:checked+ul{
-        display: block;
-    }
-        #chkMenu:checked+ul li{
-            padding: .5em;
-        } 
+
+    #chkMenu:checked+ul{ display: block; }
+
+        #chkMenu:checked+ul li{ padding: .5em; } 
 
     nav > label[for="chkMenu"]{ /* &equiv; */
         font-size: 1.5em;
