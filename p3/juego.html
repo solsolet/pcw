@@ -33,8 +33,8 @@
             <li><a href="#" onclick="ayuda()"><i class="fa-solid fa-circle-question"></i> Ayuda</a></li>
         </ul>        
     </nav>
-    <main>
-        <section>
+    <main class="mainF">
+        <section class="tabla_turnos">
             <h3>Marcador</h3>
             <table id="marcador">
                 <tr>
@@ -46,14 +46,13 @@
         <section>
             <h3>¡A jugar!</h3>
             <canvas id="tablero"></canvas>
+            <div id="fichas">
+                <h3>Números disponibles</h3>
+                <div class="cuadrado sombreado" onclick="seleccionar(1)" id="1"></div>
+                <div class="cuadrado sombreado" id="2" onclick="seleccionar(2)"></div>
+                <div class="cuadrado sombreado" id="3" onclick="seleccionar(3)"></div>
+            </div>
         </section>
-        <section id="fichas">
-            <h3>Números disponibles</h3>
-            <div class="cuadrado sombreado" onclick="seleccionar(1)" id="1"></div>
-            <div class="cuadrado sombreado" id="2" onclick="seleccionar(2)"></div>
-            <div class="cuadrado sombreado" id="3" onclick="seleccionar(3)"></div>
-        </section>
-
     </main>
     <footer>
         <p>

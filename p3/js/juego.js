@@ -216,9 +216,10 @@ function cargar(){
     let partidaJSON=sessionStorage.getItem("partida");
     const partida = JSON.parse(partidaJSON);
     var numeros= partida.numeros;
-    let num1=document.getElementById("1");
-    let num2=document.getElementById("2");
-    let num3=document.getElementById("3");
+    let num1=document.getElementById("1"),
+        num2=document.getElementById("2"),
+        num3=document.getElementById("3");
+        
     if(numeros[0]!="0"){
         if(num1.classList.contains("nojugable")){
           num1.classList.remove("nojugable");
