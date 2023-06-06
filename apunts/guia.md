@@ -1,7 +1,8 @@
 # GUIA ARCHIUS PER A L'EXAMEN
-## LLEGIR
+## OJO
 * Mirar la direcció dels link del css i js per si estan mal relacionats (../ o sense).
 * Tindre en compte que els estils de cada práctica son diferents (hi ha coses que es repetixen però les que no no estan)
+
 ## HTML
 ### HTML Base
 En [index.html](html/index.html) tenim contemplats:
@@ -17,8 +18,9 @@ En [index.html](html/index.html) tenim contemplats:
 * **Drag & Drop**
 * **SVG**
 * **Video**
+
 ## CSS
-Conté fulla d'[estil comú](css/estilo.css) que se l'importen estils més concrets com [navbar] 
+Conté fulla d'[estil comú](css/estilo.css) que se l'importen estils més concrets com [navbar](css/navbar.css), [grid-targetetes](css/grid.css), [formularis](css/formularios.css), [taula](css/tabla.css)
 ### CSS Base
 
 ## JS
