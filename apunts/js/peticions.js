@@ -119,3 +119,15 @@ function ajaxpost(){
     xhr.send(JSON.stringify(peticion.body));
 }
 
+//SESSION STORAGE
+function ejSessionStorage(){
+
+    sessionStorage.set('ejemplo', 'ejemplo'); //key: value, guardar en sesión
+
+    let palabra = sessionStorage.getItem("ejemplo"); //obtener de sesión
+    console.log(palabra);
+
+    sessionStorage.remove("ejemplo"); //para borrar un key específico
+
+    sessionStorage.clear(); //para borrar todo el sessionStorage
+}
