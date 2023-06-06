@@ -24,6 +24,8 @@ Conté fulla d'[estil comú](css/estilo.css) que se l'importen estils més concr
 ### CSS Base
 
 ## JS
+Conté codi per a [canvas](js/canvas.js), [modal](js/modal.js), [peticions](js/peticions.js).
 ### JS Base
+
 ## BD - APIs
 ### Com importar una api
