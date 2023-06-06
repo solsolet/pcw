@@ -7,13 +7,15 @@
     <meta name="author" content="Gemma Sellés Lloret y Ana María Soler Guijarro"> <!-- OJO CUIDADO -->
     <link rel="stylesheet" href="css/estilo.css">
     <script src="js/codigo.js"></script>
+    <script src="js/canvas.js"></script>
+    
     <!-- Google Fonts -->
-   <!--  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!--  <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-   <!--  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Fugaz+One&display=swap" rel="stylesheet"> -->
+    <!--  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Fugaz+One&display=swap" rel="stylesheet"> -->
     <!-- <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet"> -->
     <!--Font Awesome-->
-   <!--  <script src="https://kit.fontawesome.com/27260d853d.js" crossorigin="anonymous"></script> -->
+    <!--  <script src="https://kit.fontawesome.com/27260d853d.js" crossorigin="anonymous"></script> -->
     <!-- <link rel="icon" type="image/png" href="img/numtris.png"> -->
     <title>Index</title>
 </head>
@@ -25,6 +27,7 @@
             <h2>Tu portal de información para el examen</h2>
         </div>
     </header>
+
     <!-- MENÚ HAMBURGUESA -->
     <nav>
         <label for="chkMenu">&equiv;</label> <!-- pal menu hamburguesa -->
@@ -34,11 +37,56 @@
             <li><a href="buscar.html"><!-- <i class="fa-solid fa-magnifying-glass"></i> --> Buscar</a></li>
         </ul>        
     </nav>
+
     <main>
-        
+        <h2>Título 2</h2>
+        <!-- FORMULARIO lOGIN (con prácticamente todo) -->
+        <section id="g-formulario">
+            <form>
+                <label id="l_login">Login: <input type="text" name="login" pattern="[a-zA-Z]{1}[0-9a-zA-Z]{3,19}" id="login" onblur="comprueba_log();" title="Debe contenerun mínimo de 4 caracteres y un máximo de 20 caracteres, siendo estos letras y números. El primer carácter no puede ser un número. No puede contener espacios en blanco."  required></label>
+                <label>Password: <input type="password" name="pwd" id="pwd" pattern="[a-zA-Z0-9._-]{4,20}" title="Debe contener un mínimo de 4 caracteres y un máximo de 20 caracteres, letras, números y los siguientes caracteres especiales ._- No puede contener espacios en blanco." required></label>
+                <label>Texto: <br><textarea name="texto" id="texto" required></textarea></label> 
+                <label>Ubicación: <input list="ubis" name="ubi" id="ubi" maxlength="100" required> <!-- ojo que la list=id del datalist (ubis) --> </label>
+                <datalist id="ubis">
+                    <option value="Poble Nou">
+                    <option value="Torres">
+                    <option value="Talaies">
+                </datalist><br>
+                <button class="boton"><i class="fa-solid fa-image"></i> Añadir foto</button>
+                <label for="img1">Foto: <img src="img/usuvoid.jpg" alt=""><input  type="file" id="img1"  name="img" accept="image/*" class="img" required><br></label>
+                <div class="botonera"> 
+                    <label class="carpeta  "><i class="fa-solid fa-folder-open"></i><input type="file" name="img" accept="image/*" class="img"> </label>
+                    <button class="boton ko" type="button"><i class="fa-solid fa-trash-can"></i> </button>
+                </div>
+                <div class="botonera">
+                    <input type="submit" value="Publicar" class="boton"><input type="reset" value="Limpiar" class="boton">
+                </div> 
+            </form>   
+        </section>
 
-
-
+        <!-- CANVAS -->
+        <section id="g-canvas">
+            <article>
+                <h3>Canvas 01</h3>
+                <canvas id="cv01"></canvas>
+                <footer>
+                    <button onclick="ejemplo01();">Lineas</button>
+                    <button onclick="ejemplo02();">Rectangulo</button>
+                    <button onclick="ejemplo03();">Círculo</button>
+                    <button onclick="ejemplo04();">Sombra</button>
+                    <button onclick="ejemplo05();">Texto</button>
+                    <button onclick="divisiones();">Divisiones</button>
+                </footer>
+                <footer>
+                    <button onclick="limpiar();">Limpiar</button>
+                    <button onclick="ejemplo06();">Ejemplo 6</button>
+                    <button onclick="escalar();">Escalar</button>
+                    <button onclick="selImagen();">SelImagen</button>
+                    <button onclick="imagen01();">Imagen 1</button>
+                    <button onclick="guardar();">guardar</button>
+                </footer>
+            </article>
+        </section> 
 
     </main>
 
