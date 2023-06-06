@@ -19,7 +19,7 @@
     <!-- <link rel="icon" type="image/png" href="img/numtris.png"> -->
     <title>Index</title>
 </head>
-<body>
+<body onload="prepararCanvas();">
     <header>
         <a href="index.html"><img src="img/logo.png" alt="logotipo" id="logo"></a>
         <div> <!-- per a usar inline-flex -->
@@ -87,6 +87,17 @@
                     <button onclick="selImagen();">SelImagen</button>
                     <button onclick="imagen01();">Imagen 1</button>
                     <button onclick="guardar();">guardar</button>
+                </footer>
+            </article>
+            <article>
+                <h2>Canvas 02</h2>
+                <canvas id="cv02"></canvas>
+                <footer>
+                    <button onclick="copiar();">Copiar</button>
+                    <button onclick="copiarID();">Copiar ID</button>
+                    <button onclick="aColor('r');">Rojo</button>
+                    <button onclick="aColor('g');">Verde</button>
+                    <button onclick="aColor('b');">Azul</button>
                 </footer>
             </article>
         </section> 
