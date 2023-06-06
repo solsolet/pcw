@@ -1,0 +1,137 @@
+form{
+    width: auto;
+    background-color: var(--pink-crayola); /* canviar per --mt */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 1em;
+}
+form > label{
+    padding: .5em;
+    margin: .5em;
+    display: inline-block;
+    background-color: var(--melon);
+    color: var(--violet);
+    text-align: left;
+}
+form > label:hover{
+    border-radius: 10px;
+    transition: .3s;
+    color: #FFF;
+}
+form >label~fieldset{
+    color: #fff;
+}
+form > label > input{
+    width: 100%;
+    box-sizing: border-box;
+    background: none;
+    outline: none;
+    border: 0;
+    transition: all .3s;
+    border-bottom: 2px solid var(--melon);
+}
+form > label > input:focus{ border-bottom: 2px solid var(--violet); }
+
+.img{ display: none; }
+
+textarea{
+    background-color: var(--melon);
+    color:var(--t)
+
+}
+textarea:focus{
+    background-color: #FFF;
+    color:#000;
+}
+datalist > option{
+    border-radius: .5em;
+    border:0;
+    padding: 0.5em;
+    background-color: var(--glaucous);
+    color:#FFF;
+    margin:0.5em;  
+}
+datalist> option:hover{
+    background-color:var(--t);
+    color:#fff;
+    transition: .3s;
+}
+
+/* formulari deixar COMENTARI */
+#comentarios form{
+    background-color: var(--mt);
+    font-size: large;
+    display: flex;
+    padding: 2em;
+}
+#comentarios form h4{ margin: 0 0 1em 0; }
+#comentarios textarea {
+    width: 50%;
+    height: 8em;
+    font-size: medium;
+    font-family: 'Lato', sans-serif;
+    padding: 1em 1.25em;
+    border: 2px solid var(--vt);
+    border-radius: 6px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+#comentarios textarea:hover{ border: 2px solid var(--pink-crayola); }
+#comentarios .botonera{
+    display: inline-flex;
+    width: 50%;
+    justify-content: space-between;
+    background-color: var(--trans);
+}
+.carpeta{
+    width: fit-content;
+    padding: .5em;
+    margin: .5em;
+    display: inline-block;
+    background-color: var(--melon);
+    color: var(--violet);
+    text-align: left;
+    
+}
+.carpeta:hover{
+    border-radius: 10px;
+    transition: .3s;
+    color: #FFF;
+}
+
+@media screen and (max-width: 480px){
+    form > label, form >label~fieldset{ width: 15em; }
+
+    #comentarios textarea {
+        width: 100%;
+        height: 15em;
+        padding: 1em;
+    }
+    #comentarios .botonera{ width: 100%; }
+}
+
+@media screen and (min-width: 480px) and (max-width: 779px){   
+    form > label, form >label~fieldset{ width:65%; }
+
+    #comentarios textarea {
+        width: 88%;
+        height: 13.2em;
+        padding: 1em;
+    }
+    #comentarios .botonera{ width: 88%; }
+}
+
+@media screen and (min-width: 780px) and (max-width: 864px){
+    form > label, form >label~fieldset{ width:50%; }
+
+    #comentarios textarea {
+        width: 75%;
+        height: 8.5em;
+    }
+    #comentarios .botonera{ width: 75%; }
+}
+@media screen and (min-width: 865px) and (max-width: 1920px){
+    form > label, form >label~fieldset{ width:45%; }
+}

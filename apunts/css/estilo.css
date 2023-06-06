@@ -1,1 +1,37 @@
 /* ESTIL GENERAL */
+@import url(tabla.css);
+@import url(formularios.css);
+@import url(navbar.css);
+@import url(grid.css);
+
+/* --------------------- Estil comu --------------------- */
+html {
+    --glaucous: #7d82b8ff;
+    --pink-crayola: #ef798aff;
+    --melon: #f7a9a8ff;
+    --mt: rgba(247, 169, 168, .6); /* melon transparent */
+    --mc: #f8bbba; /* melon claret */
+    --violet: #683257ff;
+    --vt: rgba(104, 50, 87, .25); /* violet transparent */
+    --t: #565656; /* text */
+    --tt: rgba(86, 86, 86, .75); /* text transparent */
+
+    --trans: rgba(0,0,0,0); 
+
+    /* en rgba per si ho necessitarem per a transparencies
+        --glaucous: rgba(125, 130, 184, 1);
+        --pink-crayola: rgba(239, 121, 138, 1);
+        --melon: rgba(247, 169, 168, 1);
+        --violet: rgba(104, 50, 87, 1);
+    */
+}
+
+/* text overflow */
+.carta > a{ display: grid; } /* este fill de puta es lo que fallava, si els articles estan com a grid doncs açó igual */
+
+.recorte{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
