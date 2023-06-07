@@ -24,7 +24,7 @@ table th {
 }
 
 /* ESTILOS PARA NUMEROS JUGABLES*/
-#fichas{ margin: 1em; }
+/* #fichas{ margin: 1em; }
 
 .cuadrado{
     padding: 1.5em;
@@ -55,7 +55,7 @@ table th {
 .numeros{
     margin: 2em;
     text-align: center;
-}
+} */
 
 /* ------------- MEDIA QUERIES ------------- */
 @media screen and (max-width: 480px){
@@ -74,7 +74,5 @@ table th {
 @media screen and (min-width: 865px) and (max-width: 1920px){
     #tabla_mensaje, .tabla_turnos{ margin: 0 3.5em 0 0; }
     #tabla_mensaje table { width: 30em; }
-    .tabla_turnos table{
-        width: 25em;
-    }
+    .tabla_turnos table{ width: 25em; }
 }

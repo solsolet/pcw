@@ -28,7 +28,7 @@ Conté fulla d'[estil comú](css/estilo.css) on s'importen estils més concrets 
 Conté la paleta de colors de tota la página (no cal repetil el `html{...}` en la resta de CSSs) i l'estil general de elements com:
 * body
 * header, footer
-* enllaços <a>
+* enllaços `<a>`
 * text overflow _.recorte_
 * cartetes
 * botons
@@ -36,9 +36,29 @@ Conté la paleta de colors de tota la página (no cal repetil el `html{...}` en 
 * **media queries** d'aquests
 
 ### [NavBar](css/navbar.css)
-Conté tot lo relatiu a la barra de navegació. Per a que funcione l'estil `<nav>` ha d'estar solt (no pot estar clavat en <header> o <main>).
+Conté tot lo relatiu a la barra de navegació. Per a que funcione l'estil `<nav>` ha d'estar solt (no pot estar clavat en `<header>` o `<main>`).
+
 Té els seus propis media queries (en `estilo.css` no queda res), que el 2n més petit al dependre de les icones (no ens caldrá a l'examen), té eixa línea comentada.
+
 Si tenim que remarcar enllaç actiu usem `.act`.
+Juguem amb el `#chkmenu` i el label associat de manera que només es veu el &equiv; al MQ xicotet i té el check ocult. En la resta de MQ està `display: none`.
+
+Amb el JS s'afigen més enllaços (segons estigues _loguejat_), però l'estil els acomoda per a que estiguen ben presentats.
+
+### [Formularios](css/formularios.css)
+Codi per a donar-li estil al formulari que hem posat. Comentat hi ha el `<textarea>` que estava en la P2 per a registre, i en `#g-formulario > textarea` es el que usavem per al textarea dels comentaris de la P2.
+
+### [Grid](css/grid.css)
+S'usa per a disposar les cartetes amb imatges (`section > articles`).
+
+_.image-grid_ disposa els elements que conté (en aquest cas `<articles>`) amb **grid** la repetició i el hueco que li indiquem (`--num-cols` i `gap`).
+
+En el MQ de `estilo.css` canbiem el `--num-cols` per a que cápiguen menys columnes per fila. Després unes xicotetes acomodacions i ja.
+
+### [Tabla](css/tabla.css)
+Té l'estil de les taules **estátiques** que afegim. Comentat está el codi per als números jugables de la Práctica 3.
+
+La classe `.tuturno` es per a destacar una fila de la taula.
 
 
 ## JS
