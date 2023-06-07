@@ -134,7 +134,7 @@ body > main{ padding: 2em; } /* q no estiga tot apegat */
         margin-right: 1.5em;
     }
 
-.cajita{ /* autor i data publicacion*/
+.cajita{ /* autor i data publicacion para publicaciones*/
     display: flex;
     gap: 1.5em;
     align-items: center;

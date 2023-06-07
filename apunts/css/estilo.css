@@ -67,13 +67,22 @@ header{
         }
 
 #logo { /* regular */
-    width: 4.5em;
+    width: 5.5em;
     height: auto;
 }
 #logo:hover{
     filter: drop-shadow(1px 5px var(--vt)); /* fa sombra en la forma */
     transition: .4s;
 }
+
+/* FOOTER */
+footer{
+    background-color: var(--melon);
+    padding: .5em;
+    text-align-last: center;
+    color: var(--violet);
+}
+    footer > p > a{ color: var(--violet); }
 
 
 /* text overflow */
@@ -105,16 +114,14 @@ body > main{ padding: 2em; } /* q no estiga tot apegat */
         }
         body > main > section > div > article:hover{ box-shadow: 0 0 1em 0.1em var(--mt); }
         
-        /* preguntar ana si li amanya, deforma el sticky nav */
-        main > section > div > article > a > img {
-            transition: 0.3s;
-        }
+        main > section > div > article > a > img { transition: 0.3s; }
         main > section > div > article > a > img:hover {
             transform:scale(1.03);
             box-shadow: 0 .5em .5em 0 var(--vt);
         }
 
-.carta{ padding: 0; } /* cartetes d'index */
+/* cartetes d'index */
+.carta{ padding: 0; }
 
     .carta > a > h4 , .carta > div{
         padding: 1em;
@@ -127,7 +134,9 @@ body > main{ padding: 2em; } /* q no estiga tot apegat */
     }
     .carta > div > p{
         margin: 0;
+        text-align: left;
     }
+
     .autorXicotet{
         width: 38px;
         margin-right: 1.5em;
@@ -142,12 +151,13 @@ body > main{ padding: 2em; } /* q no estiga tot apegat */
     width: 2.4em;
 }
     
-/* NO visible menú hamburguesa */
 body > main > nav > p{ text-align: center; }
 
+/* NO visible menú hamburguesa */
 body > nav > label{ display: none; } /* lleva el &equiv */
 
 #chkMenu{ display: none; } /* lleva check*/
+
 
 /* BOTONES */
 .boton{
@@ -167,10 +177,10 @@ body > nav > label{ display: none; } /* lleva el &equiv */
 .ok:hover{ background-color: var(--melon); }
 .ko:hover{ background-color: var(--violet); }
 
-.mg:disabled {
+/* .mg:disabled {
     color: var(--t);
     background-color: var(--vt);
-}
+} */
   
 /* DIALOG */
 dialog {
@@ -188,13 +198,9 @@ dialog > h3{
     font-size: x-large;
     margin-bottom: .5em;
 }
-dialog > p{
-    font-size: large;
-}
+dialog > p{ font-size: large; }
   
-dialog::backdrop{ /* fondo del dialog fosquet */
-    background-color: rgba(125, 130, 184, .5); /* no funciona amb variables */
-}
+dialog::backdrop{ background-color: rgba(125, 130, 184, .5); } /* no funciona amb variables */
 
 /* ENLLAÇOS */
 main a:not(img) { color: var(--violet); }
@@ -206,11 +212,6 @@ main a:not(img):visited{ color: var(--glaucous); }
 main a:not(img):visited:hover{
     color: var(--pink-crayola);
     transition: .3s;
-}
-
-footer p a:hover{
-    color: #fff;
-    transition: 0.3s;
 }
 
 /* ------------- MEDIA QUERIES ------------- */
@@ -251,12 +252,7 @@ footer p a:hover{
     body > main > h2 { font-size: 1.5em; }
 
     /* salt de linea botons mg */
-    a[href="#comentarios"]::after { content: '\A'; white-space: pre;}
     button.boton.ok{ margin: 0; }
-
-    /* Comentaria */
-    #comentarios > article{ margin: .5em; }
-    #comentarios > article > img{ height: 3.5em; }
 
     /* autoras */
     .autoria{ display: block; }
