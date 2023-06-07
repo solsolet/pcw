@@ -18,7 +18,7 @@ En [index.html](html/index.html) tenim contemplats:
 * **targetitas** en [articles](html/index.html#image-grid) amb textoverflow per als títols, imatges ajustades, data...
 * **Drag & Drop** de _llistes_ (passar `<li>` d'un section a altre) i d'_imatges_ en [canvas3](html/index.html#cv03) amb [estil](css/DnD.css) i [js](js/DnD.js) propis.
 * **SVG** on es posen [circulos](html/circulo.svg) aleatòriament (però en la mateixa coordenada Y)
-* **Video** per a donar al play i pausar i vídeo+canvas
+* **Video** per a donar al [play](html/index.html#g-video) i pausar i [vídeo+canvas](html/index.html#cv04)
 
 
 ## CSS
@@ -62,7 +62,7 @@ La classe `.tuturno` es per a destacar una fila de la taula.
 
 
 ## JS
-Conté codi per a [canvas](js/canvas.js), [modal](js/modal.js), [peticions](js/peticions.js).
+Conté codi per a [canvas](js/canvas.js), [modal](js/modal.js), [peticions](js/peticions.js), [SVG](js/svg.js), [video](js/video.js), [drag and drop](js/DnD.js).
 
 ## BD - APIs
 ### Com importar una api
@@ -71,3 +71,20 @@ Per a importar una BD hi ha que entrar en PHPMyAdmin y donar-li a **importar** e
 Per a importar l'API hi ha que posar les carpetes que la conformen en la direcció correcta (_p.e. "C://xampp/htdocs/pcw/practica2"_). Cal revisar l'arxiu ocult `.htacces` per a vore que tot está ben posat.
 
 Per a més informació vore el [vídeo](Video%20preparacion.mkv) explicatiu.
+
+## Altres práctiques
+* [P1](../p1/index.html): página web estàtica _Comunícate_ (HTML+CSS)
+* [P2](../p2/index.html): página web dinámica _Comunícate_ (HTML+CSS+JS con APIs y BD)
+* [P3](../p3/index.html): Juego NumTrix ((HTML+CSS+JS con APIs))
+
+## PDFs teoria
+* [Introducción](../apunts/classe/TEMA%2001%20-%20Introducci%C3%B3n.pdf){:target="_blank"}
+* [HTML](../apunts/classe/TEMA%2002%20-%20HTML.pdf)
+* [CSS](../apunts/classe/TEMA%2003%20-%20CSS.pdf)
+* [JS](../apunts/classe/TEMA%2004%20-%20JavaScript.pdf)
+* [Dom y Bom](../apunts/classe/TEMA%2005%20-%20DOM%20y%20BOM.pdf)
+* [JS Avanzado](../apunts/classe/TEMA%2006%20-%20JavaScript%20avanzado.pdf)
+* [APIs HTML](../apunts/classe/TEMA%2007%20-%20APIs%20HTML.pdf)
+* [API File](../apunts/classe/API%20File.pdf)
+* [API Web Storage](../apunts/classe/API%20Web%20Storage.pdf)
+* [Elemento Dialog](../apunts/classe/Elemento%20dialog.pdf)
