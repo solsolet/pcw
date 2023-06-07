@@ -11,6 +11,7 @@
     <script src="../js/peticions.js"></script>
     <script src="../js/DnD.js"></script>
     <script src="../js/svg.js"></script>
+    <script src="../js/video.js"></script>
     <!-- Google Fonts -->
     <!--  <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
@@ -67,7 +68,7 @@
         </section>
 
         <!-- DIALOG -->
-        <button onclick="modal();">Modal</button>
+        <button onclick="modal();" class="boton">Modal</button>
 
         <!-- CANVAS -->
         <section id="g-canvas">
@@ -75,20 +76,20 @@
                 <h3>Canvas 01</h3>
                 <canvas id="cv01"></canvas>
                 <footer>
-                    <button onclick="ejemplo01();">Lineas</button>
-                    <button onclick="ejemplo02();">Rectangulo</button>
-                    <button onclick="ejemplo03();">Círculo</button>
-                    <button onclick="ejemplo04();">Sombra</button>
-                    <button onclick="ejemplo05();">Texto</button>
-                    <button onclick="divisiones();">Divisiones</button>
+                    <button onclick="ejemplo01();" class="boton">Lineas</button>
+                    <button onclick="ejemplo02();" class="boton">Rectangulo</button>
+                    <button onclick="ejemplo03();" class="boton">Círculo</button>
+                    <button onclick="ejemplo04();" class="boton">Sombra</button>
+                    <button onclick="ejemplo05();" class="boton">Texto</button>
+                    <button onclick="divisiones();" class="boton">Divisiones</button>
                 </footer>
                 <footer>
-                    <button onclick="limpiar();">Limpiar</button>
-                    <button onclick="ejemplo06();">Ejemplo 6</button>
-                    <button onclick="escalar();">Escalar</button>
-                    <button onclick="selImagen();">SelImagen</button>
-                    <button onclick="imagen01();">Imagen 1</button>
-                    <button onclick="guardar();">guardar</button>
+                    <button onclick="limpiar();" class="boton">Limpiar</button>
+                    <button onclick="ejemplo06();" class="boton">Ejemplo 6</button>
+                    <button onclick="escalar();" class="boton">Escalar</button>
+                    <button onclick="selImagen();" class="boton">SelImagen</button>
+                    <button onclick="imagen01();" class="boton">Imagen 1</button>
+                    <button onclick="guardar();" class="boton">guardar</button>
                 </footer>
             </article>
             <article>
@@ -207,11 +208,35 @@
                         stroke="#a00" stroke-width="6" fill="#aa0">
             </svg>
             <footer>
-                <button onclick="anyadir();">Añadir círculo</button>
+                <button onclick="anyadir();" class="boton">Añadir círculo</button>
             </footer>
         </section>
     
         <img src="circulo.svg" alt="circulo">
+
+        <section>
+            <h2>Vídeo</h2>
+            <video width="480" height="360" controls>
+                <source src="src/mat.mp4" type="video/mp4">
+                <source src="mat.webm" type="video/webm">
+                <source src="mat.ogg" type="video/ogg">
+                <track src="mat-sub.vtt" kind="subtitles" srclang="es" label="Espanyol">
+                <track src="mat-sub-en.vtt" kind="subtitles" srclang="en" label="English">
+            </video>
+            <footer>
+                <button onclick="play();" class="boton">Play</button>
+                <button onclick="pausar()" class="boton">Pausa</button>
+            </footer>
+        </section>
+    
+        <section>
+            <h2>Vídeo + Canvas</h2>
+            <canvas id="cv04" width="480" height="360"></canvas>
+            <footer>
+                <button onclick="playC();" class="boton">Play</button>
+                <button onclick="pausarC()" class="boton">Pausa</button>
+            </footer>
+        </section>
 
     </main>
 
