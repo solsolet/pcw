@@ -10,6 +10,7 @@
     <script src="../js/canvas.js"></script>
     <script src="../js/peticions.js"></script>
     <script src="../js/DnD.js"></script>
+    <script src="../js/svg.js"></script>
     <!-- Google Fonts -->
     <!--  <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
@@ -177,6 +178,21 @@
             </footer>
         </section>
 
+        <!-- SVG -->
+        <section>
+            <h2>SVG</h2>
+            <svg id="svg01"> <!-- tots els elemen dins de svg son void -->
+                <circle class="circuloRojo" cx="100" cy="150" r="50">
+                <circle cx="200" cy="100" r="50"
+                        stroke="#a00" stroke-width="6" fill="#aa0">
+            </svg>
+            <footer>
+                <button onclick="anyadir();">Añadir círculo</button>
+            </footer>
+        </section>
+    
+        <img src="circulo.svg" alt="circulo">
+
     </main>
 
     <footer id="g-footer">
@@ -187,6 +203,7 @@
 
     <script>
         prepararDnD();
+        prepararSVG();
     </script>
 </body>
 </html>

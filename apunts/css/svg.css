@@ -1,0 +1,13 @@
+svg{
+    border: 1px solid #000;
+}
+
+.circuloRojo{
+    stroke: #00a;
+    stroke-width: 4px; /* 2px pa dins i 2 pa fora */
+    fill: #a00;
+}
+
+.seleccionada{
+    fill: #aa0;
+}
