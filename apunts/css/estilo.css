@@ -26,6 +26,47 @@ html {
     */
 }
 
+/* GENERAL */
+*{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    list-style-type: none;
+    text-align: justify;
+}
+
+body{
+    min-width: 380px;
+    margin: 0;
+    font-family: 'Lato', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--t);
+}
+
+a{ font-weight: bold; }
+
+button{
+    outline:none;
+    padding: 0;
+}
+
+/* HEADER */
+header{
+    background-color: var(--melon);
+    display: inline-flex; /* alinea img amb titols */
+    font-family: 'Playfair Display', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 1em;
+    color: var(--violet);
+    align-items: center;
+    width: 100%; /* fa que el rosa de fons ocupe tota la pantalla */
+}
+    header > a { margin-left: 1em; }
+    header > div{ padding-left: 1em; } /* xicoteta separació */
+        header > div > h1, header > div > h2{
+            margin: inherit;
+            padding: .25em;
+        }
+
+
 /* text overflow */
 .carta > a{ display: grid; } /* este fill de puta es lo que fallava, si els articles estan com a grid doncs açó igual */
 

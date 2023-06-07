@@ -2,6 +2,7 @@
 ## OJO
 * Mirar la direcció dels link del css i js per si estan mal relacionats (../ o sense).
 * Tindre en compte que els estils de cada práctica son diferents (hi ha coses que es repetixen però les que no no estan)
+* Canviar noms del _author_ en <meta>
 
 ## HTML
 ### HTML Base
