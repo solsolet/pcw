@@ -25,7 +25,11 @@ Conté fulla d'[estil comú](css/estilo.css) que se l'importen estils més concr
 
 ## JS
 Conté codi per a [canvas](js/canvas.js), [modal](js/modal.js), [peticions](js/peticions.js).
-### JS Base
 
 ## BD - APIs
 ### Com importar una api
+Per a importar una BD hi ha que entrar en PHPMyAdmin y donar-li a **importar** el fitxer SQL que ens proporcionen. No cal posar cap conficuració diferent a la de per defecte.
+
+Per a importar l'API hi ha que posar les carpetes que la conformen en la direcció correcta (_p.e. "C://xampp/htdocs/pcw/practica2"_). Cal revisar l'arxiu ocult `.htacces` per a vore que tot está ben posat.
+
+Per a més informació vore el [vídeo](Video%20preparacion.mkv) explicatiu.
