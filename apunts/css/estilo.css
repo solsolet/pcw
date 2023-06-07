@@ -66,6 +66,15 @@ header{
             padding: .25em;
         }
 
+#logo { /* regular */
+    width: 4.5em;
+    height: auto;
+}
+#logo:hover{
+    filter: drop-shadow(1px 5px var(--vt)); /* fa sombra en la forma */
+    transition: .4s;
+}
+
 
 /* text overflow */
 .carta > a{ display: grid; } /* este fill de puta es lo que fallava, si els articles estan com a grid doncs açó igual */
