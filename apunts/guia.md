@@ -20,9 +20,26 @@ En [index.html](html/index.html) tenim contemplats:
 * **SVG**
 * **Video**
 
+
 ## CSS
-Conté fulla d'[estil comú](css/estilo.css) que se l'importen estils més concrets com [navbar](css/navbar.css), [grid-targetetes](css/grid.css), [formularis](css/formularios.css), [taula](css/tabla.css)
-### CSS Base
+Conté fulla d'[estil comú](css/estilo.css) on s'importen estils més concrets com [navbar](css/navbar.css), [grid-targetetes](css/grid.css), [formularis](css/formularios.css), [taula](css/tabla.css)
+
+### [CSS Base](css/estilo.css)
+Conté la paleta de colors de tota la página (no cal repetil el `html{...}` en la resta de CSSs) i l'estil general de elements com:
+* body
+* header, footer
+* enllaços <a>
+* text overflow _.recorte_
+* cartetes
+* botons
+* dialog
+* **media queries** d'aquests
+
+### [NavBar](css/navbar.css)
+Conté tot lo relatiu a la barra de navegació. Per a que funcione l'estil `<nav>` ha d'estar solt (no pot estar clavat en <header> o <main>).
+Té els seus propis media queries (en `estilo.css` no queda res), que el 2n més petit al dependre de les icones (no ens caldrá a l'examen), té eixa línea comentada.
+Si tenim que remarcar enllaç actiu usem `.act`.
+
 
 ## JS
 Conté codi per a [canvas](js/canvas.js), [modal](js/modal.js), [peticions](js/peticions.js).

@@ -137,12 +137,12 @@ body > main{ padding: 2em; } /* q no estiga tot apegat */
         text-align: left;
     }
 
-    .autorXicotet{
+    .autorXicotet{ /* foto autor en cartetes */
         width: 38px;
         margin-right: 1.5em;
     }
 
-.cajita{ /* autor i data publicacion*/
+.cajita{ /* autor i data publicacion de publicacion.html*/
     display: flex;
     gap: 1.5em;
     align-items: center;
@@ -150,13 +150,6 @@ body > main{ padding: 2em; } /* q no estiga tot apegat */
 .cajita > img{
     width: 2.4em;
 }
-    
-body > main > nav > p{ text-align: center; }
-
-/* NO visible menú hamburguesa */
-body > nav > label{ display: none; } /* lleva el &equiv */
-
-#chkMenu{ display: none; } /* lleva check*/
 
 
 /* BOTONES */
@@ -216,21 +209,6 @@ main a:not(img):visited:hover{
 
 /* ------------- MEDIA QUERIES ------------- */
 @media screen and (max-width: 480px){
-    /* MENU HAMBUERGUESA */
-    body > nav > ul{
-        display: none;
-    }
-    body > nav > label{
-        cursor: pointer;
-        display: block;
-    }
-    body > nav > label:hover{ /*no te molt sentit xq en mobil no se hoverea*/
-        color: #fff;
-        transition: 0.4s ease;
-    }
-    #chkMenu:checked+ul{
-        display: block;
-    }
     .image-grid { --num-cols: 1; }
 
     /* HEADER */
@@ -254,11 +232,6 @@ main a:not(img):visited:hover{
     /* salt de linea botons mg */
     button.boton.ok{ margin: 0; }
 
-    /* autoras */
-    .autoria{ display: block; }
-    .autora{ width: auto; }
-    .autora > img{ height: 13em; }
-
     /* dialog */
     dialog { width: 20em; }
     dialog > h3{ font-size: larger; }
@@ -271,9 +244,6 @@ main a:not(img):visited:hover{
     header{ font-size: small; }
         header > a { margin-left: 1.5em; }
         header > div{ padding-left: 1.25em; } /* xicoteta separació */
-
-    .autora{ width: auto; }
-    .autora > img{ height: 14em; }
 
     dialog { width: 24em; }
 }
