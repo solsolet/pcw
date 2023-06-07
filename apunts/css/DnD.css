@@ -1,3 +1,12 @@
+#origen, #destino{
+    border: 1px solid #000;
+    padding: .5em;
+    width: 20em;
+    margin: .5em;
+    display: inline-block;
+    vertical-align: top;
+}
+
 /* D&D de imatges */
 canvas{
     border: 2px solid var(--violet);

@@ -34,7 +34,6 @@ function anyadir(){
             onmousemove="mover(event);";
             onmouseup="clickUp(event);"
             onmouseleave="mouseLeave(event);"
-
         />`;
 
     document.querySelector("#svg01").innerHTML += html;
@@ -96,7 +95,6 @@ function mover(evt){ //NO FUNCIONA BÉ, CORREGIR
             pos = {'x':x, 'y':y};
             circle.setAttribute('data-pos', JSON.stringify(pos));
     }
-
     console.log(circle);
 }
 

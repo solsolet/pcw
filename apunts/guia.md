@@ -16,7 +16,7 @@ En [index.html](html/index.html) tenim contemplats:
 * **canvas** en un per a posar linies, rectangles, divisions... + posar i copiar imatges en [CV01](html/index.html#cv01). I de la imatge posada amb el de dalt, modificarli els canals de color en [CV02](html/index.html#cv02)
 * **table** en una [taula estática](html/index.html#g-tabla)
 * **targetitas** en [articles](html/index.html#image-grid) amb textoverflow per als títols, imatges ajustades, data...
-* **Drag & Drop** d'imatges en [canvas3](html/index.html#cv03) amb [estil](css/DnD.css) i [js](js/DnD.js) propis.
+* **Drag & Drop** de _llistes_ (passar `<li>` d'un section a altre) i d'_imatges_ en [canvas3](html/index.html#cv03) amb [estil](css/DnD.css) i [js](js/DnD.js) propis.
 * **SVG** on es posen [circulos](html/circulo.svg) aleatòriament (però en la mateixa coordenada Y)
 * **Video**
 
