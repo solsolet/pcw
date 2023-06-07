@@ -9,6 +9,7 @@
     <script src="../js/modal.js"></script>
     <script src="../js/canvas.js"></script>
     <script src="../js/peticions.js"></script>
+    <script src="../js/DnD.js"></script>
     <!-- Google Fonts -->
     <!--  <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
@@ -165,6 +166,17 @@
                 </article>
             </div>
         </section>
+
+        <!-- DRAG & DROP -->
+        <section>
+            <h2>Drag and Drop IMG</h2>
+            <canvas id="cv03" width="480" height="360"></canvas>
+            <footer>
+                <img src="src/mob.jpg" alt="">
+                <img src="src/mob2.jpg" alt="">
+            </footer>
+        </section>
+
     </main>
 
     <footer id="g-footer">
@@ -172,5 +184,9 @@
         <p>Examen <abbr title="Programación del Cliente Web">PCW</abbr> - Convocatoria C3 &copy;</p>
         <p><time datatime="2023-06-08">Jueves, 8 de junio 2023</time></p>
     </footer>
+
+    <script>
+        prepararDnD();
+    </script>
 </body>
 </html>
