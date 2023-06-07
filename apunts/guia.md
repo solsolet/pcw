@@ -78,7 +78,7 @@ Per a més informació vore el [vídeo](Video%20preparacion.mkv) explicatiu.
 * [P3](../p3/index.html): Juego NumTrix ((HTML+CSS+JS con APIs))
 
 ## PDFs teoria
-* [Introducción](../apunts/classe/TEMA%2001%20-%20Introducci%C3%B3n.pdf){:target="_blank"}
+* [Introducción](../apunts/classe/TEMA%2001%20-%20Introducci%C3%B3n.pdf)
 * [HTML](../apunts/classe/TEMA%2002%20-%20HTML.pdf)
 * [CSS](../apunts/classe/TEMA%2003%20-%20CSS.pdf)
 * [JS](../apunts/classe/TEMA%2004%20-%20JavaScript.pdf)
